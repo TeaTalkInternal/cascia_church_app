@@ -10,7 +10,9 @@ class Utility extends ChangeNotifier {
   //final ProviderReference ref;
   final lightGradientShadecolor = const Color(0xff4eadfd);
   final darkGradientShadecolor = const Color(0xff2963f6);
-  final Color scaffoldBackgroundColor = const Color(0XFFfffffe);
+  final headerTitleTextColor = const Color(0xffFFFFFF);
+  final bodyTitleTextColor = Colors.black87;
+  final Color scaffoldBackgroundColor = const Color(0XFFffffff);
 
   double getFullScreenWidth(BuildContext context) {
     return MediaQuery.of(context).size.width;

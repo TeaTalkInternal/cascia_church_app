@@ -88,14 +88,14 @@ class _SplashScreenWidgetState extends ConsumerState<SplashScreenWidget> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       SizedBox(
-                        // height: MediaQuery.of(context).size.width / 1.5,
+                        height: MediaQuery.of(context).size.width / 1.5,
                         child: Image.asset(
                           'assets/images/logo.png',
                           fit: BoxFit.cover,
                         ),
                       ),
                       SizedBox(
-                        height: 150.0,
+                        height: 100.0,
                       )
                     ],
                   ),

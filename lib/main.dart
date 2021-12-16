@@ -15,9 +15,9 @@ void main() async {
         sharedPreferencesProvider.overrideWithValue(sharedPreferences),
       ],
       child: MaterialApp(
-        // theme: ThemeData(
-        //   fontFamily: 'NotoSansJP',
-        // ),
+        theme: ThemeData(
+          fontFamily: 'Lato',
+        ),
         home: SplashScreenWidget(),
         debugShowCheckedModeBanner: false,
         builder: EasyLoading.init(),
