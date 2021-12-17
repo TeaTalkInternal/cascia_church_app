@@ -1,4 +1,7 @@
 import 'package:cascia_church_app/features/dashboard/widgets/top_app_bar_widget.dart';
+import 'package:cascia_church_app/features/settings/pages/settings_page_widget.dart';
+import 'package:cascia_church_app/localization/app_localizations.dart';
+import 'package:cascia_church_app/localization/app_localizations.dart';
 import 'package:cascia_church_app/providers/app_providers.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -11,26 +14,40 @@ class DashboardPageWidget extends ConsumerWidget {
     final utility = ref.read(utilityProvider);
     final mainScreenHeight = utility.getMainContentHeight(context);
 
-    final cardTextStyle = TextStyle(
-        fontSize: 17,
-        fontWeight: FontWeight.w700,
-        color: utility.bodyTitleTextColor);
-
     return Scaffold(
       body: Stack(children: [
         Container(
-          height: mainScreenHeight * .5,
+          height: mainScreenHeight * .35,
           decoration: BoxDecoration(
             image: DecorationImage(
-              alignment: Alignment.topCenter,
+              // alignment: Alignment.,
+              fit: BoxFit.cover,
               image: AssetImage(
                 'assets/images/curved_dashboard_header.png',
               ),
             ),
           ),
         ),
+        Positioned(
+          top: 35.0,
+          right: 15.0,
+          child: IconButton(
+            icon: Icon(
+              Icons.settings,
+              color: utility.iconColor,
+              size: 35.0,
+            ),
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (BuildContext context) => SettingsPageWidget(),
+                ),
+              );
+            },
+          ),
+        ),
         Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: EdgeInsets.only(top: 16.0, right: 16.0, left: 16.0),
           child: Column(
             children: <Widget>[
               SizedBox(
@@ -43,9 +60,9 @@ class DashboardPageWidget extends ConsumerWidget {
                     vertical: 10.0,
                   ),
                   child: Text(
-                    'Saint Rita Cascia',
+                    AppLocalizations.of(context)!.translate('cascia_church'),
                     style: TextStyle(
-                      fontSize: 34.0,
+                      fontSize: 24.0,
                       color: Colors.white,
                       fontWeight: FontWeight.w900,
                     ),
@@ -59,181 +76,14 @@ class DashboardPageWidget extends ConsumerWidget {
                   primary: false,
                   crossAxisCount: 2,
                   children: <Widget>[
-                    Card(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8)),
-                      elevation: 4,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Image.asset(
-                            'assets/images/timing.png',
-                            height: 90,
-                            fit: BoxFit.cover,
-                          ),
-                          SizedBox(
-                            height: 10.0,
-                          ),
-                          Text(
-                            'Mass Timings',
-                            style: cardTextStyle,
-                          )
-                        ],
-                      ),
+                    DashboardGridItemWidget(
+                      imageName: 'timing.png',
+                      title: AppLocalizations.of(context)!
+                          .translate('mass_timings'),
                     ),
-                    Card(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8)),
-                      elevation: 4,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Image.asset(
-                            'assets/images/timing.png',
-                            height: 90,
-                            fit: BoxFit.cover,
-                          ),
-                          SizedBox(
-                            height: 10.0,
-                          ),
-                          Text(
-                            'Mass Timings',
-                            style: cardTextStyle,
-                          )
-                        ],
-                      ),
-                    ),
-                    Card(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8)),
-                      elevation: 4,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Image.asset(
-                            'assets/images/timing.png',
-                            height: 90,
-                            fit: BoxFit.cover,
-                          ),
-                          SizedBox(
-                            height: 10.0,
-                          ),
-                          Text(
-                            'Mass Timings',
-                            style: cardTextStyle,
-                          )
-                        ],
-                      ),
-                    ),
-                    Card(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8)),
-                      elevation: 4,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Image.asset(
-                            'assets/images/timing.png',
-                            height: 90,
-                            fit: BoxFit.cover,
-                          ),
-                          SizedBox(
-                            height: 10.0,
-                          ),
-                          Text(
-                            'Mass Timings',
-                            style: cardTextStyle,
-                          )
-                        ],
-                      ),
-                    ),
-                    Card(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8)),
-                      elevation: 4,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Image.asset(
-                            'assets/images/timing.png',
-                            height: 90,
-                            fit: BoxFit.cover,
-                          ),
-                          SizedBox(
-                            height: 10.0,
-                          ),
-                          Text(
-                            'Mass Timings',
-                            style: cardTextStyle,
-                          )
-                        ],
-                      ),
-                    ),
-                    Card(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8)),
-                      elevation: 4,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Image.asset(
-                            'assets/images/timing.png',
-                            height: 90,
-                            fit: BoxFit.cover,
-                          ),
-                          SizedBox(
-                            height: 10.0,
-                          ),
-                          Text(
-                            'Mass Timings',
-                            style: cardTextStyle,
-                          )
-                        ],
-                      ),
-                    ),
-                    Card(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8)),
-                      elevation: 4,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Image.asset(
-                            'assets/images/timing.png',
-                            height: 90,
-                            fit: BoxFit.cover,
-                          ),
-                          SizedBox(
-                            height: 10.0,
-                          ),
-                          Text(
-                            'Mass Timings',
-                            style: cardTextStyle,
-                          )
-                        ],
-                      ),
-                    ),
-                    Card(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8)),
-                      elevation: 4,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Image.asset(
-                            'assets/images/timing.png',
-                            height: 90,
-                            fit: BoxFit.cover,
-                          ),
-                          SizedBox(
-                            height: 10.0,
-                          ),
-                          Text(
-                            'Mass Timings',
-                            style: cardTextStyle,
-                          )
-                        ],
-                      ),
+                    DashboardGridItemWidget(
+                      imageName: 'history.png',
+                      title: AppLocalizations.of(context)!.translate('history'),
                     ),
                   ],
                 ),
@@ -242,6 +92,49 @@ class DashboardPageWidget extends ConsumerWidget {
           ),
         )
       ]),
+    );
+  }
+}
+
+class DashboardGridItemWidget extends ConsumerWidget {
+  DashboardGridItemWidget({
+    Key? key,
+    required this.imageName,
+    required this.title,
+  }) : super(key: key);
+
+  final String imageName;
+  final String title;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final utility = ref.read(utilityProvider);
+    final cardTextStyle = TextStyle(
+        fontSize: 18,
+        fontWeight: FontWeight.w700,
+        color: utility.bodyTitleTextColor);
+    return Card(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      elevation: 4,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Image.asset(
+            utility.getImageNameWithBasePath(
+              imageName: imageName,
+            ),
+            height: 90,
+            fit: BoxFit.cover,
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          Text(
+            title,
+            style: cardTextStyle,
+          )
+        ],
+      ),
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:cascia_church_app/localization/app_language.dart';
 import 'package:cascia_church_app/utility/utility.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -10,6 +11,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 //     ChangeNotifierProvider<DashboardViewModel>((ref) {
 //   return DashboardViewModel(ref: ref);
 // });
+
+//AppLanguage Provider
+final appLanguageProvider = ChangeNotifierProvider<AppLanguage>((ref) {
+  return AppLanguage(ref: ref);
+});
 
 //Utility Provider
 final utilityProvider = Provider<Utility>((_) {

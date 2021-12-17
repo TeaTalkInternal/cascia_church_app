@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -13,6 +14,11 @@ final sharedUtilityProvider = Provider<SharedUtility>((ref) {
   return SharedUtility(sharedPreferences: _sharedPrefs);
 });
 
+// final sharedUtilityProvider = ChangeNotifierProvider<SharedUtility>((ref) {
+//   final _sharedPrefs = ref.watch(sharedPreferencesProvider);
+//   return SharedUtility(sharedPreferences: _sharedPrefs);
+// });
+
 class SharedUtility {
   SharedUtility({
     required this.sharedPreferences,
@@ -20,27 +26,43 @@ class SharedUtility {
 
   final SharedPreferences sharedPreferences;
 
-  bool getIsAppLoadedBefore() {
-    return sharedPreferences.getBool('isAppLoadedBefore') ?? false;
+  // bool getIsAppLoadedBefore() {
+  //   return sharedPreferences.getBool('isAppLoadedBefore') ?? false;
+  // }
+
+  // void setIsAppLoadedBefore(bool isLoaded) {
+  //   sharedPreferences.setBool('isAppLoadedBefore', isLoaded);
+  // }
+
+  // bool getIsLogggedIn() {
+  //   return sharedPreferences.getBool('isLoggedIn') ?? false;
+  // }
+
+  // void setIsLogggedIn(bool isLoggedIn) {
+  //   sharedPreferences.setBool('isLoggedIn', isLoggedIn);
+  // }
+
+  String getAppLanguageCode() {
+    return sharedPreferences.getString('app_language_code') ?? '';
   }
 
-  void setIsAppLoadedBefore(bool isLoaded) {
-    sharedPreferences.setBool('isAppLoadedBefore', isLoaded);
+  void setAppLanguageCode(String languageCode) {
+    sharedPreferences.setString('app_language_code', languageCode);
   }
 
-  bool getIsLogggedIn() {
-    return sharedPreferences.getBool('isLoggedIn') ?? false;
+  String getAppLanguageCountryCode() {
+    return sharedPreferences.getString('app_language_country_code') ?? '';
   }
 
-  void setIsLogggedIn(bool isLoggedIn) {
-    sharedPreferences.setBool('isLoggedIn', isLoggedIn);
+  void setAppLanguageCountryCode(String languageCode) {
+    sharedPreferences.setString('app_language_country_code', languageCode);
   }
 
-  String getUserId() {
-    return sharedPreferences.getString('user_id') ?? '';
+  bool getIsDarkModeEnabled() {
+    return sharedPreferences.getBool('app_dark_mode_enabled') ?? false;
   }
 
-  void setUserId(String userId) {
-    sharedPreferences.setString('user_id', userId);
+  void setIsDarkModeEnabled({required bool isEnabled}) {
+    sharedPreferences.setBool('app_dark_mode_enabled', isEnabled);
   }
 }

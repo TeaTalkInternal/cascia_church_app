@@ -11,8 +11,11 @@ class Utility extends ChangeNotifier {
   final lightGradientShadecolor = const Color(0xff4eadfd);
   final darkGradientShadecolor = const Color(0xff2963f6);
   final headerTitleTextColor = const Color(0xffFFFFFF);
+  final iconColor = const Color(0xffFFFFFF);
   final bodyTitleTextColor = Colors.black87;
   final Color scaffoldBackgroundColor = const Color(0XFFffffff);
+
+  // Frame/Dimensions
 
   double getFullScreenWidth(BuildContext context) {
     return MediaQuery.of(context).size.width;
@@ -53,5 +56,11 @@ class Utility extends ChangeNotifier {
     final mainContentHeight =
         mainScreenHeight > 900.0 ? (mainScreenHeight - 200) : mainScreenHeight;
     return mainContentHeight;
+  }
+
+  // String Extensions
+
+  String getImageNameWithBasePath({required String imageName}) {
+    return 'assets/images/$imageName';
   }
 }
