@@ -1,5 +1,9 @@
 {
   "cascia_church": "Cascia Church",
   "mass_timings" : "Mass Timing",
-  "history" : "History"
+  "history" : "History",
+  "settings": "Settings",
+  "dark_mode" : "Dark Mode",
+  "display_in_konkani": "Display in Konkani",
+  "associations": "Associations"
 }

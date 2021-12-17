@@ -1,5 +1,8 @@
 {
   "cascia_church": "ಕ್ಯಾಸಿಯಾ ಚರ್ಚ್",
   "mass_timings" : "ಮೀಸಾಸೊ ವೆಲ್",
-  "history" : "ಇತಿಹಾಸ"
+  "history" : "ಇತಿಹಾಸ",
+  "settings": "Settings",
+  "dark_mode" : "Dark Mode",
+  "display_in_konkani": "Display in Konkani"
 }

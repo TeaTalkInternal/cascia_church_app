@@ -23,7 +23,9 @@ class DashboardPageWidget extends ConsumerWidget {
               // alignment: Alignment.,
               fit: BoxFit.cover,
               image: AssetImage(
-                'assets/images/curved_dashboard_header.png',
+                utility.getImageNameWithBasePath(
+                  imageName: 'casia_church_bg_curved.png',
+                ),
               ),
             ),
           ),

@@ -38,7 +38,7 @@ class TopAppBarWidget extends ConsumerWidget {
       ),
       height: 95.0,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+        padding: const EdgeInsets.only(left: 20, right: 20, bottom: 15),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.end,
           mainAxisAlignment: MainAxisAlignment.start,
@@ -47,17 +47,17 @@ class TopAppBarWidget extends ConsumerWidget {
               onTap: () => _toggleNavigation(),
               child: Icon(
                 _iconData,
-                size: 30.0,
+                size: 30,
                 color: utility.headerTitleTextColor,
               ),
             ),
-            SizedBox(
-              width: 20.0,
+            const SizedBox(
+              width: 20,
             ),
             Text(
               _title,
               style: TextStyle(
-                fontSize: 21.0,
+                fontSize: 21,
                 color: utility.headerTitleTextColor,
               ),
             )
