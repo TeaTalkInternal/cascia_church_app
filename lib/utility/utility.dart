@@ -11,9 +11,14 @@ class Utility extends ChangeNotifier {
   final lightGradientShadecolor = const Color(0xff4eadfd);
   final darkGradientShadecolor = const Color(0xff2963f6);
   final headerTitleTextColor = const Color(0xffFFFFFF);
+
   final iconColor = const Color(0xffFFFFFF);
-  final bodyTitleTextColor = Colors.black87;
-  final Color scaffoldBackgroundColor = const Color(0XFFffffff);
+  final bodyTitleTextColor = const Color(0xff191919);
+  final appGreyColor = const Color(0xfff0f0f1);
+  final appDarkGreyColor = const Color(0xff2c3338);
+  final appBackgroundColor = const Color(0xffF4F9F9);
+
+  final Color scaffoldBackgroundColor = const Color(0XFFf8faff);
 
   // Frame/Dimensions
 

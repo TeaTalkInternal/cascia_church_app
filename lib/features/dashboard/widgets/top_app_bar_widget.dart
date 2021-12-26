@@ -27,8 +27,8 @@ class TopAppBarWidget extends ConsumerWidget {
           bottomRight: Radius.circular(25.0),
         ),
         gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomLeft,
+          begin: Alignment.centerLeft,
+          end: Alignment.centerRight,
           colors: [
             utility.darkGradientShadecolor,
             utility.darkGradientShadecolor,
@@ -36,7 +36,7 @@ class TopAppBarWidget extends ConsumerWidget {
           ],
         ),
       ),
-      height: 95.0,
+      height: 100,
       child: Padding(
         padding: const EdgeInsets.only(left: 20, right: 20, bottom: 15),
         child: Row(

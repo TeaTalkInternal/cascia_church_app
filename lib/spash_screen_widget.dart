@@ -52,7 +52,7 @@ class _SplashScreenWidgetState extends ConsumerState<SplashScreenWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final _utility = ref.read(utilityProvider);
+    final utility = ref.read(utilityProvider);
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
@@ -66,9 +66,9 @@ class _SplashScreenWidgetState extends ConsumerState<SplashScreenWidget> {
                 begin: Alignment.topCenter,
                 end: Alignment.bottomLeft,
                 colors: [
-                  _utility.darkGradientShadecolor,
-                  _utility.darkGradientShadecolor,
-                  _utility.lightGradientShadecolor,
+                  utility.darkGradientShadecolor,
+                  utility.darkGradientShadecolor,
+                  utility.lightGradientShadecolor,
                 ],
               ),
             ),
@@ -90,7 +90,7 @@ class _SplashScreenWidgetState extends ConsumerState<SplashScreenWidget> {
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 1.5,
                         child: Image.asset(
-                          'assets/images/logo.png',
+                          'assets/images/cascia_logo.png',
                           fit: BoxFit.cover,
                         ),
                       ),

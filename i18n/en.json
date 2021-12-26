@@ -2,8 +2,14 @@
   "cascia_church": "Cascia Church",
   "mass_timings" : "Mass Timing",
   "history" : "History",
+  "associations" : "Associations",
+  "institutions" : "Institutions",
+  "announcements" : "Announcements",
+  "photos" : "Photos & Videos",
+  "wards_families" : "Wards & Families",
+  "blogs" : "Blogs",
+  "contact_us" : "Reach Us",
   "settings": "Settings",
   "dark_mode" : "Dark Mode",
-  "display_in_konkani": "Display in Konkani",
-  "associations": "Associations"
+  "display_in_konkani": "Display in Konkani"
 }

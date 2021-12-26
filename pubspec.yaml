@@ -41,6 +41,7 @@ dependencies:
   rflutter_alert: 
   flutter_easyloading: 
   shared_preferences:
+  easy_rich_text: 
   
 
 dev_dependencies:

@@ -26,9 +26,10 @@ class _SettingsPageWidgetState extends ConsumerState<SettingsPageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final utility = ref.read(utilityProvider);
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(55),
+        preferredSize: const Size.fromHeight(80),
         child: TopAppBarWidget(
           title: AppLocalizations.of(context)!.translate('settings'),
           toggleNavigation: () => Navigator.of(context).pop(),
@@ -58,8 +59,9 @@ class _SettingsPageWidgetState extends ConsumerState<SettingsPageWidget> {
         },
         separatorBuilder: (BuildContext listContext, int index) {
           return Divider(
+            indent: 60,
             height: 0.2,
-            color: Colors.grey,
+            color: utility.appGreyColor,
           );
         },
         itemCount: 2,
