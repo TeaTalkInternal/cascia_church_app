@@ -241,7 +241,7 @@ class DashboardGridItemWidget extends ConsumerWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+              padding: EdgeInsets.symmetric(horizontal: 12, vertical: 12),
               child: Text(
                 AppLocalizations.of(context)!.translate(title),
                 style: cardTextStyle,

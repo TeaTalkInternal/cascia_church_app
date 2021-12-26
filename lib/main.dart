@@ -54,7 +54,8 @@ class _HomePageWidgetState extends ConsumerState<HomePageWidget> {
         GlobalWidgetsLocalizations.delegate,
       ],
       theme: ThemeData(
-        fontFamily: 'Lato',
+        fontFamily: 'Roboto',
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: SplashScreenWidget(),
       debugShowCheckedModeBanner: false,
