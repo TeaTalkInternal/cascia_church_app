@@ -13,7 +13,7 @@ class SingleLineListTileWidget extends ConsumerWidget {
 
   final String title;
   final String imageName;
-  final void Function() onTap;
+  final void Function(int) onTap;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -33,14 +33,16 @@ class SingleLineListTileWidget extends ConsumerWidget {
           ),
           child: Row(
             children: [
-              SizedBox(
-                height: 65,
-                width: 65,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Container(
+                  color: Colors.blue[50],
+                  height: 75,
+                  width: 75,
+                  padding: const EdgeInsets.only(top: 10),
                   child: Image.asset(
                     imageName,
-                    fit: BoxFit.cover,
+                    fit: BoxFit.scaleDown,
                   ),
                 ),
               ),

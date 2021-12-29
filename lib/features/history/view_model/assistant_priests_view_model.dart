@@ -23,9 +23,10 @@ class AssistantPriestsViewModel {
     final jsonBody = await rootBundle
         .loadString('assets/json/history/assistant_parish_priest_history.json');
     final priestsJson = json.decode(jsonBody);
-    final priestList = priestsJson['results'] as List<Map<dynamic, dynamic>>;
+    final priestList = priestsJson['results'] as List<dynamic>;
     _assistantPriests = priestList
-        .map<PriestHistory>((priestJson) => PriestHistory.fromJson(priestJson))
+        .map<PriestHistory>((priestJson) =>
+            PriestHistory.fromJson(priestJson as Map<dynamic, dynamic>))
         .toList();
   }
 

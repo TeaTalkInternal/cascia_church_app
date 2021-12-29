@@ -27,7 +27,7 @@ class AssociationsPageWidgetState
         child: TopAppBarWidget(
           title: AppLocalizations.of(context)!.translate('associations'),
           toggleNavigation: () => Navigator.of(context).pop(),
-          iconData: Icons.close,
+          iconData: Icons.arrow_back_ios,
         ),
       ),
       body: ListView.separated(

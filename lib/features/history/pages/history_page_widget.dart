@@ -33,15 +33,17 @@ class HistoryPageWidgetState extends ConsumerState<HistoryPageWidget> {
         ),
       ),
       body: ListView.separated(
+        padding: EdgeInsets.symmetric(
+          vertical: 10,
+          horizontal: 5,
+        ),
         itemBuilder: (listContext, index) {
           return SingleLineListTileWidget(
             title: historyViewModel.getHistoryTitleAtIndex(index),
             imageName: utility.getImageNameWithBasePath(
               imageName: historyViewModel.getHistoryImageAtIndex(index),
             ),
-            onTap: () {
-              _showDetailForIndex(index);
-            },
+            onTap: _showDetailForIndex,
           );
         },
         separatorBuilder: (listContext, index) {
@@ -57,6 +59,7 @@ class HistoryPageWidgetState extends ConsumerState<HistoryPageWidget> {
   }
 
   void _showDetailForIndex(int index) {
+    print("index $index");
     switch (index) {
       case 0:
         Navigator.of(context).push(MaterialPageRoute(
