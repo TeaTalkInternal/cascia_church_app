@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:cascia_church_app/features/dashboard/pages/dashboard_page_widget.dart';
+import 'package:cascia_church_app/features/history/view_model/assistant_priests_view_model.dart';
 import 'package:cascia_church_app/providers/app_providers.dart';
 import 'package:cascia_church_app/utility/utility.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +19,9 @@ class _SplashScreenWidgetState extends ConsumerState<SplashScreenWidget> {
   @override
   void initState() {
     super.initState();
+
+    final assistantPriestsViewModel =
+        ref.read(assistantPriestsViewModelProvider);
     //sharedUtilityProvider.
     // dependencyAssembler<SharedUtility>().initialize((bool isDone) {
     // });
@@ -41,6 +45,7 @@ class _SplashScreenWidgetState extends ConsumerState<SplashScreenWidget> {
           builder: (BuildContext context) => DashboardPageWidget()));
 
       // }
+      assistantPriestsViewModel.loadAssistantPriestsJson();
     });
   }
 

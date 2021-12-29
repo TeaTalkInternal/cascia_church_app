@@ -1,17 +1,15 @@
-import 'package:cascia_church_app/features/associations/pages/associations_page_widget.dart';
-import 'package:cascia_church_app/features/dashboard/view_model/dashboard_view_model.dart';
-import 'package:cascia_church_app/features/dashboard/widgets/top_app_bar_widget.dart';
-import 'package:cascia_church_app/features/history/pages/history_page_widget.dart';
-import 'package:cascia_church_app/features/settings/pages/settings_page_widget.dart';
-import 'package:cascia_church_app/localization/app_localizations.dart';
-import 'package:cascia_church_app/localization/app_localizations.dart';
-import 'package:cascia_church_app/providers/app_providers.dart';
-import 'package:cascia_church_app/utility/utility.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../../localization/app_localizations.dart';
+import '../../../providers/app_providers.dart';
+import '../../associations/pages/associations_page_widget.dart';
+import '../../history/pages/history_page_widget.dart';
+import '../../settings/pages/settings_page_widget.dart';
+import '../view_model/dashboard_view_model.dart';
+
 class DashboardPageWidget extends ConsumerWidget {
-  DashboardPageWidget({Key? key}) : super(key: key);
+  const DashboardPageWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

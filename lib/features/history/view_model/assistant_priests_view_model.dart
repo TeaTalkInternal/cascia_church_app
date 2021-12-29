@@ -1,0 +1,58 @@
+import 'dart:convert';
+
+import 'package:cascia_church_app/features/history/model/history.dart';
+import 'package:cascia_church_app/features/history/model/priest_history.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:flutter/services.dart' show rootBundle;
+
+final assistantPriestsViewModelProvider =
+    Provider<AssistantPriestsViewModel>((ref) {
+  return AssistantPriestsViewModel(ref: ref);
+});
+
+class AssistantPriestsViewModel {
+  AssistantPriestsViewModel({
+    required this.ref,
+  });
+
+  final ProviderRef ref;
+
+  late List<PriestHistory> _assistantPriests;
+
+  Future<void> loadAssistantPriestsJson() async {
+    final jsonBody = await rootBundle
+        .loadString('assets/json/history/assistant_parish_priest_history.json');
+    final priestsJson = json.decode(jsonBody);
+    final priestList = priestsJson['results'] as List<Map<dynamic, dynamic>>;
+    _assistantPriests = priestList
+        .map<PriestHistory>((priestJson) => PriestHistory.fromJson(priestJson))
+        .toList();
+  }
+
+  List<PriestHistory> getAllHistoryList() {
+    return _assistantPriests;
+  }
+
+  int getAllHistorysCount() {
+    return _assistantPriests.length;
+  }
+
+  PriestHistory? _getHistoryAtIndex(int index) {
+    return _assistantPriests[index];
+  }
+
+  String getHistoryTitleAtIndex(int index) {
+    final history = _getHistoryAtIndex(index);
+    return (history != null) ? history.name : '--';
+  }
+
+  String getHistoryFromTimeAtIndex(int index) {
+    final history = _getHistoryAtIndex(index);
+    return (history != null) ? history.from : '--';
+  }
+
+  String getHistoryToTimeAtIndex(int index) {
+    final history = _getHistoryAtIndex(index);
+    return (history != null) ? history.to : '--';
+  }
+}

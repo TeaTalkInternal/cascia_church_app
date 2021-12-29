@@ -59,6 +59,7 @@ class TopAppBarWidget extends ConsumerWidget {
               style: TextStyle(
                 fontSize: 21,
                 color: utility.headerTitleTextColor,
+                fontWeight: FontWeight.w400,
               ),
             )
           ],

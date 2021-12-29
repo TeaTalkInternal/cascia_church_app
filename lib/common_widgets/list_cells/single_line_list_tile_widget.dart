@@ -1,21 +1,18 @@
-import 'package:cascia_church_app/providers/app_providers.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class ThumbnailListTileWidget extends ConsumerWidget {
-  const ThumbnailListTileWidget(
+import '../../providers/app_providers.dart';
+
+class SingleLineListTileWidget extends ConsumerWidget {
+  const SingleLineListTileWidget(
       {Key? key,
       required this.title,
-      required this.subTitle,
       required this.imageName,
-      this.imageSize = 65,
       required this.onTap})
       : super(key: key);
 
   final String title;
-  final String subTitle;
   final String imageName;
-  final double imageSize;
   final void Function() onTap;
 
   @override
@@ -37,8 +34,8 @@ class ThumbnailListTileWidget extends ConsumerWidget {
           child: Row(
             children: [
               SizedBox(
-                height: imageSize,
-                width: imageSize,
+                height: 65,
+                width: 65,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(10),
                   child: Image.asset(
@@ -57,19 +54,9 @@ class ThumbnailListTileWidget extends ConsumerWidget {
                     Text(
                       title,
                       style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 20,
                           fontWeight: FontWeight.w700,
                           color: utility.bodyTitleTextColor),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      subTitle,
-                      style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w300,
-                          color: utility.appDarkGreyColor),
                     ),
                   ],
                 ),

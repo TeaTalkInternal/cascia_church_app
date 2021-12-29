@@ -1,4 +1,4 @@
-import 'package:cascia_church_app/features/dashboard/widgets/top_app_bar_widget.dart';
+import 'package:cascia_church_app/common_widgets/top_app_bar_widget.dart';
 import 'package:cascia_church_app/localization/app_localizations.dart';
 import 'package:cascia_church_app/providers/app_providers.dart';
 import 'package:cascia_church_app/utility/shared_utility.dart';

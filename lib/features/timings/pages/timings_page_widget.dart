@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../dashboard/widgets/top_app_bar_widget.dart';
+import '../../../common_widgets/top_app_bar_widget.dart';
 
 class TimingsPageWidget extends StatelessWidget {
   const TimingsPageWidget({Key? key}) : super(key: key);
