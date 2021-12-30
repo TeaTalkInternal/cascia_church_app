@@ -9,6 +9,7 @@ class ThumbnailListTileWidget extends ConsumerWidget {
       required this.subTitle,
       required this.imageName,
       this.imageSize = 65,
+      this.isArrowVisible = true,
       required this.onTap})
       : super(key: key);
 
@@ -16,6 +17,7 @@ class ThumbnailListTileWidget extends ConsumerWidget {
   final String subTitle;
   final String imageName;
   final double imageSize;
+  final bool isArrowVisible;
   final void Function() onTap;
 
   @override
@@ -77,9 +79,12 @@ class ThumbnailListTileWidget extends ConsumerWidget {
               const SizedBox(
                 width: 10,
               ),
-              const Icon(
-                Icons.arrow_forward_ios,
-                size: 15,
+              Visibility(
+                visible: isArrowVisible,
+                child: Icon(
+                  Icons.arrow_forward_ios,
+                  size: 15,
+                ),
               )
             ],
           ),

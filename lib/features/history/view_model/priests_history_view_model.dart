@@ -5,13 +5,13 @@ import 'package:cascia_church_app/features/history/model/priest_history.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
-final assistantPriestsViewModelProvider =
-    Provider<AssistantPriestsViewModel>((ref) {
-  return AssistantPriestsViewModel(ref: ref);
+final priestsHistoryViewModelProvider =
+    Provider<PriestsHistoryViewModel>((ref) {
+  return PriestsHistoryViewModel(ref: ref);
 });
 
-class AssistantPriestsViewModel {
-  AssistantPriestsViewModel({
+class PriestsHistoryViewModel {
+  PriestsHistoryViewModel({
     required this.ref,
   });
 
@@ -19,9 +19,9 @@ class AssistantPriestsViewModel {
 
   late List<PriestHistory> _assistantPriests;
 
-  Future<void> loadAssistantPriestsJson() async {
+  Future<void> loadPriestsJson() async {
     final jsonBody = await rootBundle
-        .loadString('assets/json/history/assistant_parish_priest_history.json');
+        .loadString('assets/json/history/parish_priest_history.json');
     final priestsJson = json.decode(jsonBody);
     final priestList = priestsJson['results'] as List<dynamic>;
     _assistantPriests = priestList

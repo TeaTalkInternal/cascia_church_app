@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:cascia_church_app/features/dashboard/pages/dashboard_page_widget.dart';
-import 'package:cascia_church_app/features/history/view_model/assistant_priests_view_model.dart';
+import 'package:cascia_church_app/features/history/view_model/assistant_priests_history_view_model.dart';
+import 'package:cascia_church_app/features/history/view_model/priests_history_view_model.dart';
 import 'package:cascia_church_app/providers/app_providers.dart';
 import 'package:cascia_church_app/utility/utility.dart';
 import 'package:flutter/material.dart';
@@ -20,8 +21,9 @@ class _SplashScreenWidgetState extends ConsumerState<SplashScreenWidget> {
   void initState() {
     super.initState();
 
-    final assistantPriestsViewModel =
-        ref.read(assistantPriestsViewModelProvider);
+    final assistantHistoryViewModel =
+        ref.read(assistantPriestsHistoryViewModelProvider);
+    final priestHistoryViewModel = ref.read(priestsHistoryViewModelProvider);
     //sharedUtilityProvider.
     // dependencyAssembler<SharedUtility>().initialize((bool isDone) {
     // });
@@ -45,7 +47,8 @@ class _SplashScreenWidgetState extends ConsumerState<SplashScreenWidget> {
           builder: (BuildContext context) => DashboardPageWidget()));
 
       // }
-      assistantPriestsViewModel.loadAssistantPriestsJson();
+      assistantHistoryViewModel.loadAssistantPriestsJson();
+      priestHistoryViewModel.loadPriestsJson();
     });
   }
 

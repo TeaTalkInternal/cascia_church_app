@@ -13,13 +13,13 @@ class SingleLineListTileWidget extends ConsumerWidget {
 
   final String title;
   final String imageName;
-  final void Function(int) onTap;
+  final void Function() onTap;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final utility = ref.read(utilityProvider);
     return GestureDetector(
-      onTap: () => onTap,
+      onTap: onTap,
       child: Card(
         margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
         shape: RoundedRectangleBorder(

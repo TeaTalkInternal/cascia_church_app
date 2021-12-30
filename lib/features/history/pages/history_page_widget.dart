@@ -1,6 +1,7 @@
 import 'package:cascia_church_app/common_widgets/list_cells/single_line_list_tile_widget.dart';
-import 'package:cascia_church_app/features/history/pages/assistant_priests_page_widget.dart';
+import 'package:cascia_church_app/features/history/pages/assistant_priests_history_page_widget.dart';
 import 'package:cascia_church_app/features/history/pages/church_history_page_widget.dart';
+import 'package:cascia_church_app/features/history/pages/parish_priests_history_page_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -43,7 +44,10 @@ class HistoryPageWidgetState extends ConsumerState<HistoryPageWidget> {
             imageName: utility.getImageNameWithBasePath(
               imageName: historyViewModel.getHistoryImageAtIndex(index),
             ),
-            onTap: _showDetailForIndex,
+            onTap: () {
+              print("indo $index");
+              _showDetailForIndex(index);
+            },
           );
         },
         separatorBuilder: (listContext, index) {
@@ -68,12 +72,12 @@ class HistoryPageWidgetState extends ConsumerState<HistoryPageWidget> {
         break;
       case 1:
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => const ChurchHistoryPageWidget(),
+          builder: (context) => const PriestsHistoryPageWidget(),
         ));
         break;
       case 2:
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => const AssistantPriestsPageWidget(),
+          builder: (context) => const AssistantPriestsHistoryPageWidget(),
         ));
         break;
       default:
