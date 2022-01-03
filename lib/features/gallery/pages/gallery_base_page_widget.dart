@@ -1,7 +1,7 @@
 import 'package:cascia_church_app/common_widgets/list_cells/single_line_list_tile_widget.dart';
 import 'package:cascia_church_app/common_widgets/no_photos_data_widget.dart';
 import 'package:cascia_church_app/features/gallery/model/event_type.dart';
-import 'package:cascia_church_app/features/gallery/pages/church_gallery_page_widget.dart';
+import 'package:cascia_church_app/features/gallery/pages/images_gallery_page_widget.dart';
 import 'package:cascia_church_app/features/gallery/view_models/gallery_base_view_model.dart';
 import 'package:cascia_church_app/features/history/pages/assistant_priests_history_page_widget.dart';
 import 'package:cascia_church_app/features/history/pages/church_history_page_widget.dart';
@@ -148,7 +148,9 @@ class GalleryBasePageWidgetState extends ConsumerState<GalleryBasePageWidget> {
     switch (eventId) {
       case 'church-images':
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => const ChurchGalleryPageWidget(),
+          builder: (context) => const ImagesGalleryPageWidget(
+            url: '',
+          ),
         ));
         break;
       // case 1:
