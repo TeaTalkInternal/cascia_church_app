@@ -8,10 +8,10 @@ final galleryBaseViewModelProvider = Provider<GalleryBaseViewModel>((ref) {
   return GalleryBaseViewModel(ref: ref);
 });
 
-final galleryEventsProvider = FutureProvider<List<EventType>>((ref) async {
-  final galleryBaseViewModel = ref.read(galleryBaseViewModelProvider);
-  return galleryBaseViewModel.fetchAllEventTypes();
-});
+// final galleryEventsProvider = FutureProvider<List<EventType>>((ref) async {
+//   final galleryBaseViewModel = ref.read(galleryBaseViewModelProvider);
+//   return galleryBaseViewModel.fetchAllEventTypes();
+// });
 
 class GalleryBaseViewModel extends ChangeNotifier {
   GalleryBaseViewModel({
@@ -22,10 +22,11 @@ class GalleryBaseViewModel extends ChangeNotifier {
   List<EventType> _allEventTypes = [];
 
   Future<List<EventType>> fetchAllEventTypes() async {
+    print('CLEEDDDDDDDDDD');
     return Future.delayed(const Duration(seconds: 1), () {
       final allEvents = [
         EventType(
-            id: 'xx1',
+            id: 'church-images',
             eventName: 'Church Images Gallery',
             thumbnailUrl:
                 'https://www.mangaloretoday.com/upimages/Cascia%20paris%20church%206sep16%20dis.jpg',
@@ -33,7 +34,7 @@ class GalleryBaseViewModel extends ChangeNotifier {
                 'https://www.mangaloretoday.com/upimages/Cascia%20paris%20church%206sep16%20dis.jpg',
             description: 'Church Images Gallery'),
         EventType(
-            id: 'xx2',
+            id: 'event-images-2021',
             eventName: 'Hall Images Gallery',
             thumbnailUrl:
                 'https://www.mangaloretoday.com/upimages/Cascia%20paris%20church%206sep16%20dis.jpg',
@@ -92,6 +93,11 @@ class GalleryBaseViewModel extends ChangeNotifier {
 
   EventType? _getEventAtIndex(int index) {
     return _allEventTypes[index];
+  }
+
+  String getEventIdAtIndex(int index) {
+    final event = _getEventAtIndex(index);
+    return (event != null) ? event.id : '--';
   }
 
   String getEventNameAtIndex(int index) {

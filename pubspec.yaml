@@ -43,6 +43,8 @@ dependencies:
   shared_preferences:
   easy_rich_text: 
   flutter_staggered_grid_view:
+  photo_view:
+  url_launcher:
   
 
 dev_dependencies:

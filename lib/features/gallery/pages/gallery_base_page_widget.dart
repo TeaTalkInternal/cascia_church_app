@@ -1,6 +1,7 @@
 import 'package:cascia_church_app/common_widgets/list_cells/single_line_list_tile_widget.dart';
 import 'package:cascia_church_app/common_widgets/no_photos_data_widget.dart';
 import 'package:cascia_church_app/features/gallery/model/event_type.dart';
+import 'package:cascia_church_app/features/gallery/pages/church_gallery_page_widget.dart';
 import 'package:cascia_church_app/features/gallery/view_models/gallery_base_view_model.dart';
 import 'package:cascia_church_app/features/history/pages/assistant_priests_history_page_widget.dart';
 import 'package:cascia_church_app/features/history/pages/church_history_page_widget.dart';
@@ -33,11 +34,12 @@ class GalleryBasePageWidgetState extends ConsumerState<GalleryBasePageWidget> {
     _fetchEventTypes();
   }
 
-  _fetchEventTypes() {
+  void _fetchEventTypes() {
     final _fetchedEvents =
         ref.read(galleryBaseViewModelProvider).fetchAllEventTypes();
     _fetchedEvents.then((value) {
       setState(() {
+        _isLoading = false;
         _allEventTypes = value;
       });
     });
@@ -57,7 +59,7 @@ class GalleryBasePageWidgetState extends ConsumerState<GalleryBasePageWidget> {
           iconData: Icons.arrow_back_ios,
         ),
       ),
-      body: _getEncyclopediaList(
+      body: _getEventTypesList(
         context: context,
       ),
     );
@@ -78,10 +80,10 @@ class GalleryBasePageWidgetState extends ConsumerState<GalleryBasePageWidget> {
   //   // });
   // }
 
-  Widget _getEncyclopediaList({required BuildContext context}) {
-    ref.read(galleryEventsProvider).whenData((_) {
-      _isLoading = false;
-    });
+  Widget _getEventTypesList({required BuildContext context}) {
+    // ref.read(galleryEventsProvider).whenData((_) {
+    //   _isLoading = false;
+    // });
     // _allPhotos.clear();
     //_allEventTypes = ref.read(galleryBaseViewModelProvider).allEventTypes;
 
@@ -91,14 +93,14 @@ class GalleryBasePageWidgetState extends ConsumerState<GalleryBasePageWidget> {
     return (_allEventTypes.isEmpty && _isLoading)
         ? Center(
             child: SizedBox(
-              height: 120.0,
+              height: 120,
               child: Image.asset('assets/images/loader.gif'),
             ),
           )
         : (_allEventTypes.isEmpty && _isLoading == false)
             ? NoPhotosDataWidget(
                 noPhotosMessage:
-                    'No Encyclopedia images found at this time. Please try Refreshing again.',
+                    'No Event images found at this time. Please try Refreshing again.',
                 refreshWidget: () => _refreshEventsList(context: context),
               )
             : _buildEventsListView(
@@ -127,7 +129,7 @@ class GalleryBasePageWidgetState extends ConsumerState<GalleryBasePageWidget> {
           isNetworkImage: true,
           onTap: () {
             print("indo $index");
-            _showDetailForIndex(index);
+            _showDetailForIndex(galleryBaseViewModel.getEventIdAtIndex(index));
           },
         );
       },
@@ -142,21 +144,20 @@ class GalleryBasePageWidgetState extends ConsumerState<GalleryBasePageWidget> {
     );
   }
 
-  void _showDetailForIndex(int index) {
-    print("index $index");
-    // switch (index) {
-    //   case 0:
-    //     Navigator.of(context).push(MaterialPageRoute(
-    //       builder: (context) => const ChurchGalleryPageWidget(),
-    //     ));
-    //     break;
-    //   case 1:
-    //     Navigator.of(context).push(MaterialPageRoute(
-    //       builder: (context) => const EventsGalleryPageWidget(),
-    //     ));
-    //     break;
+  void _showDetailForIndex(String eventId) {
+    switch (eventId) {
+      case 'church-images':
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => const ChurchGalleryPageWidget(),
+        ));
+        break;
+      // case 1:
+      //   Navigator.of(context).push(MaterialPageRoute(
+      //     builder: (context) => const EventsGalleryPageWidget(),
+      //   ));
+      //   break;
 
-    //   default:
-    // }
+      default:
+    }
   }
 }
