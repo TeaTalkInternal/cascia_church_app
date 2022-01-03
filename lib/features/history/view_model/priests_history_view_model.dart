@@ -17,29 +17,26 @@ class PriestsHistoryViewModel {
 
   final ProviderRef ref;
 
-  late List<PriestHistory> _assistantPriests;
+  late List<PriestHistory> _allPriests;
 
-  Future<void> loadPriestsJson() async {
-    final jsonBody = await rootBundle
-        .loadString('assets/json/history/parish_priest_history.json');
-    final priestsJson = json.decode(jsonBody);
-    final priestList = priestsJson['results'] as List<dynamic>;
-    _assistantPriests = priestList
-        .map<PriestHistory>((priestJson) =>
-            PriestHistory.fromJson(priestJson as Map<dynamic, dynamic>))
-        .toList();
+  List<PriestHistory> get allPriests {
+    return _allPriests;
   }
 
-  List<PriestHistory> getAllHistoryList() {
-    return _assistantPriests;
+  set allPriests(List<PriestHistory> priests) {
+    _allPriests = priests;
   }
+
+  // void setAllPriests(List<PriestHistory> priests) {
+  //   _assistantPriests = priests;
+  // }
 
   int getAllHistorysCount() {
-    return _assistantPriests.length;
+    return _allPriests.length;
   }
 
   PriestHistory? _getHistoryAtIndex(int index) {
-    return _assistantPriests[index];
+    return _allPriests[index];
   }
 
   String getHistoryTitleAtIndex(int index) {

@@ -1,6 +1,10 @@
 import 'dart:convert';
+import 'package:cascia_church_app/features/history/model/priest_history.dart';
+import 'package:cascia_church_app/features/history/view_model/assistant_priests_history_view_model.dart';
+import 'package:cascia_church_app/features/history/view_model/priests_history_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class Utility extends ChangeNotifier {
   // Utility({
@@ -15,7 +19,7 @@ class Utility extends ChangeNotifier {
   final iconColor = const Color(0xffFFFFFF);
   final bodyTitleTextColor = const Color(0xff191919);
   final appGreyColor = const Color(0xfff0f0f1);
-  final appDarkGreyColor = const Color(0xff2c3338);
+  final appDarkGreyColor = const Color(0xff1e2326);
   final appBackgroundColor = const Color(0xffF4F9F9);
 
   final Color scaffoldBackgroundColor = const Color(0XFFf8faff);
@@ -67,5 +71,40 @@ class Utility extends ChangeNotifier {
 
   String getImageNameWithBasePath({required String imageName}) {
     return 'assets/images/$imageName';
+  }
+
+  void loadAllJson(WidgetRef ref) {
+    loadAssistantPriestsJson(ref);
+    loadPriestsJson(ref);
+  }
+
+  // Priets
+
+  Future<void> loadAssistantPriestsJson(WidgetRef ref) async {
+    final assistantHistoryViewModel =
+        ref.read(assistantPriestsHistoryViewModelProvider);
+
+    final jsonBody = await rootBundle
+        .loadString('assets/json/history/assistant_parish_priest_history.json');
+    final priestsJson = json.decode(jsonBody);
+    final priestList = priestsJson['results'] as List<dynamic>;
+    final assistantPriests = priestList
+        .map<PriestHistory>((priestJson) =>
+            PriestHistory.fromJson(priestJson as Map<dynamic, dynamic>))
+        .toList();
+    assistantHistoryViewModel.assistantPriests = assistantPriests;
+  }
+
+  Future<void> loadPriestsJson(WidgetRef ref) async {
+    final priestHistoryViewModel = ref.read(priestsHistoryViewModelProvider);
+    final jsonBody = await rootBundle
+        .loadString('assets/json/history/parish_priest_history.json');
+    final priestsJson = json.decode(jsonBody);
+    final priestList = priestsJson['results'] as List<dynamic>;
+    final priests = priestList
+        .map<PriestHistory>((priestJson) =>
+            PriestHistory.fromJson(priestJson as Map<dynamic, dynamic>))
+        .toList();
+    priestHistoryViewModel.allPriests = priests;
   }
 }

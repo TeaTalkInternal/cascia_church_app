@@ -18,7 +18,7 @@ class ChurchHistoryPageWidget extends ConsumerWidget {
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(80),
         child: TopAppBarWidget(
-          title: AppLocalizations.of(context)!.translate('history'),
+          title: AppLocalizations.of(context)!.translate('church_history'),
           toggleNavigation: () => Navigator.of(context).pop(),
           iconData: Icons.arrow_back_ios,
         ),

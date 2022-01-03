@@ -19,19 +19,12 @@ class AssistantPriestsHistoryViewModel {
 
   late List<PriestHistory> _assistantPriests;
 
-  Future<void> loadAssistantPriestsJson() async {
-    final jsonBody = await rootBundle
-        .loadString('assets/json/history/assistant_parish_priest_history.json');
-    final priestsJson = json.decode(jsonBody);
-    final priestList = priestsJson['results'] as List<dynamic>;
-    _assistantPriests = priestList
-        .map<PriestHistory>((priestJson) =>
-            PriestHistory.fromJson(priestJson as Map<dynamic, dynamic>))
-        .toList();
+  List<PriestHistory> get assistantPriests {
+    return _assistantPriests;
   }
 
-  List<PriestHistory> getAllHistoryList() {
-    return _assistantPriests;
+  set assistantPriests(List<PriestHistory> priests) {
+    _assistantPriests = priests;
   }
 
   int getAllHistorysCount() {

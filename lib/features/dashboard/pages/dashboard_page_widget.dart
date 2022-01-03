@@ -1,3 +1,4 @@
+import 'package:cascia_church_app/features/gallery/pages/gallery_base_page_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -171,7 +172,7 @@ class DashboardPageWidget extends ConsumerWidget {
         break;
       case 'photos':
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => const HistoryPageWidget(),
+          builder: (context) => const GalleryBasePageWidget(),
         ));
         break;
       case 'wards_families':

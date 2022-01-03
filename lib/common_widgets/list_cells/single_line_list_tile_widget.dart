@@ -8,11 +8,13 @@ class SingleLineListTileWidget extends ConsumerWidget {
       {Key? key,
       required this.title,
       required this.imageName,
+      this.isNetworkImage = false,
       required this.onTap})
       : super(key: key);
 
   final String title;
   final String imageName;
+  final bool isNetworkImage;
   final void Function() onTap;
 
   @override
@@ -39,11 +41,19 @@ class SingleLineListTileWidget extends ConsumerWidget {
                   color: Colors.blue[50],
                   height: 75,
                   width: 75,
-                  padding: const EdgeInsets.only(top: 10),
-                  child: Image.asset(
-                    imageName,
-                    fit: BoxFit.scaleDown,
-                  ),
+                  child: isNetworkImage
+                      ? FadeInImage.assetNetwork(
+                          placeholder: utility.getImageNameWithBasePath(
+                              imageName: 'loader.gif'),
+                          image: imageName,
+                          fit: BoxFit.cover,
+                          placeholderScale: 0.001,
+                        )
+                      : Image.asset(
+                          utility.getImageNameWithBasePath(
+                              imageName: imageName),
+                          fit: BoxFit.cover,
+                        ),
                 ),
               ),
               const SizedBox(

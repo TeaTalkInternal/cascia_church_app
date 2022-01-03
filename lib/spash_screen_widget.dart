@@ -21,9 +21,8 @@ class _SplashScreenWidgetState extends ConsumerState<SplashScreenWidget> {
   void initState() {
     super.initState();
 
-    final assistantHistoryViewModel =
-        ref.read(assistantPriestsHistoryViewModelProvider);
-    final priestHistoryViewModel = ref.read(priestsHistoryViewModelProvider);
+    final utility = ref.read(utilityProvider);
+    utility.loadAllJson(ref);
     //sharedUtilityProvider.
     // dependencyAssembler<SharedUtility>().initialize((bool isDone) {
     // });
@@ -47,8 +46,6 @@ class _SplashScreenWidgetState extends ConsumerState<SplashScreenWidget> {
           builder: (BuildContext context) => DashboardPageWidget()));
 
       // }
-      assistantHistoryViewModel.loadAssistantPriestsJson();
-      priestHistoryViewModel.loadPriestsJson();
     });
   }
 
