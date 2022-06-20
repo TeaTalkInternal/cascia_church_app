@@ -50,8 +50,7 @@ class SingleLineListTileWidget extends ConsumerWidget {
                           placeholderScale: 0.001,
                         )
                       : Image.asset(
-                          utility.getImageNameWithBasePath(
-                              imageName: imageName),
+                          imageName,
                           fit: BoxFit.cover,
                         ),
                 ),

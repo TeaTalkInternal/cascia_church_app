@@ -2,6 +2,8 @@ import 'package:cascia_church_app/common_widgets/list_cells/single_line_list_til
 import 'package:cascia_church_app/features/history/pages/assistant_priests_history_page_widget.dart';
 import 'package:cascia_church_app/features/history/pages/church_history_page_widget.dart';
 import 'package:cascia_church_app/features/history/pages/parish_priests_history_page_widget.dart';
+import 'package:cascia_church_app/features/wards/pages/contacts_page_widget.dart';
+import 'package:cascia_church_app/features/wards/pages/wards_page_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -9,26 +11,28 @@ import '../../../common_widgets/list_cells/thumbnail_list_tile_widget.dart';
 import '../../../common_widgets/top_app_bar_widget.dart';
 import '../../../localization/app_localizations.dart';
 import '../../../providers/app_providers.dart';
-import '../view_model/history_view_model.dart';
+import '../view_model/ward_n_contacts_view_model.dart';
 
-class HistoryPageWidget extends ConsumerStatefulWidget {
-  const HistoryPageWidget({Key? key}) : super(key: key);
+class WardsNContactsPageWidget extends ConsumerStatefulWidget {
+  const WardsNContactsPageWidget({Key? key}) : super(key: key);
 
   @override
-  HistoryPageWidgetState createState() => HistoryPageWidgetState();
+  WardsNContactsPageWidgetState createState() =>
+      WardsNContactsPageWidgetState();
 }
 
-class HistoryPageWidgetState extends ConsumerState<HistoryPageWidget> {
+class WardsNContactsPageWidgetState
+    extends ConsumerState<WardsNContactsPageWidget> {
   @override
   Widget build(BuildContext context) {
     final utility = ref.read(utilityProvider);
-    final historyViewModel = ref.read(historyViewModelProvider);
+    final wardsNContactsViewModel = ref.read(wardsnContactsViewModelProvider);
     return Scaffold(
       backgroundColor: utility.appBackgroundColor,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(55),
         child: TopAppBarWidget(
-          title: AppLocalizations.of(context)!.translate('history'),
+          title: AppLocalizations.of(context)!.translate('wards_families'),
           toggleNavigation: () => Navigator.of(context).pop(),
           iconData: Icons.arrow_back_ios,
         ),
@@ -40,10 +44,10 @@ class HistoryPageWidgetState extends ConsumerState<HistoryPageWidget> {
         ),
         itemBuilder: (listContext, index) {
           return SingleLineListTileWidget(
-            title: AppLocalizations.of(context)!
-                .translate(historyViewModel.getHistoryTitleAtIndex(index)),
+            title: AppLocalizations.of(context)!.translate(
+                wardsNContactsViewModel.getHistoryTitleAtIndex(index)),
             imageName: utility.getImageNameWithBasePath(
-              imageName: historyViewModel.getHistoryImageAtIndex(index),
+              imageName: wardsNContactsViewModel.getHistoryImageAtIndex(index),
             ),
             onTap: () {
               print("indo $index");
@@ -58,7 +62,7 @@ class HistoryPageWidgetState extends ConsumerState<HistoryPageWidget> {
             color: utility.appGreyColor,
           );
         },
-        itemCount: historyViewModel.getAllHistorysCount(),
+        itemCount: wardsNContactsViewModel.getAllHistorysCount(),
       ),
     );
   }
@@ -68,17 +72,12 @@ class HistoryPageWidgetState extends ConsumerState<HistoryPageWidget> {
     switch (index) {
       case 0:
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => const ChurchHistoryPageWidget(),
+          builder: (context) => const WardsPageWidget(),
         ));
         break;
       case 1:
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => const PriestsHistoryPageWidget(),
-        ));
-        break;
-      case 2:
-        Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => const AssistantPriestsHistoryPageWidget(),
+          builder: (context) => const ContactsPageWidget(),
         ));
         break;
       default:

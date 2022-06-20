@@ -21,8 +21,8 @@ class DashboardViewModel {
     ),
     DashboardMenu(
       id: 'history',
-      title: 'history',
-      imageName: 'history.png',
+      title: 'church_history_title',
+      imageName: 'history1.png',
     ),
     DashboardMenu(
       id: 'associations',

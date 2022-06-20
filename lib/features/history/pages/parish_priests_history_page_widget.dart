@@ -26,7 +26,7 @@ class PriestsHistoryPageWidgetState
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(55),
         child: TopAppBarWidget(
-          title: AppLocalizations.of(context)!.translate('parish_priests'),
+          title: AppLocalizations.of(context)!.translate('parish_priest_title'),
           toggleNavigation: () => Navigator.of(context).pop(),
           iconData: Icons.arrow_back_ios,
         ),

@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:cascia_church_app/features/history/model/history.dart';
+import 'package:cascia_church_app/features/history/model/list_thumbnail.dart';
 import 'package:cascia_church_app/features/history/model/priest_history.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter/services.dart' show rootBundle;

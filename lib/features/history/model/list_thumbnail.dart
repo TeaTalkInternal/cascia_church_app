@@ -1,5 +1,5 @@
-class History {
-  History({
+class ListThumbnail {
+  ListThumbnail({
     required this.id,
     required this.title,
     required this.imageName,

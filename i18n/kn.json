@@ -1,8 +1,22 @@
 {
   "cascia_church": "ಕ್ಯಾಸಿಯಾ ಚರ್ಚ್",
-  "mass_timings" : "ಮೀಸಾಸೊ ವೆಲ್",
-  "history" : "ಇತಿಹಾಸ",
-  "settings": "Settings",
-  "dark_mode" : "Dark Mode",
-  "display_in_konkani": "Display in Konkani"
+  "mass_timings": "ಮೀಸಾಸೊ ವೆಲ್",
+  "history": "ಚರಿತ್ರಾ",
+  "settings": "ಸೆಟ್ಟಿಂಗ್ಸ್",
+  "dark_mode": "Dark Mode",
+  "display_in_konkani": "ಇಂಗ್ಲೀಷ್ ಶೋಬ್ಘ್",
+  "church_history_title": "ಫಿರ್ಗಜೆಚಿ ಚರಿತ್ರಾ",
+  "parish_priest_title": "ಫಿರ್ಗಜಿಚೆ ವಿಗಾರ್",
+  "asst_parish_priest_title": "ಫಿರ್ಗಜಿಚೆ ಕಜಿತೊರ್",
+  "associations": "ಸಂಘಟನ್",
+  "institutions": "ಸಮ್ಮಸ್ಥೆ",
+  "announcements": "ಕಲೋವ್ನಿಯೊ",
+  "photos": "ಫೋಟೋ ಅನಿ ವೀಡಿಯೊ",
+  "wards_families": "ವಡೋ ಅನಿ ಕೂಟಮ್",
+  "families": "ಕ್ಯಾಸಿಯಾ ಕೂಟಮ್",
+  "wards": "ವಡೋ",
+  "blogs": "ಬೊರವ್ನಿ",
+  "contact_us": "ಸಂಪರ್ಕ ಕರ",
+  "gallery": "ಗ್ಯಾಲರಿ",
+  "church_gallery": "ಫಿರ್ಗಜೆಚಿ ಗ್ಯಾಲರಿ"
 }

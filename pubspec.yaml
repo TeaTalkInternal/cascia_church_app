@@ -45,6 +45,9 @@ dependencies:
   flutter_staggered_grid_view:
   photo_view:
   url_launcher:
+  card_swiper:
+  dio:
+  mime_type:
   
 
 dev_dependencies:

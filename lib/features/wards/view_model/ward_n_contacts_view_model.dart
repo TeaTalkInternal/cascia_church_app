@@ -1,12 +1,13 @@
 import 'package:cascia_church_app/features/history/model/list_thumbnail.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-final historyViewModelProvider = Provider<HistoryViewModel>((ref) {
-  return HistoryViewModel(ref: ref);
+final wardsnContactsViewModelProvider =
+    Provider<WardsNContactsViewModel>((ref) {
+  return WardsNContactsViewModel(ref: ref);
 });
 
-class HistoryViewModel {
-  HistoryViewModel({
+class WardsNContactsViewModel {
+  WardsNContactsViewModel({
     required this.ref,
   });
 
@@ -14,20 +15,15 @@ class HistoryViewModel {
 
   final List<ListThumbnail> _allHistorys = [
     ListThumbnail(
-      id: 'Church History',
-      title: 'church_history_title',
-      imageName: 'church_list_icon.png',
+      id: 'wards',
+      title: 'wards',
+      imageName: 'wards.jpg',
     ),
     ListThumbnail(
-      id: 'Parish Priests',
-      title: 'parish_priest_title',
-      imageName: 'priest.png',
-    ),
-    ListThumbnail(
-      id: 'Assistant Parish Priests',
-      title: 'asst_parish_priest_title',
-      imageName: 'assistant_priest.png',
-    ),
+      id: 'families',
+      title: 'families',
+      imageName: 'families.jpg',
+    )
   ];
 
   List<ListThumbnail> getAllHistoryList() {
