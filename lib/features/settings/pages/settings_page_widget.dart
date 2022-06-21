@@ -29,7 +29,7 @@ class _SettingsPageWidgetState extends ConsumerState<SettingsPageWidget> {
     final utility = ref.read(utilityProvider);
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(80),
+        preferredSize: const Size.fromHeight(55),
         child: TopAppBarWidget(
           title: AppLocalizations.of(context)!.translate('settings'),
           toggleNavigation: () => Navigator.of(context).pop(),

@@ -35,10 +35,8 @@ class WardsViewModel {
         if (_wardsJson.isNotEmpty) {
           final List<dynamic> _parsedWards =
               _wardsJson['wards'] as List<dynamic>;
-          print(_parsedWards);
           // final List<Map<String, dynamic>> _itemsJson =
           //     List<Map<String, dynamic>>.from(_parsedWards);
-          // print(_itemsJson);
           final List<Ward> _wards = _parsedWards.map((_wardObj) {
             return Ward.fromJson(_wardObj as Map<String, dynamic>);
           }).toList();
@@ -67,12 +65,10 @@ class WardsViewModel {
   }
 
   String getWardKonkaniName(Ward? ward) {
-    print(ward?.nameKn);
     return ward?.nameKn ?? '--';
   }
 
   String getWardEnglishName(Ward? ward) {
-    print(ward?.name);
     return ward?.name ?? '--';
   }
 

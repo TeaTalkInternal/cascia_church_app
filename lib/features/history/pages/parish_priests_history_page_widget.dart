@@ -21,6 +21,7 @@ class PriestsHistoryPageWidgetState
   Widget build(BuildContext context) {
     final utility = ref.read(utilityProvider);
     final priestsViewModel = ref.read(priestsHistoryViewModelProvider);
+    final appLanguage = ref.read(appLanguageProvider);
     return Scaffold(
       backgroundColor: utility.appBackgroundColor,
       appBar: PreferredSize(
@@ -41,9 +42,13 @@ class PriestsHistoryPageWidgetState
         itemBuilder: (listContext, index) {
           final subTitle =
               '${priestsViewModel.getHistoryFromTimeAtIndex(index)} -- ${priestsViewModel.getHistoryToTimeAtIndex(index)}';
+          final priestHistory = priestsViewModel.getHistoryAtIndex(index);
+          final title = appLanguage.isEnglishLocale
+              ? priestsViewModel.getHistoryEnglishTitle(priestHistory)
+              : priestsViewModel.getHistoryKonkaniTitle(priestHistory);
           return ThumbnailListTileWidget(
             isArrowVisible: false,
-            title: priestsViewModel.getHistoryTitleAtIndex(index),
+            title: title,
             subTitle: subTitle,
             imageName:
                 utility.getImageNameWithBasePath(imageName: 'priest.png'),

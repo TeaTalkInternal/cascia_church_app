@@ -13,6 +13,10 @@ class URLManager {
     return '${baseURL}wards';
   }
 
+  String get allAssociationsURL {
+    return '${baseURL}associations';
+  }
+
   // String encyclopediaImagesURL({required String query, required int nextPage}) {
   //   return '${baseURL}encyclopaedia?&page=$nextPage&limit=40&filter=$query';
   // }

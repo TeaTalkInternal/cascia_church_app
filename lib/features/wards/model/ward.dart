@@ -36,8 +36,8 @@ class Ward {
   Map<String, dynamic> toJson() {
     final _data = <String, dynamic>{};
     _data['id'] = id;
-    _data['name'] = name;
-    _data['nameKn'] = nameKn;
+    _data['title'] = name;
+    _data['titleKn'] = nameKn;
     _data['description'] = description;
     _data['descriptionKn'] = descriptionKn;
     _data['thumbnailUrl'] = thumbnailUrl;

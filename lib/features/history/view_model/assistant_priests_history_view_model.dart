@@ -31,22 +31,30 @@ class AssistantPriestsHistoryViewModel {
     return _assistantPriests.length;
   }
 
-  PriestHistory? _getHistoryAtIndex(int index) {
+  PriestHistory? getHistoryAtIndex(int index) {
     return _assistantPriests[index];
   }
 
   String getHistoryTitleAtIndex(int index) {
-    final history = _getHistoryAtIndex(index);
+    final history = getHistoryAtIndex(index);
     return (history != null) ? history.name : '--';
   }
 
+  String getHistoryEnglishTitle(PriestHistory? history) {
+    return (history != null) ? history.name : '--';
+  }
+
+  String getHistoryKonkaniTitle(PriestHistory? history) {
+    return (history != null) ? history.nameKn : '--';
+  }
+
   String getHistoryFromTimeAtIndex(int index) {
-    final history = _getHistoryAtIndex(index);
+    final history = getHistoryAtIndex(index);
     return (history != null) ? history.from : '--';
   }
 
   String getHistoryToTimeAtIndex(int index) {
-    final history = _getHistoryAtIndex(index);
+    final history = getHistoryAtIndex(index);
     return (history != null) ? history.to : '--';
   }
 }

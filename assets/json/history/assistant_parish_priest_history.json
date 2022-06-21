@@ -3,180 +3,210 @@
     {
       "id": 1,
       "name": "Fr. John S. Rodrigues",
+      "nameKn": "ಬಾಪ್. ಜಾನ್ ಎಸ್ ರೋಡ್ರಿಗಸ್",
       "from": "25-05-1940",
       "to": "01-05-1942"
     },
     {
       "id": 2,
       "name": "Fr. Herman D'Souza",
+      "nameKn": "ಬಾಪ್. ಹರ್ಮನ್ ಡಿಸೋಜಾ",
       "from": "01-05-1942",
       "to": "May 1945"
     },
     {
       "id": 3,
       "name": "Fr. Winnibald Menezes",
+      "nameKn": "ಬಾಪ್. ವಿನ್ನಿಬಾಲ್ಡ್ ಮೆನೆಜಸ್",
       "from": "27-05-1946",
       "to": "27-07-1948"
     },
     {
       "id": 4,
       "name": "Fr. Abundius D'Souza",
+      "nameKn": "ಬಾಪ್. ಅಬುಂಡಿಯಸ್ ಡಿಸೋಜಾ",
       "from": "23-05-1946",
       "to": "27-07-1948"
     },
     {
       "id": 5,
       "name": "Fr. Peter Lobo",
+      "nameKn": "ಬಾಪ್. ಪೀಟರ್ ಲೋಬೊ",
       "from": "27-07-1948",
       "to": "10-05-1949"
     },
     {
       "id": 6,
       "name": "Fr. Aloysius Serra",
+      "nameKn": "ಬಾಪ್. ಅಲೋಶಿಯಸ್ ಸೆರ್ರಾ",
       "from": "10-05-1949",
       "to": "09-01-1953"
     },
     {
       "id": 7,
       "name": "Fr. Gratian D'Souza",
+      "nameKn": "ಬಾಪ್. ಗ್ರೇಷಿಯನ್ ಡಿಸೋಜಾ",
       "from": "21-02-1953",
       "to": "30-05-1953"
     },
     {
       "id": 8,
       "name": "Fr. Ligoury Pinto",
+      "nameKn": "ಬಾಪ್. ಲಿಗೌರಿ ಪಿಂಟೋ",
       "from": "30-05-1953",
       "to": "16-05-1954"
     },
     {
       "id": 9,
       "name": "Fr. Charles Saldanha",
+      "nameKn": "ಬಾಪ್. ಚಾರ್ಲ್ಸ್ ಸಲ್ಡಾನ್ಹಾ",
       "from": "16-05-1954",
       "to": "25-09-1958"
     },
     {
       "id": 10,
       "name": "Fr. Marcel J. Pinto",
+      "nameKn": "ಬಾಪ್. ಮಾರ್ಸೆಲ್ ಜೆ ಪಿಂಟೊ",
       "from": "26-09-1958",
       "to": "08-05-1961"
     },
     {
       "id": 11,
       "name": "Fr. Stanley R. Pereira",
+      "nameKn": "ಬಾಪ್. ಸ್ಟಾನ್ಲಿ ಆರ್. ಪೆರೇರಾ",
       "from": "10-05-1961",
       "to": "05-04-1962"
     },
     {
       "id": 12,
       "name": "Fr. Thomas D'Souza",
+      "nameKn": "ಬಾಪ್. ಥಾಮಸ್ ಡಿಸೋಜಾ",
       "from": "06-04-1962",
       "to": "02-05-1964"
     },
     {
       "id": 13,
       "name": "Fr. Lawrence Mendonca",
+      "nameKn": "ಬಾಪ್. ಲಾರೆನ್ಸ್ ಮೆಂಡೋನ್ಕಾ",
       "from": "30-04-1964",
       "to": "11-04-1967"
     },
     {
       "id": 14,
       "name": "Fr. Ignatius D'Souza",
+      "nameKn": "ಬಾಪ್. ಇಗ್ನೇಷಿಯಸ್ ಡಿಸೋಜಾ",
       "from": "11-04-1967",
       "to": "17-07-1969"
     },
     {
       "id": 15,
       "name": "Fr. Mark Walder",
+      "nameKn": "ಬಾಪ್. ಮಾರ್ಕ್ ವಾಲ್ಡರ್",
       "from": "17-07-1969",
       "to": "01-06-1970"
     },
     {
       "id": 16,
       "name": "Fr. Godfrey Saldanha",
+      "nameKn": "ಬಾಪ್. ಗಾಡ್ಫ್ರೇ ಸಲ್ಡಾನ್ಹಾ",
       "from": "01-06-1970",
       "to": "07-06-1973"
     },
     {
       "id": 17,
       "name": "Fr. Lawrence Martis",
+      "nameKn": "ಬಾಪ್. ಲಾರೆನ್ಸ್ ಮಾರ್ಟಿಸ್",
       "from": "09-06-1973",
       "to": "27-02-1977"
     },
     {
       "id": 18,
       "name": "Fr. Maxim E. Furtado",
+      "nameKn": "ಬಾಪ್. ಮ್ಯಾಕ್ಸಿಮ್ E. ಫುರ್ಟಾಡೊ",
       "from": "01-06-1977",
       "to": "01-06-1981"
     },
     {
       "id": 19,
       "name": "Fr. Peter C. Fernandes",
+      "nameKn": "ಬಾಪ್. ಪೀಟರ್ ಸಿ. ಫೆರ್ನಾಂಡಿಸ್",
       "from": "20-05-1978",
       "to": "30-06-1979"
     },
     {
       "id": 20,
       "name": "Fr. Gerald Pinto",
+      "nameKn": "ಬಾಪ್. ಜೆರಾಲ್ಡ್ ಪಿಂಟೋ",
       "from": "15-05-1982",
       "to": "02-08-1982"
     },
     {
       "id": 21,
       "name": "Fr. Peter D'Souza",
+      "nameKn": "ಬಾಪ್. ಪೀಟರ್ ಡಿಸೋಜಾ",
       "from": "21-05-1988",
       "to": "30-11-1989"
     },
     {
       "id": 22,
       "name": "Fr. Hilary Lobo",
+      "nameKn": "ಬಾಪ್. ಹಿಲರಿ ಲೋಬೊ",
       "from": "01-12-1989",
       "to": "15-05-1991"
     },
     {
       "id": 23,
       "name": "Fr. Victor D'Mello",
+      "nameKn": "ಬಾಪ್. ವಿಕ್ಟರ್ ಡಿ'ಮೆಲ್ಲೊ",
       "from": "25-05-1991",
       "to": "09-06-1994"
     },
     {
       "id": 24,
       "name": "Fr. Boniface Pinto",
+      "nameKn": "ಬಾಪ್. ಬೋನಿಫೇಸ್ ಪಿಂಟೋ",
       "from": "16-05-1994",
       "to": "27-05-1997"
     },
     {
       "id": 25,
       "name": "Fr. Lawrence Mascarenhas",
+      "nameKn": "ಬಾಪ್. ಲಾರೆನ್ಸ್ ಮಸ್ಕರೇನಸ್",
       "from": "28-05-1997",
       "to": "05-05-1999"
     },
     {
       "id": 26,
       "name": "Fr. Alban D'Souza",
+      "nameKn": "ಬಾಪ್. ಡೈರಿ ದಸುಸಾ",
       "from": "26-05-2003",
       "to": "15-05-2004"
     },
     {
       "id": 27,
       "name": "Fr. Anil D'Souza",
+      "nameKn": "ಬಾಪ್. ಅನಿಲ್ ಡಿಸೋಜಾ",
       "from": "20-05-2004",
       "to": "18-05-2005"
     },
     {
       "id": 28,
       "name": "Fr. Romeo Lewis",
+      "nameKn": "ಬಾಪ್. ರೋಮಿಯೋ ಲೂಯಿಸ್",
       "from": "19-05-2005",
       "to": "31-05-2007"
     },
     {
       "id": 29,
       "name": "Fr. Paul Prakash D'Souza",
+      "nameKn": "ಬಾಪ್. ಪೌಲ್ ಪ್ರಕಾಶ್ ಡಿಸೋಜಾ",
       "from": "01-06-2013",
       "to": "04-06-2014"
     },
     {
       "id": 30,
       "name": "Fr. Sunil Praveen Pinto",
+      "nameKn": "ಬಾಪ್. ಸುನಿಲ್ ಪ್ರವೀಣ್ ಪಿಂಟೋ",
       "from": "20-05-2015",
       "to": "06-06-2016"
     }

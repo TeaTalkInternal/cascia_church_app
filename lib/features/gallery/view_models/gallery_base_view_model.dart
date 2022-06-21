@@ -22,7 +22,6 @@ class GalleryBaseViewModel extends ChangeNotifier {
   List<EventType> _allEventTypes = [];
 
   Future<List<EventType>> fetchAllEventTypes() async {
-    print('CLEEDDDDDDDDDD');
     return Future.delayed(const Duration(seconds: 1), () {
       final allEvents = [
         EventType(

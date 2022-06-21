@@ -20,7 +20,7 @@ class ContactsPageWidget extends ConsumerWidget {
     return Scaffold(
       backgroundColor: utility.appBackgroundColor,
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(80),
+        preferredSize: const Size.fromHeight(55),
         child: TopAppBarWidget(
           title:
               AppLocalizations.of(context)!.translate('church_history_title'),

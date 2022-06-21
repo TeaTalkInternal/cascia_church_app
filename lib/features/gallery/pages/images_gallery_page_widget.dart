@@ -139,8 +139,6 @@ class ImagesGalleryPageWidgetState
         itemBuilder: (_, int index) {
           final photo = photos[index];
           final height = extents[index] * 100;
-          print('extenty is ${extents[index]}');
-          print('height is $height');
           return Container(
             height: height.toDouble(),
             child: Stack(

@@ -3,66 +3,77 @@
     {
       "id": 1,
       "name": "Msgr. Francis  Xavier Fernandes",
+      "nameKn": "Msgr. ಫ್ರಾನ್ಸಿಸ್ ಕ್ಸೇವಿಯರ್ ಫೆರ್ನಾಂಡಿಸ್",
       "from": "03-03-1935",
       "to": "04-05-1968"
     },
     {
       "id": 2,
       "name": "Fr. A. J. Silva",
+      "nameKn": "ಬಾಪ್. ಎ.ಜೆ.ಸಿಲ್ವಾ",
       "from": "19-05-1968",
       "to": "02-05-1970"
     },
     {
       "id": 3,
       "name": "Fr. John M. Menezes",
+      "nameKn": "ಬಾಪ್. ಜಾನ್ ಎಂ. ಮೆನೆಜಸ್",
       "from": "02-05-1970",
       "to": "27-09-1973"
     },
     {
       "id": 4,
       "name": "Fr. J. J. Saldanha",
+      "nameKn": "ಬಾಪ್. ಜೆ.ಜೆ.ಸಲ್ಡಾನ್ಹಾ",
       "from": "21-04-1974",
       "to": "27-05-1981"
     },
     {
       "id": 5,
       "name": "Fr. Robert Pinto",
+      "nameKn": "ಬಾಪ್. ರಾಬರ್ಟ್ ಪಿಂಟೋ",
       "from": "27-05-1981",
       "to": "01-05-1988"
     },
     {
       "id": 6,
       "name": "Fr. Aloysius Paul D'Souza",
+      "nameKn": "ಬಾಪ್. ಅಲೋಶಿಯಸ್ ಪಾವ್ಲ್ ಡಿಸೋಜಾ",
       "from": "05-05-1988",
       "to": "22-05-1995"
     },
     {
       "id": 7,
       "name": "Fr. Denis D'Souza",
+      "nameKn": "ಬಾಪ್. ಡೆನಿಸ್ ಡಿಸೋಜಾ",
       "from": "22-05-1995",
       "to": "29-06-2002"
     },
     {
       "id": 8,
       "name": "Fr. Cyril D'Souza",
+      "nameKn": "ಬಾಪ್. ಸಿರಿಲ್ ಡಿಸೋಜಾ",
       "from": "29-06-2002",
       "to": "25-05-2007"
     },
     {
       "id": 9,
       "name": "Fr. Vincent Menezes",
+      "nameKn": "ಬಾಪ್. ವಿನ್ಸೆಂಟ್ ಮೆನೆಜಸ್",
       "from": "26-05-2007",
       "to": "07-06-2014"
     },
     {
       "id": 10,
       "name": "Fr. Harold Mascarenhas",
+      "nameKn": "ಬಾಪ್. ಹೆರಾಲ್ಡ್ ಮಸ್ಕರೇನ್ಹಸ್",
       "from": "07-06-2014",
       "to": null
     },
     {
       "id": 11,
       "name": "Fr. Eric Crasta",
+      "nameKn": "ಬಾಪ್. ಎರಿಕ್ ಕ್ರಾಸ್ಟಾ",
       "from": null,
       "to": null
     }

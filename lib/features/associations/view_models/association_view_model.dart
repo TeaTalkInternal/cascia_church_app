@@ -1,4 +1,7 @@
 import 'package:cascia_church_app/features/associations/models/association.dart';
+import 'package:cascia_church_app/network/network_manager.dart';
+import 'package:cascia_church_app/network/url_manager.dart';
+import 'package:dio/dio.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final associationViewModelProvider = Provider<AssociationViewModel>((ref) {
@@ -12,36 +15,39 @@ class AssociationViewModel {
 
   final ProviderRef ref;
 
-  final List<Association> _allAssociations = [
-    Association(
-        id: 'Catholic Sabha',
-        title: 'Catholic Sabha',
-        imageName: 'timings.png',
-        shortDescription: 'A united group for a cause',
-        fullDescription:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."),
-    Association(
-        id: 'ICYM',
-        title: 'ICYM',
-        imageName: 'timings.png',
-        shortDescription: 'A group for youth',
-        fullDescription:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."),
-    Association(
-        id: 'YCS',
-        title: 'YCS',
-        imageName: 'timings.png',
-        shortDescription: 'A united group for a cause',
-        fullDescription:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."),
-    Association(
-        id: 'SSVP',
-        title: 'SSVP',
-        imageName: 'timings.png',
-        shortDescription: 'A united group for a cause',
-        fullDescription:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."),
-  ];
+  List<Association> _allAssociations = [];
+
+  Future<List<Association>> fetchAllAssociations() async {
+    final networkMangerProvider = ref.read(networkManagerProvider);
+    final urlProvider = ref.read(urlManagerProvider);
+    final url = urlProvider.allAssociationsURL;
+    try {
+      final _response = await networkMangerProvider.getRequest(url: url);
+      if (_response != null) {
+        final Map<String, dynamic> _associationsJson =
+            Map<String, dynamic>.from(_response as Map<String, dynamic>);
+
+        if (_associationsJson.isNotEmpty) {
+          final List<dynamic> _parsedAssociations =
+              _associationsJson['associations'] as List<dynamic>;
+          // final List<Map<String, dynamic>> _itemsJson =
+          //     List<Map<String, dynamic>>.from(_parsedAssociations);
+          final List<Association> _associations =
+              _parsedAssociations.map((_associationObj) {
+            return Association.fromJson(
+                _associationObj as Map<String, dynamic>);
+          }).toList();
+          _setAllAssociations(_associations);
+          return _associations;
+        }
+        return [];
+      } else {
+        throw DioErrorType.other;
+      }
+    } catch (_) {
+      rethrow;
+    }
+  }
 
   List<Association> getAllAssociations() {
     return _allAssociations;
@@ -51,27 +57,34 @@ class AssociationViewModel {
     return _allAssociations.length;
   }
 
-  Association? _getAssociationAtIndex(int index) {
+  void _setAllAssociations(List<Association> associations) {
+    _allAssociations = associations;
+  }
+
+  String getAssociationKonkaniName(Association? association) {
+    return association?.nameKn ?? '--';
+  }
+
+  String getAssociationEnglishName(Association? association) {
+    return association?.name ?? '--';
+  }
+
+  //  String getAssociationNameAtIndex(int index) {
+  //   final association = _getAssociationAtIndex(index);
+  //   return (association != null) ? association.name : "--";
+  // }
+
+  Association? getAssociationAtIndex(int index) {
     return _allAssociations[index];
   }
 
-  String getAssociationTitleAtIndex(int index) {
-    final association = _getAssociationAtIndex(index);
-    return (association != null) ? association.title : '--';
+  String getAssociationThumbnailUrlAtIndex(int index) {
+    final association = getAssociationAtIndex(index);
+    return (association != null) ? association.thumbnailUrl : '--';
   }
 
-  String getAssociationImageAtIndex(int index) {
-    final association = _getAssociationAtIndex(index);
-    return (association != null) ? association.imageName : '--';
-  }
-
-  String getAssociationShortDescriptionAtIndex(int index) {
-    final association = _getAssociationAtIndex(index);
-    return (association != null) ? association.shortDescription : '--';
-  }
-
-  String getAssociationFullDescriptionAtIndex(int index) {
-    final association = _getAssociationAtIndex(index);
-    return (association != null) ? association.fullDescription : '--';
+  String getAssociationDescriptionAtIndex(int index) {
+    final association = getAssociationAtIndex(index);
+    return (association != null) ? association.description : '--';
   }
 }

@@ -20,7 +20,7 @@ class ChurchHistoryPageWidget extends ConsumerWidget {
     return Scaffold(
       backgroundColor: utility.appBackgroundColor,
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(80),
+        preferredSize: const Size.fromHeight(55),
         child: TopAppBarWidget(
           title:
               AppLocalizations.of(context)!.translate('church_history_title'),
@@ -38,12 +38,31 @@ class ChurchHistoryPageWidget extends ConsumerWidget {
             ),
             child: Column(
               children: [
-                SizedBox(
-                  height: mainScreenHeight * .35,
+                // SizedBox(
+                //   height: mainScreenHeight * .35,
+                //   child: ClipRRect(
+                //     borderRadius: BorderRadius.circular(10),
+                //     child: Expanded(
+                //         child: Swiper(
+                //       itemBuilder: (context, index) {
+                //         return Image.asset(
+                //           utility.getImageNameWithBasePath(
+                //               imageName:
+                //                   churchHistoryViewModel.churchImages[index]),
+                //           fit: BoxFit.fill,
+                //         );
+                //       },
+                //       autoplay: false,
+                //       itemCount: churchHistoryViewModel.churchImages.length,
+                //       control: const SwiperControl(color: Colors.white),
+                //     )),
+                //   ),
+                // ),
+                Container(
+                  height: 250,
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(10),
-                    child: Expanded(
-                        child: Swiper(
+                    child: Swiper(
                       itemBuilder: (context, index) {
                         return Image.asset(
                           utility.getImageNameWithBasePath(
@@ -55,18 +74,18 @@ class ChurchHistoryPageWidget extends ConsumerWidget {
                       autoplay: false,
                       itemCount: churchHistoryViewModel.churchImages.length,
                       control: const SwiperControl(color: Colors.white),
-                    )),
+                    ),
                   ),
                 ),
                 const SizedBox(
-                  height: 10,
+                  height: 20,
                 ),
                 Text(
                   appLanguage.isEnglishLocale
                       ? churchHistoryViewModel.churchHistoryKn
                       : churchHistoryViewModel.churchHistoryKn,
-                  style: const TextStyle(
-                      fontSize: 16, fontWeight: FontWeight.w400, height: 1.7),
+                  // style: const TextStyle(
+                  //     fontSize: 16, fontWeight: FontWeight.w400, height: 1.7),
                 ),
                 const SizedBox(
                   height: 20,

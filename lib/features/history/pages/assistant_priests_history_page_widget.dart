@@ -42,9 +42,15 @@ class AssistantPriestsHistoryPageWidgetState
         itemBuilder: (listContext, index) {
           final subTitle =
               '${assistantPriestsViewModel.getHistoryFromTimeAtIndex(index)} -- ${assistantPriestsViewModel.getHistoryToTimeAtIndex(index)}';
+          final priestHistory =
+              assistantPriestsViewModel.getHistoryAtIndex(index);
+          final appLanguage = ref.read(appLanguageProvider);
+          final title = appLanguage.isEnglishLocale
+              ? assistantPriestsViewModel.getHistoryEnglishTitle(priestHistory)
+              : assistantPriestsViewModel.getHistoryKonkaniTitle(priestHistory);
           return ThumbnailListTileWidget(
             isArrowVisible: false,
-            title: assistantPriestsViewModel.getHistoryTitleAtIndex(index),
+            title: title,
             subTitle: subTitle,
             imageName: utility.getImageNameWithBasePath(
                 imageName: 'assistant_priest.png'),
