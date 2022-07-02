@@ -26,7 +26,7 @@ class GalleryBaseViewModel extends ChangeNotifier {
       final allEvents = [
         EventType(
             id: 'church-images',
-            eventName: 'Church Images Gallery',
+            eventName: 'ಚರ್ಚ್ ಗ್ಯಾಲರಿ',
             thumbnailUrl:
                 'https://www.mangaloretoday.com/upimages/Cascia%20paris%20church%206sep16%20dis.jpg',
             imageUrl:
@@ -34,7 +34,7 @@ class GalleryBaseViewModel extends ChangeNotifier {
             description: 'Church Images Gallery'),
         EventType(
             id: 'event-images-2021',
-            eventName: 'Hall Images Gallery',
+            eventName: 'ಹಾಲ್ ಗ್ಯಾಲರಿ',
             thumbnailUrl:
                 'https://www.mangaloretoday.com/upimages/Cascia%20paris%20church%206sep16%20dis.jpg',
             imageUrl:
@@ -42,7 +42,7 @@ class GalleryBaseViewModel extends ChangeNotifier {
             description: 'Church Images Gallery'),
         EventType(
             id: 'xx3',
-            eventName: 'Chritmas evet 2021',
+            eventName: 'ಕ್ರಿಸ್ಮಸ್ ಈವೆಂಟ್ 2021',
             thumbnailUrl:
                 'https://cdn.britannica.com/q:60/38/196638-131-7BF02881/Santa-Claus.jpg',
             imageUrl:
