@@ -17,6 +17,14 @@ class URLManager {
     return '${baseURL}associations';
   }
 
+  String get allInstitutionsURL {
+    return '${baseURL}institutes';
+  }
+
+  String get allTimingsURL {
+    return '${baseURL}timings';
+  }
+
   // String encyclopediaImagesURL({required String query, required int nextPage}) {
   //   return '${baseURL}encyclopaedia?&page=$nextPage&limit=40&filter=$query';
   // }

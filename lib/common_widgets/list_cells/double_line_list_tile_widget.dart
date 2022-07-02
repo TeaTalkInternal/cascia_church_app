@@ -3,16 +3,18 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../providers/app_providers.dart';
 
-class SingleLineListTileWidget extends ConsumerWidget {
-  const SingleLineListTileWidget(
+class DoubleLineListTileWidget extends ConsumerWidget {
+  const DoubleLineListTileWidget(
       {Key? key,
       required this.title,
+      required this.description,
       required this.imageName,
       this.isNetworkImage = false,
       required this.onTap})
       : super(key: key);
 
   final String title;
+  final String description;
   final String imageName;
   final bool isNetworkImage;
   final void Function() onTap;
@@ -68,6 +70,16 @@ class SingleLineListTileWidget extends ConsumerWidget {
                           fontSize: 18,
                           fontWeight: FontWeight.w700,
                           color: utility.bodyTitleTextColor),
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      description,
+                      style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w400,
+                          color: utility.bodySubTitleTextColor),
                     ),
                   ],
                 ),

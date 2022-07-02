@@ -1,13 +1,18 @@
-import 'package:cascia_church_app/features/gallery/pages/gallery_base_page_widget.dart';
-import 'package:cascia_church_app/features/wards/pages/ward_n_contacts_page_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../localization/app_localizations.dart';
 import '../../../providers/app_providers.dart';
+import '../../announcements/announcements_page_widget.dart';
 import '../../associations/pages/associations_page_widget.dart';
+import '../../blogs/blogs_page_widget.dart';
+import '../../contact_us/contact_us_page_widget.dart';
+import '../../gallery/pages/gallery_base_page_widget.dart';
 import '../../history/pages/history_page_widget.dart';
+import '../../institutions/pages/institutions_page_widget.dart';
 import '../../settings/pages/settings_page_widget.dart';
+import '../../timings/pages/timings_page_widget.dart';
+import '../../wards/pages/ward_n_contacts_page_widget.dart';
 import '../view_model/dashboard_view_model.dart';
 
 class DashboardPageWidget extends ConsumerWidget {
@@ -148,7 +153,7 @@ class DashboardPageWidget extends ConsumerWidget {
     switch (id) {
       case 'mass_timings':
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => const HistoryPageWidget(),
+          builder: (context) => const TimingsPageWidget(),
         ));
         break;
       case 'history':
@@ -163,12 +168,12 @@ class DashboardPageWidget extends ConsumerWidget {
         break;
       case 'institutions':
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => const HistoryPageWidget(),
+          builder: (context) => const InstitutionsPageWidget(),
         ));
         break;
       case 'announcements':
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => const HistoryPageWidget(),
+          builder: (context) => const AnnouncementsPageWidget(),
         ));
         break;
       case 'photos':
@@ -183,12 +188,12 @@ class DashboardPageWidget extends ConsumerWidget {
         break;
       case 'blogs':
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => const HistoryPageWidget(),
+          builder: (context) => const BlogsPageWidget(),
         ));
         break;
       case 'contact_us':
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => const HistoryPageWidget(),
+          builder: (context) => const ContactUsPageWidget(),
         ));
         break;
       default:

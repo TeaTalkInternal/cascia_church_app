@@ -18,6 +18,7 @@ class Utility extends ChangeNotifier {
 
   final iconColor = const Color(0xffFFFFFF);
   final bodyTitleTextColor = const Color(0xff191919);
+  final bodySubTitleTextColor = const Color(0xff413F42);
   final appGreyColor = const Color(0xfff0f0f1);
   final appDarkGreyColor = const Color(0xff1e2326);
   final appBackgroundColor = const Color(0xffF4F9F9);

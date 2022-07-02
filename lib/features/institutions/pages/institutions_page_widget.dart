@@ -1,7 +1,7 @@
 import 'package:cascia_church_app/common_widgets/list_cells/single_line_list_tile_widget.dart';
 import 'package:cascia_church_app/common_widgets/no_photos_data_widget.dart';
-import 'package:cascia_church_app/features/timings/models/timing.dart';
-import 'package:cascia_church_app/features/timings/view_models/timing_view_model.dart';
+import 'package:cascia_church_app/features/institutions/models/institution.dart';
+import 'package:cascia_church_app/features/institutions/view_models/institution_view_model.dart';
 import 'package:cascia_church_app/features/gallery/pages/images_gallery_page_widget.dart';
 import 'package:cascia_church_app/features/gallery/view_models/gallery_base_view_model.dart';
 import 'package:cascia_church_app/features/history/pages/assistant_priests_history_page_widget.dart';
@@ -10,39 +10,40 @@ import 'package:cascia_church_app/features/history/pages/parish_priests_history_
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../common_widgets/list_cells/Timing_list_tile_widget.dart';
 import '../../../common_widgets/list_cells/double_line_list_tile_widget.dart';
 import '../../../common_widgets/list_cells/thumbnail_list_tile_widget.dart';
 import '../../../common_widgets/top_app_bar_widget.dart';
 import '../../../localization/app_localizations.dart';
 import '../../../providers/app_providers.dart';
 
-class TimingsPageWidget extends ConsumerStatefulWidget {
-  const TimingsPageWidget({Key? key}) : super(key: key);
+class InstitutionsPageWidget extends ConsumerStatefulWidget {
+  const InstitutionsPageWidget({Key? key}) : super(key: key);
 
   @override
-  TimingsPageWidgetState createState() => TimingsPageWidgetState();
+  InstitutionsPageWidgetState createState() => InstitutionsPageWidgetState();
 }
 
-class TimingsPageWidgetState extends ConsumerState<TimingsPageWidget> {
+class InstitutionsPageWidgetState
+    extends ConsumerState<InstitutionsPageWidget> {
   bool _isLoading = true;
 
-  List<Timing> _allTimings = [];
-  List<Timing> _fullTimings = [];
+  List<Institution> _allInstitutions = [];
+  List<Institution> _fullInstitutions = [];
   bool _showNoResultsText = false;
 
   @override
   void initState() {
     super.initState();
-    _fetchTimings();
+    _fetchInstitutions();
   }
 
-  void _fetchTimings() {
-    final _fetchedTimings = ref.read(timingViewModelProvider).fetchAllTimings();
-    _fetchedTimings.then((value) {
+  void _fetchInstitutions() {
+    final _fetchedInstitutions =
+        ref.read(institutionViewModelProvider).fetchAllInstitutions();
+    _fetchedInstitutions.then((value) {
       setState(() {
         _isLoading = false;
-        _allTimings = value;
+        _allInstitutions = value;
       });
     });
   }
@@ -56,12 +57,12 @@ class TimingsPageWidgetState extends ConsumerState<TimingsPageWidget> {
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(55),
         child: TopAppBarWidget(
-          title: AppLocalizations.of(context)!.translate('mass_timings'),
+          title: AppLocalizations.of(context)!.translate('institutions'),
           toggleNavigation: () => Navigator.of(context).pop(),
           iconData: Icons.arrow_back_ios,
         ),
       ),
-      body: _getTimingsList(
+      body: _getInstitutionsList(
         context: context,
       ),
     );
@@ -82,42 +83,43 @@ class TimingsPageWidgetState extends ConsumerState<TimingsPageWidget> {
   //   // });
   // }
 
-  Widget _getTimingsList({required BuildContext context}) {
+  Widget _getInstitutionsList({required BuildContext context}) {
     // ref.read(galleryEventsProvider).whenData((_) {
     //   _isLoading = false;
     // });
     // _allPhotos.clear();
-    //_allTimings = ref.read(timingViewModelProvider).allTimings;
+    //_allInstitutions = ref.read(institutionViewModelProvider).allInstitutions;
 
     // _allPhotos.clear();
     // _allPhotos = favoritesVMProvider.getAllPhotos();
 
-    return (_allTimings.isEmpty && _isLoading)
+    return (_allInstitutions.isEmpty && _isLoading)
         ? Center(
             child: SizedBox(
               height: 120,
               child: Image.asset('assets/images/loader.gif'),
             ),
           )
-        : (_allTimings.isEmpty && _isLoading == false)
+        : (_allInstitutions.isEmpty && _isLoading == false)
             ? NoPhotosDataWidget(
                 noPhotosMessage:
-                    'No timings found at this time. Please try Refreshing again.',
+                    'No institutions found at this time. Please try Refreshing again.',
                 refreshWidget: () => _refreshEventsList(context: context),
               )
-            : _buildTimingsListView(
-                timings: _allTimings,
+            : _buildInstitutionsListView(
+                institutions: _allInstitutions,
                 context: context,
               );
   }
 
   void _refreshEventsList({required BuildContext context}) {
-    _fetchTimings();
+    _fetchInstitutions();
   }
 
-  Widget _buildTimingsListView(
-      {required List<Timing> timings, required BuildContext context}) {
-    final timingsViewModel = ref.read(timingViewModelProvider);
+  Widget _buildInstitutionsListView(
+      {required List<Institution> institutions,
+      required BuildContext context}) {
+    final institutionsViewModel = ref.read(institutionViewModelProvider);
     final utility = ref.read(utilityProvider);
     final appLanguage = ref.read(appLanguageProvider);
     return ListView.separated(
@@ -126,21 +128,21 @@ class TimingsPageWidgetState extends ConsumerState<TimingsPageWidget> {
         horizontal: 5,
       ),
       itemBuilder: (listContext, index) {
-        final timing = timingsViewModel.getTimingAtIndex(index);
+        final institution = institutionsViewModel.getInstitutionAtIndex(index);
 
-        return TimingListTileWidget(
+        return DoubleLineListTileWidget(
           title: appLanguage.isEnglishLocale
-              ? timingsViewModel.getTimingDay(timing)
-              : timingsViewModel.getTimingDayKn(timing),
+              ? institutionsViewModel.getInstitutionEnglishName(institution)
+              : institutionsViewModel.getInstitutionKonkaniName(institution),
           description: appLanguage.isEnglishLocale
-              ? timingsViewModel.getTimingLanguage(timing)
-              : timingsViewModel.getTimingLanguageKn(timing),
-          timing: appLanguage.isEnglishLocale
-              ? timingsViewModel.getTimingEnglishTime(timing)
-              : timingsViewModel.getTimingKonkaniTime(timing),
+              ? institutionsViewModel.getInstitutionAddress(institution)
+              : institutionsViewModel.getInstitutionAddressKn(institution),
+          imageName:
+              institutionsViewModel.getInstitutionThumbnailUrlAtIndex(index),
+          isNetworkImage: true,
           onTap: () {
             print("indo $index");
-            // _showDetailForIndex(timingsViewModel.getEventIdAtIndex(index));
+            // _showDetailForIndex(institutionsViewModel.getEventIdAtIndex(index));
           },
         );
       },
@@ -151,12 +153,12 @@ class TimingsPageWidgetState extends ConsumerState<TimingsPageWidget> {
           color: utility.appGreyColor,
         );
       },
-      itemCount: timingsViewModel.getAllTimingsCount(),
+      itemCount: institutionsViewModel.getAllInstitutionsCount(),
     );
   }
 
-  void _showDetailForIndex(String timingId) {
-    switch (timingId) {
+  void _showDetailForIndex(String institutionId) {
+    switch (institutionId) {
       case 'church-images':
         Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => const ImagesGalleryPageWidget(
