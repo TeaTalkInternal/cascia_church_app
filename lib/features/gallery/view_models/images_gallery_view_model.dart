@@ -28,8 +28,10 @@ class ImagesGalleryViewModel extends ChangeNotifier {
         Photo(
           id: 'xx1',
           title: 'Church outdoor Gallery',
-          thumbnailUrl: 'https://i.quotev.com/uofkthtcurxa.jpg',
-          imageUrl: 'https://i.quotev.com/uofkthtcurxa.jpg',
+          thumbnailUrl:
+              'https://res.cloudinary.com/dzyj8elg4/image/upload/v1657453277/cascia_church/sample/IMG-20220617-WA0049_vbbjoi.jpg',
+          imageUrl:
+              'https://res.cloudinary.com/dzyj8elg4/image/upload/v1657453277/cascia_church/sample/IMG-20220617-WA0049_vbbjoi.jpg',
           isVideo: false,
           videoUrl: '',
         ),
@@ -37,9 +39,9 @@ class ImagesGalleryViewModel extends ChangeNotifier {
           id: 'xx2',
           title: 'Church outdoor Gallery',
           thumbnailUrl:
-              'https://www.mangaloretoday.com/upimages/Cascia%20paris%20church%206sep16%20dis.jpg',
+              'https://res.cloudinary.com/dzyj8elg4/image/upload/v1657453277/cascia_church/sample/IMG-20220617-WA0045_jevb5i.jpg',
           imageUrl:
-              'https://www.mangaloretoday.com/upimages/Cascia%20paris%20church%206sep16%20dis.jpg',
+              'https://res.cloudinary.com/dzyj8elg4/image/upload/v1657453277/cascia_church/sample/IMG-20220617-WA0045_jevb5i.jpg',
           isVideo: false,
           videoUrl: '',
         ),
@@ -47,9 +49,9 @@ class ImagesGalleryViewModel extends ChangeNotifier {
           id: 'xx3',
           title: 'Church outdoor Gallery',
           thumbnailUrl:
-              'https://i.pinimg.com/originals/56/40/6a/56406a948513729da0f8cbc51cd631ca.jpg',
+              'https://res.cloudinary.com/dzyj8elg4/image/upload/v1657453276/cascia_church/sample/IMG-20220617-WA0030_bldysx.jpg',
           imageUrl:
-              'https://i.pinimg.com/originals/56/40/6a/56406a948513729da0f8cbc51cd631ca.jpg',
+              'https://res.cloudinary.com/dzyj8elg4/image/upload/v1657453276/cascia_church/sample/IMG-20220617-WA0030_bldysx.jpg',
           isVideo: false,
           videoUrl: '',
         ),
@@ -57,9 +59,9 @@ class ImagesGalleryViewModel extends ChangeNotifier {
           id: 'xx4',
           title: 'Church outdoor Gallery 4',
           thumbnailUrl:
-              'https://img2.exportersindia.com/product_images/bc-small/dir_131/3918384/truck-cabin-2496522.jpg',
+              'https://res.cloudinary.com/dzyj8elg4/image/upload/v1657453276/cascia_church/sample/IMG-20220617-WA0035_ed7mqd.jpg',
           imageUrl:
-              'https://img2.exportersindia.com/product_images/bc-small/dir_131/3918384/truck-cabin-2496522.jpg',
+              'https://res.cloudinary.com/dzyj8elg4/image/upload/v1657453276/cascia_church/sample/IMG-20220617-WA0035_ed7mqd.jpg',
           isVideo: false,
           videoUrl: '',
         ),
@@ -67,17 +69,19 @@ class ImagesGalleryViewModel extends ChangeNotifier {
           id: 'xx5',
           title: 'Church outdoor Gallery 5',
           thumbnailUrl:
-              'https://image.shutterstock.com/image-vector/dark-sky-abstract-geometric-pixelated-260nw-1501282334.jpg',
+              'https://res.cloudinary.com/dzyj8elg4/image/upload/v1657453276/cascia_church/sample/IMG-20220617-WA0042_phvd8e.jpg',
           imageUrl:
-              'https://image.shutterstock.com/image-vector/dark-sky-abstract-geometric-pixelated-260nw-1501282334.jpg',
+              'https://res.cloudinary.com/dzyj8elg4/image/upload/v1657453276/cascia_church/sample/IMG-20220617-WA0042_phvd8e.jpg',
           isVideo: false,
           videoUrl: '',
         ),
         Photo(
           id: 'xx6',
           title: 'Church outdoor Gallery',
-          thumbnailUrl: 'https://i.quotev.com/uofkthtcurxa.jpg',
-          imageUrl: 'https://i.quotev.com/uofkthtcurxa.jpg',
+          thumbnailUrl:
+              'https://res.cloudinary.com/dzyj8elg4/image/upload/v1657453277/cascia_church/sample/IMG-20220617-WA0054_fpnq5c.jpg',
+          imageUrl:
+              'https://res.cloudinary.com/dzyj8elg4/image/upload/v1657453277/cascia_church/sample/IMG-20220617-WA0054_fpnq5c.jpg',
           isVideo: false,
           videoUrl: '',
         ),
@@ -85,9 +89,9 @@ class ImagesGalleryViewModel extends ChangeNotifier {
           id: 'xx7',
           title: 'Church outdoor Gallery',
           thumbnailUrl:
-              'https://www.mangaloretoday.com/upimages/Cascia%20paris%20church%206sep16%20dis.jpg',
+              'https://res.cloudinary.com/dzyj8elg4/image/upload/v1657453276/cascia_church/sample/IMG-20220617-WA0048_hvqiqy.jpg',
           imageUrl:
-              'https://www.mangaloretoday.com/upimages/Cascia%20paris%20church%206sep16%20dis.jpg',
+              'https://res.cloudinary.com/dzyj8elg4/image/upload/v1657453276/cascia_church/sample/IMG-20220617-WA0048_hvqiqy.jpg',
           isVideo: false,
           videoUrl: '',
         ),
@@ -95,9 +99,9 @@ class ImagesGalleryViewModel extends ChangeNotifier {
           id: 'xx8',
           title: 'Church outdoor Gallery',
           thumbnailUrl:
-              'https://i.pinimg.com/originals/56/40/6a/56406a948513729da0f8cbc51cd631ca.jpg',
+              'https://res.cloudinary.com/dzyj8elg4/image/upload/v1657453276/cascia_church/sample/IMG-20220617-WA0030_bldysx.jpg',
           imageUrl:
-              'https://i.pinimg.com/originals/56/40/6a/56406a948513729da0f8cbc51cd631ca.jpg',
+              'https://res.cloudinary.com/dzyj8elg4/image/upload/v1657453276/cascia_church/sample/IMG-20220617-WA0030_bldysx.jpg',
           isVideo: false,
           videoUrl: '',
         ),
@@ -105,9 +109,9 @@ class ImagesGalleryViewModel extends ChangeNotifier {
           id: 'xx9',
           title: 'Church outdoor Gallery 4',
           thumbnailUrl:
-              'https://img2.exportersindia.com/product_images/bc-small/dir_131/3918384/truck-cabin-2496522.jpg',
+              'https://res.cloudinary.com/dzyj8elg4/image/upload/v1657453276/cascia_church/sample/IMG-20220617-WA0026_vvsfaz.jpg',
           imageUrl:
-              'https://img2.exportersindia.com/product_images/bc-small/dir_131/3918384/truck-cabin-2496522.jpg',
+              'https://res.cloudinary.com/dzyj8elg4/image/upload/v1657453276/cascia_church/sample/IMG-20220617-WA0026_vvsfaz.jpg',
           isVideo: false,
           videoUrl: '',
         ),

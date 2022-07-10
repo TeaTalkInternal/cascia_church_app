@@ -13,7 +13,6 @@ class ChurchHistoryPageWidget extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final utility = ref.read(utilityProvider);
-    final mainScreenHeight = utility.getMainContentHeight(context);
     final mainScreenWidth = utility.getMainContentWidth(context);
     final churchHistoryViewModel = ref.read(churchHistoryViewModelProvider);
     final appLanguage = ref.read(appLanguageProvider);
@@ -30,13 +29,15 @@ class ChurchHistoryPageWidget extends ConsumerWidget {
       ),
       body: SingleChildScrollView(
         child: SizedBox(
-          width: mainScreenWidth,
+          //width: mainScreenWidth,
           child: Padding(
             padding: const EdgeInsets.symmetric(
               horizontal: 20,
               vertical: 15,
             ),
             child: Column(
+              // mainAxisAlignment: MainAxisAlignment.center,
+              // crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 // SizedBox(
                 //   height: mainScreenHeight * .35,

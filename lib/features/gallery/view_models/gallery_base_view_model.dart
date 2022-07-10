@@ -40,14 +40,6 @@ class GalleryBaseViewModel extends ChangeNotifier {
             imageUrl:
                 'https://www.mangaloretoday.com/upimages/Cascia%20paris%20church%206sep16%20dis.jpg',
             description: 'Church Images Gallery'),
-        EventType(
-            id: 'xx3',
-            eventName: 'ಕ್ರಿಸ್ಮಸ್ ಈವೆಂಟ್ 2021',
-            thumbnailUrl:
-                'https://cdn.britannica.com/q:60/38/196638-131-7BF02881/Santa-Claus.jpg',
-            imageUrl:
-                'https://cdn.britannica.com/q:60/38/196638-131-7BF02881/Santa-Claus.jpg',
-            description: 'Church Images Gallery')
       ];
       return allEventTypes = allEvents;
     });
