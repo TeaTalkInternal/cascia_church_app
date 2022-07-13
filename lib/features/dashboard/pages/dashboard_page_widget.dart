@@ -28,18 +28,22 @@ class DashboardPageWidget extends ConsumerWidget {
       backgroundColor: utility.scaffoldBackgroundColor,
       body: Stack(children: [
         Container(
-          height: mainScreenHeight * .35,
+          height: mainScreenHeight * .45,
           decoration: BoxDecoration(
             image: DecorationImage(
               // alignment: Alignment.,
               fit: BoxFit.cover,
               image: AssetImage(
                 utility.getImageNameWithBasePath(
-                  imageName: 'curved_dashboard_header.png',
+                  imageName: 'saint-rita-logo.png',
                 ),
               ),
             ),
           ),
+        ),
+        Container(
+          height: mainScreenHeight * .45,
+          color: Colors.black.withOpacity(0.4),
         ),
         Positioned(
           top: 35,
@@ -67,29 +71,10 @@ class DashboardPageWidget extends ConsumerWidget {
               const SizedBox(height: 30),
               Image.asset(
                 utility.getImageNameWithBasePath(
-                  imageName: 'cascia_logo.png',
+                  imageName: 'cascia.png',
                 ),
                 height: mainScreenHeight * .19,
               ),
-              // Align(
-              //   alignment: Alignment.center,
-              //   child: Padding(
-              //     padding: const EdgeInsets.symmetric(
-              //       vertical: 10,
-              //     ),
-              //     child: Image.asset(utility.getImageNameWithBasePath(
-              //       imageName: 'cascia_logo_1.png',
-              //     )),
-              //     // child: Text(
-              //     //   AppLocalizations.of(context)!.translate('cascia_church'),
-              //     //   style: const TextStyle(
-              //     //     fontSize: 34,
-              //     //     color: Colors.black87,
-              //     //     fontWeight: FontWeight.w900,
-              //     //   ),
-              //     // ),
-              //   ),
-              // ),
 
               Expanded(
                 child: GridView(
