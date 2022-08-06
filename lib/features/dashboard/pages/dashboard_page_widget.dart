@@ -6,7 +6,7 @@ import '../../../providers/app_providers.dart';
 import '../../announcements/announcements_page_widget.dart';
 import '../../associations/pages/associations_page_widget.dart';
 import '../../blogs/blogs_page_widget.dart';
-import '../../contact_us/contact_us_page_widget.dart';
+import '../../contact_us/pages/contact_us_page_widget.dart';
 import '../../gallery/pages/gallery_base_page_widget.dart';
 import '../../history/pages/history_page_widget.dart';
 import '../../institutions/pages/institutions_page_widget.dart';

@@ -8,6 +8,7 @@ import 'package:cascia_church_app/features/history/pages/assistant_priests_histo
 import 'package:cascia_church_app/features/history/pages/church_history_page_widget.dart';
 import 'package:cascia_church_app/features/history/pages/parish_priests_history_page_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:grouped_list/grouped_list.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../common_widgets/list_cells/Timing_list_tile_widget.dart';
@@ -120,40 +121,87 @@ class TimingsPageWidgetState extends ConsumerState<TimingsPageWidget> {
     final timingsViewModel = ref.read(timingViewModelProvider);
     final utility = ref.read(utilityProvider);
     final appLanguage = ref.read(appLanguageProvider);
-    return ListView.separated(
-      padding: EdgeInsets.symmetric(
-        vertical: 10,
-        horizontal: 5,
+    return GroupedListView<Timing, String>(
+      elements: timings,
+      groupBy: (element) => element.massTypeKn,
+      groupSeparatorBuilder: (String groupByValue) => Padding(
+        padding: EdgeInsets.only(
+          top: 15.0,
+          bottom: 5.0,
+          left: 20,
+          right: 20,
+        ),
+        child: Text(
+          timingsViewModel.getMassTypeHeaderKn(groupByValue),
+          maxLines: 5,
+          style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.w700,
+              color: utility.darkGradientShadecolor),
+        ),
       ),
-      itemBuilder: (listContext, index) {
-        final timing = timingsViewModel.getTimingAtIndex(index);
-
-        return TimingListTileWidget(
-          title: appLanguage.isEnglishLocale
-              ? timingsViewModel.getTimingDay(timing)
-              : timingsViewModel.getTimingDayKn(timing),
-          description: appLanguage.isEnglishLocale
-              ? timingsViewModel.getTimingLanguage(timing)
-              : timingsViewModel.getTimingLanguageKn(timing),
-          timing: appLanguage.isEnglishLocale
-              ? timingsViewModel.getTimingEnglishTime(timing)
-              : timingsViewModel.getTimingKonkaniTime(timing),
-          onTap: () {
-            print("indo $index");
-            // _showDetailForIndex(timingsViewModel.getEventIdAtIndex(index));
-          },
-        );
-      },
-      separatorBuilder: (listContext, index) {
-        return Divider(
-          indent: 60,
-          height: 0.2,
-          color: utility.appGreyColor,
-        );
-      },
-      itemCount: timingsViewModel.getAllTimingsCount(),
+      itemBuilder: (context, Timing element) => TimingListTileWidget(
+        title: appLanguage.isEnglishLocale
+            ? timingsViewModel.getMassTypeName(element)
+            : timingsViewModel.getMassTypeNameKn(element),
+        description: appLanguage.isEnglishLocale
+            ? timingsViewModel.getTimingLanguage(element)
+            : timingsViewModel.getTimingLanguageKn(element),
+        timing: appLanguage.isEnglishLocale
+            ? timingsViewModel.getTimingEnglishTime(element)
+            : timingsViewModel.getTimingKonkaniTime(element),
+        onTap: () {
+          // print("indo $index");
+          // _showDetailForIndex(timingsViewModel.getEventIdAtIndex(index));
+        },
+      ),
+      itemComparator: (Timing item1, Timing item2) =>
+          item2.day.compareTo(item1.day), // optional
+      useStickyGroupSeparators: true, // optional
+      floatingHeader: false, // optional
+      order: GroupedListOrder.DESC, // optional
     );
   }
+
+  // Widget _buildTimingsListView(
+  //     {required List<Timing> timings, required BuildContext context}) {
+  //   final timingsViewModel = ref.read(timingViewModelProvider);
+  //   final utility = ref.read(utilityProvider);
+  //   final appLanguage = ref.read(appLanguageProvider);
+  //   return ListView.separated(
+  //     padding: EdgeInsets.symmetric(
+  //       vertical: 10,
+  //       horizontal: 5,
+  //     ),
+  //     itemBuilder: (listContext, index) {
+  //       final timing = timingsViewModel.getTimingAtIndex(index);
+
+  //       return TimingListTileWidget(
+  //         title: appLanguage.isEnglishLocale
+  //             ? timingsViewModel.getTimingDay(timing)
+  //             : timingsViewModel.getTimingDayKn(timing),
+  //         description: appLanguage.isEnglishLocale
+  //             ? timingsViewModel.getTimingLanguage(timing)
+  //             : timingsViewModel.getTimingLanguageKn(timing),
+  //         timing: appLanguage.isEnglishLocale
+  //             ? timingsViewModel.getTimingEnglishTime(timing)
+  //             : timingsViewModel.getTimingKonkaniTime(timing),
+  //         onTap: () {
+  //           print("indo $index");
+  //           // _showDetailForIndex(timingsViewModel.getEventIdAtIndex(index));
+  //         },
+  //       );
+  //     },
+  //     separatorBuilder: (listContext, index) {
+  //       return Divider(
+  //         indent: 60,
+  //         height: 0.2,
+  //         color: utility.appGreyColor,
+  //       );
+  //     },
+  //     itemCount: timingsViewModel.getAllTimingsCount(),
+  //   );
+  // }
 
   void _showDetailForIndex(String timingId) {
     switch (timingId) {

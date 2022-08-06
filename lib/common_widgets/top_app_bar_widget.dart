@@ -38,7 +38,7 @@ class TopAppBarWidget extends ConsumerWidget {
       ),
       height: 100,
       child: Padding(
-        padding: const EdgeInsets.only(left: 20, right: 20, bottom: 15),
+        padding: const EdgeInsets.only(left: 20, right: 20, bottom: 12),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.end,
           mainAxisAlignment: MainAxisAlignment.start,
@@ -54,12 +54,15 @@ class TopAppBarWidget extends ConsumerWidget {
             const SizedBox(
               width: 20,
             ),
-            Text(
-              _title,
-              style: TextStyle(
-                fontSize: 21,
-                color: utility.headerTitleTextColor,
-                fontWeight: FontWeight.w400,
+            Padding(
+              padding: const EdgeInsets.only(top: 1.0),
+              child: Text(
+                _title,
+                style: TextStyle(
+                  fontSize: 21,
+                  color: utility.headerTitleTextColor,
+                  fontWeight: FontWeight.w400,
+                ),
               ),
             )
           ],

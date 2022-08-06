@@ -40,13 +40,16 @@ class TimingListTileWidget extends ConsumerWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      title.toUpperCase(),
-                      maxLines: 5,
-                      style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.w700,
-                          color: utility.darkGradientShadecolor),
+                    Visibility(
+                      visible: title.isNotEmpty,
+                      child: Text(
+                        title.toUpperCase(),
+                        maxLines: 5,
+                        style: TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.w700,
+                            color: Colors.black54),
+                      ),
                     ),
                     SizedBox(
                       height: 5.0,
@@ -56,7 +59,7 @@ class TimingListTileWidget extends ConsumerWidget {
                       style: TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.w300,
-                          color: utility.bodySubTitleTextColor),
+                          color: Colors.black87),
                     ),
                   ],
                 ),
@@ -64,25 +67,25 @@ class TimingListTileWidget extends ConsumerWidget {
               SizedBox(
                 width: 10.0,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  SizedBox(
-                    width: 70,
-                    child: Text(
-                      description,
-                      style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w400,
-                          color: utility.bodyTitleTextColor),
-                    ),
-                  ),
-                  const Icon(
-                    Icons.arrow_forward_ios,
-                    size: 15,
-                  ),
-                ],
-              )
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.end,
+              //   children: [
+              //     SizedBox(
+              //       width: 70,
+              //       child: Text(
+              //         description,
+              //         style: TextStyle(
+              //             fontSize: 18,
+              //             fontWeight: FontWeight.w400,
+              //             color: utility.bodyTitleTextColor),
+              //       ),
+              //     ),
+              //     const Icon(
+              //       Icons.arrow_forward_ios,
+              //       size: 15,
+              //     ),
+              //   ],
+              // )
             ],
           ),
         ),

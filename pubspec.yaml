@@ -48,6 +48,8 @@ dependencies:
   card_swiper:
   dio:
   mime_type:
+  grouped_list:
+  modal_bottom_sheet:
   
 
 dev_dependencies:

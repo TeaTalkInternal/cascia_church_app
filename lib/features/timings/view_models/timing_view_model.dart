@@ -60,12 +60,22 @@ class TimingViewModel {
     _allTimings = timings;
   }
 
+  List<String> getAllListHeaders() {
+    return _allTimings
+        .map((timingValue) => timingValue.massTypeName)
+        .toSet()
+        .toList();
+  }
+
   String getTimingKonkaniTime(Timing? timing) {
-    return timing?.timingKn ?? '--';
+    final time1 = timing?.dayKn ?? "--";
+    final time2 = timing?.timingKn ?? '--';
+    return time1 + ' ' + time2;
   }
 
   String getTimingEnglishTime(Timing? timing) {
-    return timing?.timing ?? '--';
+    final time = timing?.day ?? '--' + (timing?.timing ?? '--');
+    return time;
   }
 
   //  String getTimingNameAtIndex(int index) {
@@ -91,5 +101,42 @@ class TimingViewModel {
 
   String getTimingDayKn(Timing? timing) {
     return (timing != null) ? timing.dayKn : '--';
+  }
+
+  String getMassTypeName(Timing? timing) {
+    return (timing != null) ? timing.massTypeName : '--';
+  }
+
+  String getMassTypeNameKn(Timing? timing) {
+    final massval = (timing != null) ? timing.massTypeNameKn : '--';
+    //  print("massval $massval");
+    if (timing?.massTypeKn != "novena") {
+      return "";
+    }
+    return massval;
+  }
+
+  String getMassTypeHeaderKn(String groupByValue) {
+    var header = "--";
+    switch (groupByValue) {
+      case 'sunday_liturgy':
+        header = "ಪವಿತ್ರ್ ಮಿಸಾಚೆಂ ಬಲಿದಾನ್";
+        break;
+      case 'daily_mass':
+        header = "ಹಫ್ತ್ಯಾಚಾ ದಿಸಾಂನಿ:";
+        break;
+      case 'catechism':
+        header = "ಕ್ರಿಸ್ತಾಂವ್ ಶಿಕ್ಷಣ್";
+        break;
+      case 'sacrement':
+        header = "ಪವಿತ್ರ್ ಸಾಕ್ರಾಮೆಂತಾಚೆಂ ಆರಾಧನ್";
+        break;
+      case 'novena':
+        header = "ನೊವೆನಾಂ";
+        break;
+      default:
+        header = "--";
+    }
+    return header;
   }
 }

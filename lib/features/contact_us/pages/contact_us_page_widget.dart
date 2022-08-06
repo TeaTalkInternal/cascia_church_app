@@ -1,5 +1,5 @@
-import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
+
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../common_widgets/top_app_bar_widget.dart';

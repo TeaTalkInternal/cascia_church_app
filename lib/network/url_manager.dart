@@ -17,6 +17,10 @@ class URLManager {
     return '${baseURL}associations';
   }
 
+  String get allContactsURL {
+    return '${baseURL}contacts';
+  }
+
   String get allInstitutionsURL {
     return '${baseURL}institutes';
   }

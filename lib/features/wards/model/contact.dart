@@ -14,7 +14,7 @@ class Contact {
     name = json['name'] != null ? json['name'] as String : '--';
     nameKn = json['nameKn'] != null ? json['nameKn'] as String : '--';
     wardName = json['wardName'] != null ? json['wardName'] as String : '--';
-    isGurkar = json['isGurkar'] != null ? json['isGurkar'] as String : '--';
+    isGurkar = json['isGurkar'] != null ? json['isGurkar'] as bool : false;
     mobileNumber =
         json['mobileNumber'] != null ? json['mobileNumber'] as String : '--';
     landlineNumber = json['landlineNumber'] != null
@@ -26,7 +26,7 @@ class Contact {
   late final String name;
   late final String nameKn;
   late final String wardName;
-  late final String isGurkar;
+  late final bool isGurkar;
   late final String mobileNumber;
   late final String landlineNumber;
 
