@@ -50,6 +50,7 @@ dependencies:
   mime_type:
   grouped_list:
   modal_bottom_sheet:
+  flutter_profile_picture:
   
 
 dev_dependencies:

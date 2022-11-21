@@ -7,6 +7,8 @@ import 'package:cascia_church_app/providers/app_providers.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../../common_widgets/list_cells/profile_name_thumbnail_list_tile_widget.dart';
+
 class PriestsHistoryPageWidget extends ConsumerStatefulWidget {
   const PriestsHistoryPageWidget({Key? key}) : super(key: key);
 
@@ -46,15 +48,21 @@ class PriestsHistoryPageWidgetState
           final title = appLanguage.isEnglishLocale
               ? priestsViewModel.getHistoryEnglishTitle(priestHistory)
               : priestsViewModel.getHistoryKonkaniTitle(priestHistory);
-          return ThumbnailListTileWidget(
+          // return ThumbnailListTileWidget(
+          //   isArrowVisible: false,
+          //   title: title,
+          //   subTitle: subTitle,
+          //   imageName:
+          //       utility.getImageNameWithBasePath(imageName: 'priest.png'),
+          //   // imageName: utility.getImageNameWithBasePath(
+          //   //   imageName: assistantPriestsViewModel.getAssociationImageAtIndex(index),
+
+          //   onTap: () {},
+          // );
+          return ProfileNameThumbnailListTileWidget(
             isArrowVisible: false,
             title: title,
             subTitle: subTitle,
-            imageName:
-                utility.getImageNameWithBasePath(imageName: 'priest.png'),
-            // imageName: utility.getImageNameWithBasePath(
-            //   imageName: assistantPriestsViewModel.getAssociationImageAtIndex(index),
-
             onTap: () {},
           );
         },
