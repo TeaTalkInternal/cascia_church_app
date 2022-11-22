@@ -95,7 +95,7 @@ class _SplashScreenWidgetState extends ConsumerState<SplashScreenWidget> {
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 1.5,
                         child: Image.asset(
-                          'assets/images/cascia.png',
+                          'assets/images/cascia_logo_2.png',
                           fit: BoxFit.cover,
                         ),
                       ),

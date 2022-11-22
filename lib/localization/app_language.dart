@@ -9,7 +9,7 @@ class AppLanguage extends ChangeNotifier {
   });
   final Ref ref;
 
-  Locale _appLocale = Locale('en_US');
+  Locale _appLocale = Locale('kn');
 
   Locale get appLocal => _appLocale;
 
@@ -17,7 +17,7 @@ class AppLanguage extends ChangeNotifier {
     final sharedUtility = ref.watch(sharedUtilityProvider);
 
     if (sharedUtility.getAppLanguageCode().isEmpty) {
-      _appLocale = Locale('en_US');
+      _appLocale = Locale('kn');
       return Null;
     }
     _appLocale = sharedUtility.getAppLanguageCountryCode().isEmpty
@@ -31,7 +31,7 @@ class AppLanguage extends ChangeNotifier {
     final sharedUtility = ref.watch(sharedUtilityProvider);
 
     if (type.isEmpty) {
-      _appLocale = Locale("en_US");
+      _appLocale = Locale("kn");
     } else {
       sharedUtility.setAppLanguageCode(type);
       sharedUtility.setAppLanguageCountryCode(country);

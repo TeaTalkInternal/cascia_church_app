@@ -7,12 +7,14 @@ class ContactsLineListTileWidget extends ConsumerWidget {
   const ContactsLineListTileWidget(
       {Key? key,
       required this.title,
+      required this.isGurkar,
       required this.mobileNumber,
       required this.landlineNumber,
       required this.onTap})
       : super(key: key);
 
   final String title;
+  final bool isGurkar;
   final String mobileNumber;
   final String landlineNumber;
   final void Function() onTap;
@@ -20,14 +22,16 @@ class ContactsLineListTileWidget extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final utility = ref.read(utilityProvider);
+    final titles = title.split("/");
+    final familyHeadName = (titles.length > 0) ? titles[0] : "";
     return GestureDetector(
       onTap: onTap,
-      child: Card(
-        margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-        elevation: 3,
+      child: Container(
+        margin: const EdgeInsets.symmetric(horizontal: 0, vertical: 5),
+        // shape: RoundedRectangleBorder(
+        //   borderRadius: BorderRadius.circular(10),
+        // ),
+        // elevation: 3,
         child: Padding(
           padding: const EdgeInsets.symmetric(
             horizontal: 10,
@@ -39,8 +43,23 @@ class ContactsLineListTileWidget extends ConsumerWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    Visibility(
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                          bottom: 5.0,
+                        ),
+                        child: Text(
+                          "Gurkar",
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w700,
+                              color: Colors.red),
+                        ),
+                      ),
+                      visible: isGurkar,
+                    ),
                     Text(
-                      title,
+                      familyHeadName,
                       style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w700,

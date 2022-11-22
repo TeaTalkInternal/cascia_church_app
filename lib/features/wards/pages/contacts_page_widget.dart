@@ -230,8 +230,11 @@ class ContactsPageWidgetState extends ConsumerState<ContactsPageWidget> {
             : conatctViewModel.getContactKonkaniName(contact);
         final mobile = conatctViewModel.getContactMobileNumber(contact);
         final landline = conatctViewModel.getContactLandlineNumber(contact);
+        final contactID = conatctViewModel.getContactId(contact);
+
         return ContactsLineListTileWidget(
           title: name,
+          isGurkar: contactID == '27',
           mobileNumber: mobile,
           landlineNumber: landline,
           onTap: () => showCupertinoModalBottomSheet(
@@ -247,7 +250,7 @@ class ContactsPageWidgetState extends ConsumerState<ContactsPageWidget> {
       },
       separatorBuilder: (listContext, index) {
         return Divider(
-          indent: 60,
+          indent: 15,
           height: 0.2,
           color: utility.appGreyColor,
         );

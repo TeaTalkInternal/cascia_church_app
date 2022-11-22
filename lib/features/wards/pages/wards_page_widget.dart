@@ -14,6 +14,7 @@ import '../../../common_widgets/list_cells/thumbnail_list_tile_widget.dart';
 import '../../../common_widgets/top_app_bar_widget.dart';
 import '../../../localization/app_localizations.dart';
 import '../../../providers/app_providers.dart';
+import 'contacts_page_widget.dart';
 
 class WardsPageWidget extends ConsumerStatefulWidget {
   const WardsPageWidget({Key? key}) : super(key: key);
@@ -135,6 +136,9 @@ class WardsPageWidgetState extends ConsumerState<WardsPageWidget> {
           onTap: () {
             print("indo $index");
             // _showDetailForIndex(wardsViewModel.getEventIdAtIndex(index));
+            if (index == 7)
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => ContactsPageWidget()));
           },
         );
       },

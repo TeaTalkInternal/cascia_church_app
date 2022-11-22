@@ -54,17 +54,24 @@ class TopAppBarWidget extends ConsumerWidget {
             const SizedBox(
               width: 20,
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 1.0),
-              child: Text(
-                _title,
-                style: TextStyle(
-                  fontSize: 21,
-                  color: utility.headerTitleTextColor,
-                  fontWeight: FontWeight.w400,
+            Flexible(
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  top: 1.0,
+                ),
+                child: Text(
+                  _title,
+                  style: TextStyle(
+                      fontSize: 21,
+                      color: utility.headerTitleTextColor,
+                      fontWeight: FontWeight.w400,
+                      overflow: TextOverflow.ellipsis),
                 ),
               ),
-            )
+            ),
+            const SizedBox(
+              width: 20,
+            ),
           ],
         ),
       ),

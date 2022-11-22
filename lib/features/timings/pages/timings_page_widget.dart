@@ -51,7 +51,34 @@ class TimingsPageWidgetState extends ConsumerState<TimingsPageWidget> {
   @override
   Widget build(BuildContext context) {
     final utility = ref.read(utilityProvider);
+    final timingText = """
+ಕಾಸ್ಸಿಯಾ ಫಿರ್ಗಜೆಂತ್ ಭಕ್ತಿಕ್ ಕಾರ್ಯಿಂ
 
+ಪವಿತ್ರ್ ಮಿಸಾಚೆಂ ಬಲಿದಾನ್
+
+ಸನ್ವಾರಾ    :  ಸಾಂಜೆರ್ 5:30 ವರಾರ್
+ಆಯ್ತಾರಾ : ಸಕಾಳಿಂ 6:00 ವರಾರ್ ಆನಿ
+                                8:00 ವರಾರ್
+ ಹಫ್ತ್ಯಾಚಾ ದಿಸಾಂನಿ: ಸಕಾಳಿಂ 6:15 ವರಾರ್ 
+                                ಸಾಂಜೆರ್ 5:30 ವರಾರ್
+
+ನೊವೆನಾಂ
+
+ಸೊಮಾರಾ: ಸಾಂ. ರಿತಾಚಾ ಮಾನಾಕ್
+                     (ಸಕಾಳಿಂ ಆನಿ ಸಾಂಜೆಚಾ ಮಿಸಾ ಉಪ್ರಾಂತ್)
+ಮಂಗ್ಳಾರಾ: ಸಾಂ. ಅಂತೊನಿಚಾ ಮಾನಾಕ್
+                     (ಸಾಂಜೆಚಾ ಮಿಸಾ ಉಪ್ರಾಂತ್)
+ಬುದ್ವಾರಾ : ನಿತ್ಯಾಧಾರ್ ಮಾಯೆಚಾ ಮಾನಾಕ್
+                 (ಸಾಂಜೆಚಾ ಮಿಸಾ ಉಪ್ರಾಂತ್)
+ಬ್ರೇಸ್ತಾರಾ  : ಬಾಳೊಕ್ ಜೆಜುಚಾ ಮಾನಾಕ್
+                (ಸಕಾಳಿಂ ಆನಿ ಸಾಂಜೆಚಾ ಮಿಸಾ ಉಪ್ರಾಂತ್)
+
+ಪವಿತ್ರ್ ಸಾಕ್ರಾಮೆಂತಾಚೆಂ ಆರಾಧನ್:
+ಹರ್ಯೆಕಾ ಸುಕ್ರಾರಾ ಸಾಂಜೆಚಾ ಮಿಸಾ ಉಪ್ರಾಂತ್
+
+ಕ್ರಿಸ್ತಾಂವ್ ಶಿಕ್ಷಣ್:
+ಆಯ್ತಾರಾ ಸಕಾಳಿಂ 9:00 ಥಾವ್ನ್ 10:00 ವರಾಂ ಪರ್ಯಾಂತ್
+""";
     return Scaffold(
       backgroundColor: utility.appBackgroundColor,
       appBar: PreferredSize(
@@ -62,8 +89,25 @@ class TimingsPageWidgetState extends ConsumerState<TimingsPageWidget> {
           iconData: Icons.arrow_back_ios,
         ),
       ),
-      body: _getTimingsList(
-        context: context,
+      // body: _getTimingsList(
+      //   context: context,
+      // ),
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 30.0),
+              child: Text(
+                timingText,
+                style: TextStyle(
+                  fontSize: 17.0,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

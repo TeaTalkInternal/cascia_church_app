@@ -22,12 +22,12 @@ class SingleLineListTileWidget extends ConsumerWidget {
     final utility = ref.read(utilityProvider);
     return GestureDetector(
       onTap: onTap,
-      child: Card(
-        margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-        elevation: 3,
+      child: Container(
+        margin: const EdgeInsets.symmetric(horizontal: 0, vertical: 5),
+        // shape: RoundedRectangleBorder(
+        //   borderRadius: BorderRadius.circular(10),
+        // ),
+        // elevation: 3,
         child: Padding(
           padding: const EdgeInsets.symmetric(
             horizontal: 10,
@@ -35,8 +35,8 @@ class SingleLineListTileWidget extends ConsumerWidget {
           ),
           child: Row(
             children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(10),
+              ClipOval(
+                // borderRadius: BorderRadius.circular(10),
                 child: Container(
                   color: Colors.blue[50],
                   height: 75,

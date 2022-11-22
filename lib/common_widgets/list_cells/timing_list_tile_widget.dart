@@ -22,15 +22,15 @@ class TimingListTileWidget extends ConsumerWidget {
     final utility = ref.read(utilityProvider);
     return GestureDetector(
       onTap: onTap,
-      child: Card(
+      child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-        elevation: 3,
+        // shape: RoundedRectangleBorder(
+        //   borderRadius: BorderRadius.circular(10),
+        // ),
+        // elevation: 3,
         child: Padding(
           padding: const EdgeInsets.symmetric(
-            horizontal: 10,
+            horizontal: 0,
             vertical: 10,
           ),
           child: Row(

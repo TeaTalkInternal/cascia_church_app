@@ -66,6 +66,14 @@ class ContactsViewModel {
     return contact?.nameKn ?? '--';
   }
 
+  bool getContactIsGurkar(Contact? contact) {
+    return contact?.isGurkar ?? false;
+  }
+
+  String getContactId(Contact? contact) {
+    return contact?.id ?? "0";
+  }
+
   String getContactEnglishName(Contact? contact) {
     return contact?.name ?? '--';
   }

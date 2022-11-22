@@ -12,7 +12,7 @@ import '../../history/pages/history_page_widget.dart';
 import '../../institutions/pages/institutions_page_widget.dart';
 import '../../settings/pages/settings_page_widget.dart';
 import '../../timings/pages/timings_page_widget.dart';
-import '../../wards/pages/ward_n_contacts_page_widget.dart';
+import '../../wards/pages/wards_page_widget.dart';
 import '../view_model/dashboard_view_model.dart';
 
 class DashboardPageWidget extends ConsumerWidget {
@@ -24,11 +24,13 @@ class DashboardPageWidget extends ConsumerWidget {
     final dashboardViewModel = ref.read(dashboardViewModelProvider);
     final mainScreenHeight = utility.getMainContentHeight(context);
 
+    final logoOffset = mainScreenHeight * 0.21;
+
     return Scaffold(
       backgroundColor: utility.scaffoldBackgroundColor,
       body: Stack(children: [
         Container(
-          height: mainScreenHeight * .45,
+          height: mainScreenHeight * .35,
           decoration: BoxDecoration(
             image: DecorationImage(
               // alignment: Alignment.,
@@ -42,8 +44,8 @@ class DashboardPageWidget extends ConsumerWidget {
           ),
         ),
         Container(
-          height: mainScreenHeight * .45,
-          color: Colors.black.withOpacity(0.4),
+          height: mainScreenHeight * .35,
+          color: Colors.black.withOpacity(0.3),
         ),
         Positioned(
           top: 35,
@@ -67,13 +69,15 @@ class DashboardPageWidget extends ConsumerWidget {
         Padding(
           padding: EdgeInsets.only(top: 20.0, right: 15.0, left: 15.0),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
-              const SizedBox(height: 30),
+              SizedBox(height: logoOffset),
+
               Image.asset(
                 utility.getImageNameWithBasePath(
-                  imageName: 'cascia.png',
+                  imageName: 'cascia_logo_4.png',
                 ),
-                height: mainScreenHeight * .19,
+                height: mainScreenHeight * .12,
               ),
 
               Expanded(
@@ -85,7 +89,7 @@ class DashboardPageWidget extends ConsumerWidget {
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       mainAxisSpacing: 5,
                       crossAxisSpacing: 5,
-                      childAspectRatio: 0.85,
+                      childAspectRatio: 0.75,
                       crossAxisCount: 2),
                   children: List.generate(
                     dashboardViewModel.getDashboardmenuOptions().length,
@@ -168,7 +172,7 @@ class DashboardPageWidget extends ConsumerWidget {
         break;
       case 'wards_families':
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => const WardsNContactsPageWidget(),
+          builder: (context) => const WardsPageWidget(),
         ));
         break;
       case 'blogs':
@@ -215,7 +219,7 @@ class DashboardGridItemWidget extends ConsumerWidget {
           children: <Widget>[
             Expanded(
               child: Container(
-                height: 100,
+                height: 85,
                 margin: const EdgeInsets.only(top: 10, left: 10, right: 10),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
