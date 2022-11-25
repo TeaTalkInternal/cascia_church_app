@@ -23,14 +23,14 @@ class DashboardPageWidget extends ConsumerWidget {
     final utility = ref.read(utilityProvider);
     final dashboardViewModel = ref.read(dashboardViewModelProvider);
     final mainScreenHeight = utility.getMainContentHeight(context);
-
+    final appLanguage = ref.read(appLanguageProvider);
     final logoOffset = mainScreenHeight * 0.21;
 
     return Scaffold(
       backgroundColor: utility.scaffoldBackgroundColor,
       body: Stack(children: [
         Container(
-          height: mainScreenHeight * .35,
+          height: mainScreenHeight * .36,
           decoration: BoxDecoration(
             image: DecorationImage(
               // alignment: Alignment.,
@@ -73,11 +73,16 @@ class DashboardPageWidget extends ConsumerWidget {
             children: <Widget>[
               SizedBox(height: logoOffset),
 
-              Image.asset(
-                utility.getImageNameWithBasePath(
-                  imageName: 'cascia_logo_4.png',
+              Padding(
+                padding: const EdgeInsets.only(bottom: 0.0),
+                child: Image.asset(
+                  utility.getImageNameWithBasePath(
+                    imageName: appLanguage.isEnglishLocale == true
+                        ? 'cascia_logo_2.png'
+                        : 'cascia_logo_4.png',
+                  ),
+                  height: mainScreenHeight * .12,
                 ),
-                height: mainScreenHeight * .12,
               ),
 
               Expanded(
@@ -206,7 +211,7 @@ class DashboardGridItemWidget extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final utility = ref.read(utilityProvider);
     final cardTextStyle = TextStyle(
-      fontSize: 18,
+      fontSize: 15,
       fontWeight: FontWeight.w700,
       color: utility.bodyTitleTextColor,
     );

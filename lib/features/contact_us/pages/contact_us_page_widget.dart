@@ -16,25 +16,30 @@ class ContactUsPageWidget extends ConsumerWidget {
     final mainScreenWidth = utility.getMainContentWidth(context);
     final appLanguage = ref.read(appLanguageProvider);
 
-    final contactText = """
-ಸಂಪರ್ಕ್ ಕರಾ
+    final mainHeading = 'ಸಂಪರ್ಕ್ ಕರಾ';
 
-ವಿಳಾಸ್: ಸಾಂ. ರಿತಾ ಫಿರ್ಗಜ್, ಕಾಸ್ಸಿಯಾ
-              ಜೆಪ್ಪು, ಮಂಗ್ಳುರ್ - 575001
+    final title1 = 'ವಿಳಾಸ್:';
+    final description1 = """
+ಸಾಂ. ರಿತಾ ಫಿರ್ಗಜ್, ಕಾಸ್ಸಿಯಾ
+ಜೆಪ್ಪು, ಮಂಗ್ಳುರ್ - 575001
+""";
 
-ಫೋನ್: (ದಫ್ತರ್) 0824 2415702
-             (ವಿಗಾರ್) (ಮೊ)9740292871
-ದಫ್ತರಾಚೊ ವೇಳ್:
-ಹಫ್ತ್ಯಾಚಾ ದಿಸಾನಿ - ಸಕಾಳಿಂ 9 ಥಾವ್ನ್
-                              ಸಾಂಜೆರ್ 5 ಪರ್ಯಾಂತ್
-ಸನ್ವಾರಾ - ಸಕಾಳಿಂ 9 ಥಾವ್ನ್ 
-               ದನ್ಪಾರಾಂ 12 ಪರ್ಯಾಂತ್
+    final title2 = 'ಫೋನ್:';
+    final description2 = """
+(ದಫ್ತರ್) 0824 2415702
+(ವಿಗಾರ್) (ಮೊ)9740292871
+""";
+    final title3 = 'ದಫ್ತರಾಚೊ ವೇಳ್:';
+    final description3 = """
+ಹಫ್ತ್ಯಾಚಾ ದಿಸಾನಿ: ಸಕಾಳಿಂ 9 ಥಾವ್ನ್ - ಸಾಂಜೆರ್ 5 ಪರ್ಯಾಂತ್
+ಸನ್ವಾರಾ: ಸಕಾಳಿಂ 9 ಥಾವ್ನ್ - ದನ್ಪಾರಾಂ 12 ಪರ್ಯಾಂತ್
+""";
+    final mainHeading2 =
+        'ಫಿರ್ಗಜೆಚೆಂ ಸಭಾ ಸಾಲ್ (ಹೊಲ್) ಬುಕ್ಕಿಂಗ್ ಕರುಂಕ್ ದಫ್ತರಾಕ್ ಭೇಟ್ ದಿಂವ್ಚಿ.';
 
-ಫಿರ್ಗಜೆಚೆಂ ಸಭಾ ಸಾಲ್ (ಹೊಲ್) ಬುಕ್ಕಿಂಗ್ ಕರುಂಕ್ ದಫ್ತರಾಕ್ ಭೇಟ್ ದಿಂವ್ಚಿ.
-
-ಹೊಲಾಚೊ ವೇಳ್:
+    final title4 = 'ಹೊಲಾಚೊ ವೇಳ್:';
+    final description4 = """
 ಸಕಾಳಿಂಚೆ ಕಾರ್ಯೆಂ: 10 ಥಾವ್ನ್ 3 ವರಾಂ ಪರ್ಯಾಂತ್
-
 ಸಾಂಜೆಚೆಂ ಕಾರ್ಯೆಂ: 6 ಥಾವ್ನ್ 10:30 ಪರ್ಯಾಂತ್
 """;
     return Scaffold(
@@ -42,25 +47,147 @@ class ContactUsPageWidget extends ConsumerWidget {
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(55),
         child: TopAppBarWidget(
-          title: AppLocalizations.of(context)!.translate('families'),
+          title: AppLocalizations.of(context)!.translate('contact_us'),
           toggleNavigation: () => Navigator.of(context).pop(),
           iconData: Icons.arrow_back_ios,
         ),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 30.0),
-            child: Text(
-              contactText,
-              style: TextStyle(
-                fontSize: 17.0,
-                fontWeight: FontWeight.w400,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 20,
+            vertical: 20.0,
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                mainHeading,
+                style: TextStyle(
+                  fontSize: 23.0,
+                  fontWeight: FontWeight.w700,
+                ),
               ),
-            ),
-          )
-        ],
+              SizedBox(
+                height: 15.0,
+              ),
+              Text(
+                title1,
+                style: TextStyle(
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              SizedBox(
+                height: 5.0,
+              ),
+              Text(
+                description1,
+                style: TextStyle(
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+              Divider(
+                indent: 15,
+                height: 0.2,
+                color: utility.appGreyColor,
+              ),
+              SizedBox(
+                height: 15.0,
+              ),
+              Text(
+                title2,
+                style: TextStyle(
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              SizedBox(
+                height: 5.0,
+              ),
+              Text(
+                description2,
+                style: TextStyle(
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+              Divider(
+                indent: 15,
+                height: 0.2,
+                color: utility.appGreyColor,
+              ),
+              SizedBox(
+                height: 15.0,
+              ),
+              Text(
+                title3,
+                style: TextStyle(
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              SizedBox(
+                height: 5.0,
+              ),
+              Text(
+                description3,
+                style: TextStyle(
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+              SizedBox(
+                height: 5.0,
+              ),
+              Text(
+                mainHeading2,
+                style: TextStyle(
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              SizedBox(
+                height: 5.0,
+              ),
+              Divider(
+                indent: 15,
+                height: 0.2,
+                color: utility.appGreyColor,
+              ),
+              SizedBox(
+                height: 15.0,
+              ),
+              Text(
+                title4,
+                style: TextStyle(
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              SizedBox(
+                height: 5.0,
+              ),
+              Text(
+                description4,
+                style: TextStyle(
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+              Divider(
+                indent: 15,
+                height: 0.2,
+                color: utility.appGreyColor,
+              ),
+              SizedBox(
+                height: 15.0,
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

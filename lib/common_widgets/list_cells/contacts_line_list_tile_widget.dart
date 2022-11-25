@@ -71,25 +71,25 @@ class ContactsLineListTileWidget extends ConsumerWidget {
               const SizedBox(
                 width: 10,
               ),
-              InkWell(
-                onTap: () => {},
-                child: Image.asset(
-                  'assets/images/mobile-number.png',
-                  height: 30,
-                  width: 30,
-                ),
-              ),
-              const SizedBox(
-                width: 10,
-              ),
-              InkWell(
-                onTap: () => {},
-                child: Image.asset(
-                  'assets/images/landline-number.png',
-                  height: 30,
-                  width: 30,
-                ),
-              ),
+              // InkWell(
+              //   onTap: () => {},
+              //   child: Image.asset(
+              //     'assets/images/mobile-number.png',
+              //     height: 30,
+              //     width: 30,
+              //   ),
+              // ),
+              // const SizedBox(
+              //   width: 10,
+              // ),
+              // InkWell(
+              //   onTap: () => {},
+              //   child: Image.asset(
+              //     'assets/images/landline-number.png',
+              //     height: 30,
+              //     width: 30,
+              //   ),
+              // ),
             ],
           ),
         ),

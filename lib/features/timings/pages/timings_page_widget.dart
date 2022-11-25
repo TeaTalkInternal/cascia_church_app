@@ -51,32 +51,26 @@ class TimingsPageWidgetState extends ConsumerState<TimingsPageWidget> {
   @override
   Widget build(BuildContext context) {
     final utility = ref.read(utilityProvider);
-    final timingText = """
-ಕಾಸ್ಸಿಯಾ ಫಿರ್ಗಜೆಂತ್ ಭಕ್ತಿಕ್ ಕಾರ್ಯಿಂ
+    final mainHeading = 'ಕಾಸ್ಸಿಯಾ ಫಿರ್ಗಜೆಂತ್ ಭಕ್ತಿಕ್ ಕಾರ್ಯಿಂ';
+    final timingTextTitle1 = 'ಪವಿತ್ರ್ ಮಿಸಾಚೆಂ ಬಲಿದಾನ್';
+    final timingTextDescription1 = """
+ಸನ್ವಾರಾ:  ಸಾಂಜೆರ್ 5:30 ವರಾರ್
+ಆಯ್ತಾರಾ: ಸಕಾಳಿಂ 6:00 ವರಾರ್ ಆನಿ 8:00 ವರಾರ್
+ಹಫ್ತ್ಯಾಚಾ ದಿಸಾಂನಿ: ಸಕಾಳಿಂ 6:15 ವರಾರ್ ಸಾಂಜೆರ್ 5:30 ವರಾರ್
+""";
 
-ಪವಿತ್ರ್ ಮಿಸಾಚೆಂ ಬಲಿದಾನ್
+    final timingTextTitle2 = 'ನೊವೆನಾಂ';
+    final timingTextDescription2 = """
+ಸೊಮಾರಾ: ಸಾಂ. ರಿತಾಚಾ ಮಾನಾಕ್ (ಸಕಾಳಿಂ ಆನಿ ಸಾಂಜೆಚಾ ಮಿಸಾ ಉಪ್ರಾಂತ್)
+ಮಂಗ್ಳಾರಾ: ಸಾಂ. ಅಂತೊನಿಚಾ ಮಾನಾಕ್ (ಸಾಂಜೆಚಾ ಮಿಸಾ ಉಪ್ರಾಂತ್)
+ಬುದ್ವಾರಾ: ನಿತ್ಯಾಧಾರ್ ಮಾಯೆಚಾ ಮಾನಾಕ್ (ಸಾಂಜೆಚಾ ಮಿಸಾ ಉಪ್ರಾಂತ್)
+ಬ್ರೇಸ್ತಾರಾ: ಬಾಳೊಕ್ ಜೆಜುಚಾ ಮಾನಾಕ್ (ಸಕಾಳಿಂ ಆನಿ ಸಾಂಜೆಚಾ ಮಿಸಾ ಉಪ್ರಾಂತ್)
+""";
+    final mainHeading2 = 'ಪವಿತ್ರ್ ಸಾಕ್ರಾಮೆಂತಾಚೆಂ ಆರಾಧನ್:';
+    final timingTextTitle3 = 'ಹರ್ಯೆಕಾ ಸುಕ್ರಾರಾ ಸಾಂಜೆಚಾ ಮಿಸಾ ಉಪ್ರಾಂತ್';
 
-ಸನ್ವಾರಾ    :  ಸಾಂಜೆರ್ 5:30 ವರಾರ್
-ಆಯ್ತಾರಾ : ಸಕಾಳಿಂ 6:00 ವರಾರ್ ಆನಿ
-                                8:00 ವರಾರ್
- ಹಫ್ತ್ಯಾಚಾ ದಿಸಾಂನಿ: ಸಕಾಳಿಂ 6:15 ವರಾರ್ 
-                                ಸಾಂಜೆರ್ 5:30 ವರಾರ್
-
-ನೊವೆನಾಂ
-
-ಸೊಮಾರಾ: ಸಾಂ. ರಿತಾಚಾ ಮಾನಾಕ್
-                     (ಸಕಾಳಿಂ ಆನಿ ಸಾಂಜೆಚಾ ಮಿಸಾ ಉಪ್ರಾಂತ್)
-ಮಂಗ್ಳಾರಾ: ಸಾಂ. ಅಂತೊನಿಚಾ ಮಾನಾಕ್
-                     (ಸಾಂಜೆಚಾ ಮಿಸಾ ಉಪ್ರಾಂತ್)
-ಬುದ್ವಾರಾ : ನಿತ್ಯಾಧಾರ್ ಮಾಯೆಚಾ ಮಾನಾಕ್
-                 (ಸಾಂಜೆಚಾ ಮಿಸಾ ಉಪ್ರಾಂತ್)
-ಬ್ರೇಸ್ತಾರಾ  : ಬಾಳೊಕ್ ಜೆಜುಚಾ ಮಾನಾಕ್
-                (ಸಕಾಳಿಂ ಆನಿ ಸಾಂಜೆಚಾ ಮಿಸಾ ಉಪ್ರಾಂತ್)
-
-ಪವಿತ್ರ್ ಸಾಕ್ರಾಮೆಂತಾಚೆಂ ಆರಾಧನ್:
-ಹರ್ಯೆಕಾ ಸುಕ್ರಾರಾ ಸಾಂಜೆಚಾ ಮಿಸಾ ಉಪ್ರಾಂತ್
-
-ಕ್ರಿಸ್ತಾಂವ್ ಶಿಕ್ಷಣ್:
+    final timingTextTitle4 = 'ಕ್ರಿಸ್ತಾಂವ್ ಶಿಕ್ಷಣ್:';
+    final timingTextDescription4 = """
 ಆಯ್ತಾರಾ ಸಕಾಳಿಂ 9:00 ಥಾವ್ನ್ 10:00 ವರಾಂ ಪರ್ಯಾಂತ್
 """;
     return Scaffold(
@@ -93,20 +87,130 @@ class TimingsPageWidgetState extends ConsumerState<TimingsPageWidget> {
       //   context: context,
       // ),
       body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 30.0),
-              child: Text(
-                timingText,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 20,
+            vertical: 20.0,
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                mainHeading,
                 style: TextStyle(
-                  fontSize: 17.0,
+                  fontSize: 23.0,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              SizedBox(
+                height: 15.0,
+              ),
+              Text(
+                timingTextTitle1,
+                style: TextStyle(
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              SizedBox(
+                height: 5.0,
+              ),
+              Text(
+                timingTextDescription1,
+                style: TextStyle(
+                  fontSize: 16.0,
                   fontWeight: FontWeight.w400,
                 ),
               ),
-            )
-          ],
+              Divider(
+                indent: 15,
+                height: 0.2,
+                color: utility.appGreyColor,
+              ),
+              SizedBox(
+                height: 15.0,
+              ),
+              Text(
+                timingTextTitle2,
+                style: TextStyle(
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              SizedBox(
+                height: 5.0,
+              ),
+              Text(
+                timingTextDescription2,
+                style: TextStyle(
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+              Divider(
+                indent: 15,
+                height: 0.2,
+                color: utility.appGreyColor,
+              ),
+              SizedBox(
+                height: 15.0,
+              ),
+              Text(
+                mainHeading2,
+                style: TextStyle(
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              SizedBox(
+                height: 5.0,
+              ),
+              Text(
+                timingTextTitle3,
+                style: TextStyle(
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+              SizedBox(
+                height: 5.0,
+              ),
+              Divider(
+                indent: 15,
+                height: 0.2,
+                color: utility.appGreyColor,
+              ),
+              SizedBox(
+                height: 15.0,
+              ),
+              Text(
+                timingTextTitle4,
+                style: TextStyle(
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              SizedBox(
+                height: 5.0,
+              ),
+              Text(
+                timingTextDescription4,
+                style: TextStyle(
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+              Divider(
+                indent: 15,
+                height: 0.2,
+                color: utility.appGreyColor,
+              ),
+              SizedBox(
+                height: 15.0,
+              ),
+            ],
+          ),
         ),
       ),
     );
