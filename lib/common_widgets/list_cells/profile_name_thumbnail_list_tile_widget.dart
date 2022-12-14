@@ -45,7 +45,7 @@ class ProfileNameThumbnailListTileWidget extends ConsumerWidget {
     // final firstName = (messengerNames.length >= 2) ? messengerNames[1] : '';
     // final fullName = firstName + lastName;
     return GestureDetector(
-      onTap: () => onTap,
+      onTap: onTap,
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 0, vertical: 5),
         // shape: RoundedRectangleBorder(

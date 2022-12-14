@@ -11,6 +11,8 @@ import 'package:flutter/material.dart';
 import 'package:grouped_list/grouped_list.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import 'package:easy_rich_text/easy_rich_text.dart';
+
 import '../../../common_widgets/list_cells/Timing_list_tile_widget.dart';
 import '../../../common_widgets/list_cells/double_line_list_tile_widget.dart';
 import '../../../common_widgets/list_cells/thumbnail_list_tile_widget.dart';
@@ -56,6 +58,8 @@ class TimingsPageWidgetState extends ConsumerState<TimingsPageWidget> {
     final timingTextDescription1 = """
 ಸನ್ವಾರಾ:  ಸಾಂಜೆರ್ 5:30 ವರಾರ್
 ಆಯ್ತಾರಾ: ಸಕಾಳಿಂ 6:00 ವರಾರ್ ಆನಿ 8:00 ವರಾರ್
+""";
+    final timingTextDescription11 = """
 ಹಫ್ತ್ಯಾಚಾ ದಿಸಾಂನಿ: ಸಕಾಳಿಂ 6:15 ವರಾರ್ ಸಾಂಜೆರ್ 5:30 ವರಾರ್
 """;
 
@@ -109,16 +113,42 @@ class TimingsPageWidgetState extends ConsumerState<TimingsPageWidget> {
               Text(
                 timingTextTitle1,
                 style: TextStyle(
-                  fontSize: 18.0,
+                  fontSize: 20.0,
                   fontWeight: FontWeight.w700,
                 ),
               ),
               SizedBox(
                 height: 5.0,
               ),
-              Text(
+              EasyRichText(
                 timingTextDescription1,
-                style: TextStyle(
+                patternList: [
+                  EasyRichTextPattern(
+                    targetString: 'ಸನ್ವಾರಾ:',
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  EasyRichTextPattern(
+                    targetString: 'ಆಯ್ತಾರಾ:',
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ],
+                defaultStyle: TextStyle(
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+              SizedBox(
+                height: 0.0,
+              ),
+              EasyRichText(
+                timingTextDescription11,
+                patternList: [
+                  EasyRichTextPattern(
+                    targetString: 'ಹಫ್ತ್ಯಾಚಾ ದಿಸಾಂನಿ:',
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ],
+                defaultStyle: TextStyle(
                   fontSize: 16.0,
                   fontWeight: FontWeight.w400,
                 ),
@@ -134,16 +164,34 @@ class TimingsPageWidgetState extends ConsumerState<TimingsPageWidget> {
               Text(
                 timingTextTitle2,
                 style: TextStyle(
-                  fontSize: 18.0,
+                  fontSize: 20.0,
                   fontWeight: FontWeight.w700,
                 ),
               ),
               SizedBox(
                 height: 5.0,
               ),
-              Text(
+              EasyRichText(
                 timingTextDescription2,
-                style: TextStyle(
+                patternList: [
+                  EasyRichTextPattern(
+                    targetString: 'ಸೊಮಾರಾ:',
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  EasyRichTextPattern(
+                    targetString: 'ಮಂಗ್ಳಾರಾ:',
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  EasyRichTextPattern(
+                    targetString: 'ಬುದ್ವಾರಾ:',
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  EasyRichTextPattern(
+                    targetString: 'ಬ್ರೇಸ್ತಾರಾ:',
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ],
+                defaultStyle: TextStyle(
                   fontSize: 16.0,
                   fontWeight: FontWeight.w400,
                 ),
@@ -159,7 +207,7 @@ class TimingsPageWidgetState extends ConsumerState<TimingsPageWidget> {
               Text(
                 mainHeading2,
                 style: TextStyle(
-                  fontSize: 18.0,
+                  fontSize: 20.0,
                   fontWeight: FontWeight.w700,
                 ),
               ),
@@ -187,7 +235,7 @@ class TimingsPageWidgetState extends ConsumerState<TimingsPageWidget> {
               Text(
                 timingTextTitle4,
                 style: TextStyle(
-                  fontSize: 18.0,
+                  fontSize: 20.0,
                   fontWeight: FontWeight.w700,
                 ),
               ),

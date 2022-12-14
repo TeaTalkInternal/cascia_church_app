@@ -5,9 +5,11 @@ import 'package:cascia_church_app/features/history/view_model/priests_history_vi
 import 'package:cascia_church_app/localization/app_localizations.dart';
 import 'package:cascia_church_app/providers/app_providers.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../common_widgets/list_cells/profile_name_thumbnail_list_tile_widget.dart';
+import 'priest_details_page_widget.dart';
 
 class PriestsHistoryPageWidget extends ConsumerStatefulWidget {
   const PriestsHistoryPageWidget({Key? key}) : super(key: key);
@@ -60,10 +62,10 @@ class PriestsHistoryPageWidgetState
           //   onTap: () {},
           // );
           return ProfileNameThumbnailListTileWidget(
-            isArrowVisible: false,
+            isArrowVisible: index == 0,
             title: title,
             subTitle: subTitle,
-            onTap: () {},
+            onTap: () => _showDetails(index),
           );
         },
         separatorBuilder: (listContext, index) {
@@ -76,5 +78,13 @@ class PriestsHistoryPageWidgetState
         itemCount: priestsViewModel.getAllHistorysCount(),
       ),
     );
+  }
+
+  void _showDetails(int index) {
+    print("_showDetails");
+    if (index == 0) {
+      Navigator.of(context).push(
+          MaterialPageRoute(builder: (_) => const PreiestDetailsPageWidget()));
+    }
   }
 }

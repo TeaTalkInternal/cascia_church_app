@@ -58,8 +58,20 @@ class ContactsViewModel {
   // }
 
   void _setAllContacts(List<Contact> contacts) {
-    print("contacts : ${contacts.length}");
-    _allContacts = contacts;
+    contacts.sort((a, b) {
+      return a.name.toLowerCase().compareTo(b.name.toLowerCase());
+    });
+    var sortedArray = contacts;
+    Contact? firstGurkar = contacts.firstWhere((element) {
+      return element.id == "27";
+    });
+
+    if (firstGurkar != null) {
+      sortedArray.remove(firstGurkar);
+      sortedArray.insert(0, firstGurkar);
+    }
+
+    _allContacts = sortedArray;
   }
 
   String getContactKonkaniName(Contact? contact) {

@@ -42,8 +42,24 @@ class ContactsPageWidgetState extends ConsumerState<ContactsPageWidget> {
   _fetchContacts() {
     final _fetchedPhotos =
         ref.read(contactViewModelProvider).fetchAllContacts();
+
     _fetchedPhotos.then((value) {
       setState(() {
+        // value.sort((a, b) {
+        //   return a.name.toLowerCase().compareTo(b.name.toLowerCase());
+        // });
+        // var sortedArray = value;
+        // // Contact? firstGurkar = sortedArray.firstWhere((element) {
+        // //   return element.id == 27;
+        // // });
+        // // if (firstGurkar != null) {
+        // //   print("gurkar ${firstGurkar.id}");
+        // // }
+
+        // ///print("lenghth is ${sortedArray.length}");
+        // //sortedArray.remove(gurkar);
+        // //print("lenghth again ${sortedArray.length}");
+        //  sortedArray.insert(0, gurkar);
         _isLoading = false;
         _allContacts = value;
         _filteredContacts = value;
