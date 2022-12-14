@@ -35,7 +35,7 @@ dependencies:
 
 
   connectivity_plus:
-  cupertino_icons: ^1.0.2
+  cupertino_icons: 
   hooks_riverpod: 
   flutter_hooks: 
   rflutter_alert: 
@@ -51,6 +51,10 @@ dependencies:
   grouped_list:
   modal_bottom_sheet:
   flutter_profile_picture:
+  cached_network_image:
+  infinite_carousel:
+  image_network:
+  flutter_dotenv:
   
 
 dev_dependencies:

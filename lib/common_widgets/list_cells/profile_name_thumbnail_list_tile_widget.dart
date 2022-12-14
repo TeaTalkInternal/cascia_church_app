@@ -35,7 +35,8 @@ class ProfileNameThumbnailListTileWidget extends ConsumerWidget {
     print("frName $frName");
     final frKNName = frName.replaceAll('ಬಾಪ್. ', '');
     print("frKNName $frKNName");
-    final msgName = frKNName.replaceAll('Msgr. ', '');
+    final msgNameKN = frKNName.replaceAll('ಮಾ| ', '');
+    final msgName = msgNameKN.replaceAll('Msgr. ', '');
     print("msgName $msgName");
     // final titleNames = title.split(' ');
     // final lastName = (titleNames.length >= 2) ? titleNames[1] : '';

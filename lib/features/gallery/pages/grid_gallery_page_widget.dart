@@ -6,6 +6,7 @@ import 'package:cascia_church_app/common_widgets/no_photos_data_widget.dart';
 import 'package:cascia_church_app/common_widgets/pages/full_screen_image_page_widget.dart';
 import 'package:cascia_church_app/common_widgets/top_app_bar_widget.dart';
 import 'package:cascia_church_app/features/gallery/model/photo.dart';
+import 'package:cascia_church_app/features/gallery/view_models/gallery_base_view_model.dart';
 import 'package:cascia_church_app/features/gallery/view_models/images_gallery_view_model.dart';
 import 'package:cascia_church_app/localization/app_localizations.dart';
 import 'package:cascia_church_app/providers/app_providers.dart';
@@ -14,45 +15,70 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class ImagesGalleryPageWidget extends ConsumerStatefulWidget {
-  const ImagesGalleryPageWidget({
+import '../../../common_widgets/gallery/gallery_with_image_slider_page_widget.dart';
+import '../model/event_type.dart';
+
+class GridGalleryPageWidget extends ConsumerStatefulWidget {
+  const GridGalleryPageWidget({
     Key? key,
-    required this.url,
   }) : super(key: key);
 
-  final String url;
   @override
   ImagesGalleryPageWidgetState createState() => ImagesGalleryPageWidgetState();
 }
 
 class ImagesGalleryPageWidgetState
-    extends ConsumerState<ImagesGalleryPageWidget> {
-  bool _isLoading = true;
-  List<Photo> _allPhotos = [];
+    extends ConsumerState<GridGalleryPageWidget> {
+  // bool _isLoading = true;
+  // List<Photo> _allPhotos = [];
   // List<Photo> _fullPhotos = [];
   // bool _showNoResultsText = false;
 
   final rnd = Random(150);
   late List<int> extents;
 
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   extents = List<int>.generate(100, (index) => rnd.nextInt(3) + 1);
+  //   _fetchPhotos();
+  // }
+
+  bool _isLoading = true;
+
+  List<EventType> _allEventTypes = [];
+  // List<EventType> _fullEventTypes = [];
+  bool _showNoResultsText = false;
+
   @override
   void initState() {
     super.initState();
     extents = List<int>.generate(100, (index) => rnd.nextInt(3) + 1);
-    _fetchPhotos();
+    _fetchEventTypes();
   }
 
-  void _fetchPhotos() {
-    // Pass appropriate url here , Like for church church images fetch url
+  void _fetchEventTypes() {
     final _fetchedEvents =
-        ref.read(imagesGalleryViewModelProvider(widget.url)).fetchAllPhotos();
+        ref.read(galleryBaseViewModelProvider).fetchAllEventTypes();
     _fetchedEvents.then((value) {
       setState(() {
         _isLoading = false;
-        _allPhotos = value;
+        _allEventTypes = value;
       });
     });
   }
+
+  // void _fetchPhotos() {
+  //   // Pass appropriate url here , Like for church church images fetch url
+  //   final _fetchedEvents =
+  //       ref.read(imagesGalleryViewModelProvider(widget.url)).fetchAllPhotos();
+  //   _fetchedEvents.then((value) {
+  //     setState(() {
+  //       _isLoading = false;
+  //       _allPhotos = value;
+  //     });
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -99,31 +125,31 @@ class ImagesGalleryPageWidgetState
     // _allPhotos.clear();
     // _allPhotos = favoritesVMProvider.getAllPhotos();
 
-    return (_allPhotos.isEmpty && _isLoading)
+    return (_allEventTypes.isEmpty && _isLoading)
         ? Center(
             child: SizedBox(
               height: 120,
               child: Image.asset('assets/images/loader.gif'),
             ),
           )
-        : (_allPhotos.isEmpty && _isLoading == false)
+        : (_allEventTypes.isEmpty && _isLoading == false)
             ? NoPhotosDataWidget(
                 noPhotosMessage:
                     'No photos found at this time. Please try Refreshing again.',
                 refreshWidget: () => _refreshPhotosList(context: context),
               )
             : _buildPhotosGridView(
-                photos: _allPhotos,
+                photos: _allEventTypes,
                 context: context,
               );
   }
 
   void _refreshPhotosList({required BuildContext context}) {
-    _fetchPhotos();
+    _getPhotosList(context: context);
   }
 
   Widget _buildPhotosGridView(
-      {required List<Photo> photos, required BuildContext context}) {
+      {required List<EventType> photos, required BuildContext context}) {
     //final galleryBaseViewModel = ref.read(galleryBaseViewModelProvider);
     final utility = ref.read(utilityProvider);
     return Container(
@@ -184,12 +210,12 @@ class ImagesGalleryPageWidgetState
                       ),
                       color: Colors.black.withOpacity(0.7),
                     ),
-                    height: 30.0,
+                    height: 40.0,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Text(
-                          photo.title,
+                          photo.eventName,
                           overflow: TextOverflow.ellipsis,
                           maxLines: 1,
                           style: TextStyle(
@@ -212,19 +238,36 @@ class ImagesGalleryPageWidgetState
     );
   }
 
-  void _openGalleryDetails(Photo photo) async {
-    if (photo.isVideo) {
-      final videoUrl = photo.videoUrl;
-      final canOpen = await canLaunch(videoUrl);
-      if (canOpen) {
-        await launch(photo.videoUrl);
-      }
-    } else {
-      Navigator.of(context).push(MaterialPageRoute<FullScreenPageWidget>(
-        builder: (_) => FullScreenPageWidget(
-          photo: photo,
+  void _openGalleryDetails(EventType photo) async {
+    // if (photo.isVideo) {
+    //   final videoUrl = photo.videoUrl;
+    //   final canOpen = await canLaunch(videoUrl);
+    //   if (canOpen) {
+    //     await launch(photo.videoUrl);
+    //   }
+    // } else {
+    //   Navigator.of(context).push(MaterialPageRoute<FullScreenPageWidget>(
+    //     builder: (_) => FullScreenPageWidget(
+    //       photo: photo,
+    //     ),
+    //   ));
+    // }
+
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (_) => GalleryWithImageSliderPageWidget(
+        titleGallery: photo.eventName,
+        galleryFolderName: "${photo.folderName}",
+        initialImagePublicID: "publicID",
+        initialIndex: 0,
+        scrollDirection: Axis.horizontal,
+        iconBack: const Icon(
+          Icons.arrow_back,
+          color: Colors.white,
         ),
-      ));
-    }
+        fit: BoxFit.cover,
+        loop: true,
+        activeCarouselList: true,
+      ),
+    ));
   }
 }

@@ -5,6 +5,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../../common_widgets/top_app_bar_widget.dart';
 import '../../../localization/app_localizations.dart';
 import '../../../providers/app_providers.dart';
+import '../../../utility/utility.dart';
 import '../view_model/church_history_view_model.dart';
 
 class ChurchHistoryPageWidget extends ConsumerWidget {
@@ -74,7 +75,12 @@ class ChurchHistoryPageWidget extends ConsumerWidget {
                       },
                       autoplay: false,
                       itemCount: churchHistoryViewModel.churchImages.length,
-                      control: const SwiperControl(color: Colors.white),
+                      control: SwiperControl(
+                        color: Colors.white,
+                        iconNext: Icons.arrow_circle_right_sharp,
+                        iconPrevious: Icons.arrow_circle_left_sharp,
+                        size: 40.0,
+                      ),
                     ),
                   ),
                 ),

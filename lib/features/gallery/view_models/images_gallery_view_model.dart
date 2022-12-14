@@ -2,6 +2,10 @@ import 'package:cascia_church_app/features/gallery/model/photo.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../../common_widgets/gallery/gallery_model.dart';
+import '../../../network/network_manager.dart';
+import '../../../network/url_manager.dart';
+
 final imagesGalleryViewModelProvider =
     Provider.family<ImagesGalleryViewModel, String>((ref, url) {
   return ImagesGalleryViewModel(ref: ref, fetchUrl: url);

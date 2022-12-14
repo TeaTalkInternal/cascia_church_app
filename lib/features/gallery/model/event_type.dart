@@ -5,6 +5,7 @@ class EventType {
     required this.thumbnailUrl,
     required this.imageUrl,
     required this.description,
+    required this.folderName,
   });
 
   EventType.fromJson(Map<dynamic, dynamic> json) {
@@ -15,6 +16,8 @@ class EventType {
     imageUrl = json['imageUrl'] != null ? json['imageUrl'] as String : '--';
     description =
         json['description'] != null ? json['description'] as String : '--';
+    folderName =
+        json['folderName'] != null ? json['folderName'] as String : '--';
   }
 
   late final String id;
@@ -22,6 +25,7 @@ class EventType {
   late final String thumbnailUrl;
   late final String imageUrl;
   late final String description;
+  late final String folderName;
 
   Map<String, dynamic> toJson() {
     final _data = <String, dynamic>{};
@@ -30,6 +34,7 @@ class EventType {
     _data['thumbnailUrl'] = thumbnailUrl;
     _data['imageUrl'] = imageUrl;
     _data['description'] = description;
+    _data['folderName'] = folderName;
     return _data;
   }
 }

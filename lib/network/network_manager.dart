@@ -11,9 +11,21 @@ final networkManagerProvider = Provider<NetworkManager>((_) {
 class NetworkManager {
   final Dio _dio = Dio();
   // final String _API_KEY = '6c560f27-2214-4bbe-954e-2ef42d20619b';
+
+  final cloudinaryAccessKey =
+      "OTU5NTMxMzQ0MjE5OTI2Ok9aSWtRQU0xZG1WRW9falF2aVpyZExOTW14bw==";
+  //dotenv.env['CLOUDINARY_AUTH_KEY'];
+
   Map<String, String> _getRequestHeader() {
     //return {'x-api-key': _API_KEY, 'Content-Type': 'application/json'};
     return {'Content-Type': 'application/json'};
+  }
+
+  Map<String, String> _getCloudinaryRequestHeader() {
+    return {
+      'Authorization': "Basic ${cloudinaryAccessKey}",
+      'Content-Type': 'application/json'
+    };
   }
 
   Future<dynamic> getRequest({required String url}) async {
@@ -22,6 +34,24 @@ class NetworkManager {
         url,
         options: Options(
           headers: _getRequestHeader(),
+        ),
+      );
+      return _respone.data;
+    } on DioError catch (dioError) {
+      throw DioErrorException.fromDioError(dioError);
+    }
+  }
+
+  Future<dynamic> postCloudinaryRequest(
+      {required String url, required dynamic params}) async {
+    print("url ${url}");
+    print("params ${params}");
+    try {
+      final Response _respone = await _dio.post(
+        url,
+        data: params,
+        options: Options(
+          headers: _getCloudinaryRequestHeader(),
         ),
       );
       return _respone.data;
