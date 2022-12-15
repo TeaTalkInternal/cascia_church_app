@@ -60,7 +60,7 @@ class PreiestDetailsPageWidget extends ConsumerWidget {
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(55),
         child: TopAppBarWidget(
-          title: AppLocalizations.of(context)!.translate('blogs'),
+          title: authorName,
           toggleNavigation: () => Navigator.of(context).pop(),
           iconData: Icons.arrow_back_ios,
         ),

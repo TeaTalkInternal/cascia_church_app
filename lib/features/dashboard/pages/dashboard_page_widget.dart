@@ -77,6 +77,7 @@ class DashboardPageWidget extends ConsumerWidget {
                 ),
               ),
               child: FlexibleSpaceBar(
+                centerTitle: true,
                 title: Container(
                   child: Text(
                     title,
