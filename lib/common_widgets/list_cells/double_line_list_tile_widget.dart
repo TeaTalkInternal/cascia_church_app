@@ -37,8 +37,8 @@ class DoubleLineListTileWidget extends ConsumerWidget {
           ),
           child: Row(
             children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(10),
+              ClipOval(
+                // borderRadius: BorderRadius.circular(10),
                 child: Container(
                   color: Colors.blue[50],
                   height: 75,

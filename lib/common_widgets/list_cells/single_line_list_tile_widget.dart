@@ -46,12 +46,12 @@ class SingleLineListTileWidget extends ConsumerWidget {
                           placeholder: utility.getImageNameWithBasePath(
                               imageName: 'loader.gif'),
                           image: imageName,
-                          fit: BoxFit.cover,
+                          fit: BoxFit.contain,
                           placeholderScale: 0.001,
                         )
                       : Image.asset(
                           imageName,
-                          fit: BoxFit.cover,
+                          fit: BoxFit.contain,
                         ),
                 ),
               ),

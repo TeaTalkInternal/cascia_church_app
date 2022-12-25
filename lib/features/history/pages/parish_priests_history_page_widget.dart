@@ -1,5 +1,8 @@
 import 'package:cascia_church_app/common_widgets/list_cells/thumbnail_list_tile_widget.dart';
 import 'package:cascia_church_app/common_widgets/top_app_bar_widget.dart';
+import 'package:cascia_church_app/features/history/pages/priest_details_page_widget_3.dart';
+import 'package:cascia_church_app/features/history/pages/priest_details_page_widget_2.dart';
+import 'package:cascia_church_app/features/history/pages/priest_details_page_widget_4.dart';
 import 'package:cascia_church_app/features/history/view_model/assistant_priests_history_view_model.dart';
 import 'package:cascia_church_app/features/history/view_model/priests_history_view_model.dart';
 import 'package:cascia_church_app/localization/app_localizations.dart';
@@ -62,7 +65,8 @@ class PriestsHistoryPageWidgetState
           //   onTap: () {},
           // );
           return ProfileNameThumbnailListTileWidget(
-            isArrowVisible: index == 0,
+            isArrowVisible:
+                (index == 0 || index == 2 || index == 3 || index == 4),
             title: title,
             subTitle: subTitle,
             onTap: () => _showDetails(index),
@@ -85,6 +89,15 @@ class PriestsHistoryPageWidgetState
     if (index == 0) {
       Navigator.of(context).push(
           MaterialPageRoute(builder: (_) => const PreiestDetailsPageWidget()));
+    } else if (index == 2) {
+      Navigator.of(context).push(
+          MaterialPageRoute(builder: (_) => const PreiestDetailsPageWidget2()));
+    } else if (index == 3) {
+      Navigator.of(context).push(
+          MaterialPageRoute(builder: (_) => const PreiestDetailsPageWidget3()));
+    } else if (index == 4) {
+      Navigator.of(context).push(
+          MaterialPageRoute(builder: (_) => const PreiestDetailsPageWidget4()));
     }
   }
 }
