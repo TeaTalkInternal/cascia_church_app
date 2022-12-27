@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.cascia_church_app">
+    package="com.tuffytiffany.casciachurchapp">
      <queries>
     <intent>
       <action android:name="android.intent.action.VIEW" />
