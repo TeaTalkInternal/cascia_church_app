@@ -2,7 +2,9 @@ name: DemoApp PlayStore Release
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
   version:
