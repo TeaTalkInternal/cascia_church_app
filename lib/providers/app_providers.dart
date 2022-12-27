@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../localization/app_language.dart';
 import '../utility/utility.dart';
 
-// final dashboardImagesProvider = FutureProvider<List<CardImage>>((ref) async {
+//// final dashboardImagesProvider = FutureProvider<List<CardImage>>((ref) async {
 //   final photosVMProvider = ref.read(dashboardViewModelProvider);
 //   return photosVMProvider.fetchAllImages();
 // });
