@@ -1,19 +1,27 @@
 name: Android Build and Deployment Pipeline
 
 on:
+  pull_request:
+    branches:
+      - main
   push:
     branches:
-      - 'release_*'
-      - 'main'
+      - main
 
-  workflow_dispatch:
-    inputs:
-      app_id:
-        description: 'The application Id of the current build'
-        required: true
-      branch:
-        description: 'The branch from which we have to build'
-        required: true
+# on:
+#   push:
+#     branches:
+#       - 'release_*'
+#       - 'main'
+
+#   workflow_dispatch:
+#     inputs:
+#       app_id:
+#         description: 'The application Id of the current build'
+#         required: true
+#       branch:
+#         description: 'The branch from which we have to build'
+#         required: true
 
 jobs:
   build:
