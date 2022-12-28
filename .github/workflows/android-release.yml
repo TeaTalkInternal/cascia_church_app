@@ -52,7 +52,7 @@ jobs:
       - name: Sign app bundle
         run: |
           jarsigner -keystore app/*.jks \
-          -storepass ${{ secrets.KEY_STORE_PASS }} -keypass ${{ secrets.KEYSTORE_KEY_PASS }} \
+          -storepass ${{ secrets.KEYSTORE_PASS }} -keypass ${{ secrets.KEYSTORE_KEY_PASS }} \
           app/build/outputs/bundle/release/app-release.aab ${{ secrets.ALIAS }}
           
 #   STEP 2 : Upload the Artifact
