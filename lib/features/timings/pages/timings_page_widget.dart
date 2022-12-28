@@ -53,6 +53,7 @@ class TimingsPageWidgetState extends ConsumerState<TimingsPageWidget> {
   @override
   Widget build(BuildContext context) {
     final utility = ref.read(utilityProvider);
+    final heading = "";
     final mainHeading = 'ಕಾಸ್ಸಿಯಾ ಫಿರ್ಗಜೆಂತ್ ಭಕ್ತಿಕ್ ಕಾರ್ಯಿಂ';
     final timingTextTitle1 = 'ಪವಿತ್ರ್ ಮಿಸಾಚೆಂ ಬಲಿದಾನ್';
     final timingTextDescription1 = """
