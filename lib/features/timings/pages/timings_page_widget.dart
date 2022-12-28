@@ -1,4 +1,5 @@
 import 'package:cascia_church_app/common_widgets/list_cells/single_line_list_tile_widget.dart';
+import 'package:cascia_church_app/common_widgets/list_cells/timing_list_cell_widget.dart';
 import 'package:cascia_church_app/common_widgets/no_photos_data_widget.dart';
 import 'package:cascia_church_app/features/timings/models/timing.dart';
 import 'package:cascia_church_app/features/timings/view_models/timing_view_model.dart';
@@ -13,7 +14,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'package:easy_rich_text/easy_rich_text.dart';
 
-import '../../../common_widgets/list_cells/Timing_list_tile_widget.dart';
 import '../../../common_widgets/list_cells/double_line_list_tile_widget.dart';
 import '../../../common_widgets/list_cells/thumbnail_list_tile_widget.dart';
 import '../../../common_widgets/top_app_bar_widget.dart';
@@ -336,7 +336,7 @@ class TimingsPageWidgetState extends ConsumerState<TimingsPageWidget> {
               color: utility.darkGradientShadecolor),
         ),
       ),
-      itemBuilder: (context, Timing element) => TimingListTileWidget(
+      itemBuilder: (context, Timing element) => TimingListCellWidget(
         title: appLanguage.isEnglishLocale
             ? timingsViewModel.getMassTypeName(element)
             : timingsViewModel.getMassTypeNameKn(element),

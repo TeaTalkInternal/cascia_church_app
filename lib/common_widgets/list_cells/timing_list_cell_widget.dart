@@ -3,8 +3,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../providers/app_providers.dart';
 
-class TimingListTileWidget extends ConsumerWidget {
-  const TimingListTileWidget(
+class TimingListCellWidget extends ConsumerWidget {
+  const TimingListCellWidget(
       {Key? key,
       required this.title,
       required this.description,
