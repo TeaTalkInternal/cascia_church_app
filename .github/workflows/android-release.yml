@@ -1,98 +1,89 @@
-name: DemoApp PlayStore Release
+name: Android Build and Deployment Pipeline
 
 on:
   push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+    branches:
+      - 'release_*'
+      - 'master'
 
-env:
- ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+  workflow_dispatch:
+    inputs:
+      app_id:
+        description: 'The application Id of the current build'
+        required: true
+      branch:
+        description: 'The branch from which we have to build'
+        required: true
 
 jobs:
-  version:
-    name: Create version number
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v1
-    - name: Fetch all history for all tags and branches
-      run: |
-        git config remote.origin.url https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}
-        git fetch --prune --depth=10000
-    - name: Install GitVersion
-      uses: gittools/actions/gitversion/setup@v0.9.3
-      with:
-          versionSpec: '5.2.x'
-    - name: Use GitVersion
-      id: gitversion
-      uses: gittools/actions/gitversion/execute@v0.9.3
-    - name: Create version.txt with nuGetVersion
-      run: echo ${{ steps.gitversion.outputs.nuGetVersion  }} > version.txt
-    - name: Upload version.txt
-      uses: actions/upload-artifact@v2
-      with:
-        name: gitversion
-        path: version.txt
   build:
-    name: Build APK and Create release
-    needs: [ version ]
-    runs-on: ubuntu-latest
+    name: Setup Environment and build
+    runs-on: self-hosted
     steps:
-    - uses: actions/checkout@v1
-    - name: Get version.txt
-      uses: actions/download-artifact@v2
-      with:
-        name: gitversion
-    - name: Create new file without newline char from version.txt
-      run: tr -d '\n' < version.txt > version1.txt
-    - name: Read version
-      id: version
-      uses: juliangruber/read-file-action@v1
-      with:
-        path: version1.txt
-    - name: Update version in YAML
-      run: sed -i 's/99.99.99+99/${{ steps.version.outputs.content }}+${{ github.run_number }}/g' pubspec.yaml
-    - name: Update KeyStore password in gradle properties
-      run: sed -i 's/#{KEYSTORE_PASS}#/${{ secrets.KEYSTORE_PASS }}/g' android/key.properties
-    - name: Update KeyStore key password in gradle properties
-      run: sed -i 's/#{KEYSTORE_KEY_PASS}#/${{ secrets.KEYSTORE_KEY_PASS }}/g' android/key.properties
-    - uses: actions/setup-java@v1
-      with:
-        java-version: '12.x'
-    - uses: subosito/flutter-action@v1
-      with:
-        flutter-version: '1.17.0'
-    - run: flutter pub get
-    - run: flutter test
-    - run: flutter build apk --release --split-per-abi
-    - run: flutter build appbundle
-    - name: Create a Release in GitHub
-      uses: ncipollo/release-action@v1
-      with:
-        artifacts: "build/app/outputs/apk/release/*.apk,build/app/outputs/bundle/release/app-release.aab"
-        token: ${{ secrets.GH_TOKEN }}
-        tag: ${{ steps.version.outputs.content }}
-        commit: ${{ github.sha }}
-    - name: Upload app bundle
-      uses: actions/upload-artifact@v2
-      with:
-        name: appbundle
-        path: build/app/outputs/bundle/release/app-release.aab
-  release:
-    name: Release app to internal track
+      - name: Checkout the code to specific branch
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.inputs.branch }}
+            
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'zulu'
+          java-version: '11'
+                
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v2
+              
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+            
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+
+      - name: Generate app bundle
+        run: ./gradlew app:bundleRelease --stacktrace
+        
+      - name: Sign app bundle
+        run: |
+          jarsigner -keystore app/*.jks \
+          -storepass ${{ secrets.KEY_STORE_PASS }} -keypass ${{ secrets.KEYSTORE_KEY_PASS }} \
+          app/build/outputs/bundle/release/app-release.aab ${{ secrets.ALIAS }}
+          
+#   STEP 2 : Upload the Artifact
+  upload:
     needs: [ build ]
-    runs-on: ubuntu-latest
+    name: Upload the signed artifact
+    runs-on: self-hosted
     steps:
-    - uses: actions/checkout@v1
-    - name: Get appbundle from artifacts
-      uses: actions/download-artifact@v2
-      with:
-        name: appbundle
-    - name: Release app to internal track
-      uses: r0adkll/upload-google-play@v1
-      with:
-        serviceAccountJsonPlainText: ${{ secrets.PLAYSTORE_ACCOUNT_KEY }}
-        packageName: com.tuffytiffany.casciachurchapp
-        releaseFile: app-release.aab
-        track: internal
-        whatsNewDirectory: distribution/whatsnew
+      - name: Upload Bundle
+        uses: actions/upload-artifact@v2
+        with:
+          name: signed_app_bundle
+          path: app/build/outputs/bundle/release/app-release.aab
+          
+  
+  # Step 3 : Release to playstore
+  deploy:
+    needs: [ build ]
+    name: Create release on Playstore
+    runs-on: self-hosted
+    steps:
+      - name: Create service_account.json
+        run: echo '${{ secrets.SERVICE_ACCOUNT_JSON }}' > service_account.json
+
+      - name: Deploy to Play Store
+        uses: r0adkll/upload-google-play@v1.0.15
+        with:
+          serviceAccountJson: service_account.json
+          packageName: ${{ github.event.inputs.app_id }}
+          releaseFiles: app/build/outputs/bundle/release/*.aab
+          track: internal
+          whatsNewDirectory: whatsnew/
+          mappingFile: app/build/outputs/mapping/release/mapping.txt
+          inAppUpdatePriority: 5
