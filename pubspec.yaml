@@ -33,7 +33,6 @@ dependencies:
     sdk: flutter
   flutter_cupertino_localizations: 
 
-
   connectivity_plus:
   cupertino_icons: 
   hooks_riverpod: 
