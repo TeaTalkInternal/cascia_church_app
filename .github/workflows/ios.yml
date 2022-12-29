@@ -1,8 +1,11 @@
 name: Appstore Deployment
 on:
+  pull_request:
+    branches:
+      - main
   push:
-    tags:
-      - master
+    branches:
+      - main
       
 jobs:
  deploy_ios:
