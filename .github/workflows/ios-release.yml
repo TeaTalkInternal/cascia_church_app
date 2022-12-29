@@ -6,9 +6,9 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build_with_signing:
+  build:
+    name: Setup Environment and build
     runs-on: macos-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
