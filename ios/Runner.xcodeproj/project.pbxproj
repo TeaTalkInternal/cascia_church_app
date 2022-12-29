@@ -357,7 +357,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Kevin Vishal (UQN7GH636G)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Kevin Vishal (UQN7GH636G)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = UQN7GH636G;
 				ENABLE_BITCODE = NO;
@@ -494,7 +494,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Kevin Vishal (UQN7GH636G)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Kevin Vishal (UQN7GH636G)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = UQN7GH636G;
 				ENABLE_BITCODE = NO;
@@ -525,7 +525,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Kevin Vishal (UQN7GH636G)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Kevin Vishal (UQN7GH636G)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = UQN7GH636G;
 				ENABLE_BITCODE = NO;
