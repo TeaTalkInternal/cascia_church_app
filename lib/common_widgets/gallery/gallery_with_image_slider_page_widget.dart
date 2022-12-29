@@ -1,4 +1,6 @@
 import 'package:cascia_church_app/common_widgets/gallery/gallery_image_view_wrapper.dart';
+import 'package:cascia_church_app/common_widgets/gallery/gallery_model.dart';
+import 'package:cascia_church_app/features/gallery/view_models/gallery_base_view_model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -6,9 +8,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:infinite_carousel/infinite_carousel.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
-import '../../features/gallery/view_models/gallery_base_view_model.dart';
-import '../../features/gallery/view_models/images_gallery_view_model.dart';
-import './gallery_model.dart';
 
 // to view image in full screen
 class GalleryWithImageSliderPageWidget extends ConsumerStatefulWidget {

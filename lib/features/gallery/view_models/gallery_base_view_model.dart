@@ -1,14 +1,13 @@
+import 'package:cascia_church_app/common_widgets/gallery/gallery_model.dart';
 import 'package:cascia_church_app/features/gallery/model/event_type.dart';
 import 'package:cascia_church_app/features/gallery/model/photo.dart';
+import 'package:cascia_church_app/features/gallery/model/related_image.dart';
 import 'package:cascia_church_app/features/history/model/list_thumbnail.dart';
+import 'package:cascia_church_app/network/network_manager.dart';
+import 'package:cascia_church_app/network/url_manager.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
-import '../../../common_widgets/gallery/gallery_model.dart';
-import '../../../network/network_manager.dart';
-import '../../../network/url_manager.dart';
-import '../model/related_image.dart';
 
 final galleryBaseViewModelProvider = Provider<GalleryBaseViewModel>((ref) {
   return GalleryBaseViewModel(ref: ref);

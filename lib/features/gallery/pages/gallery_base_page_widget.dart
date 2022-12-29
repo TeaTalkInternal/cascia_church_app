@@ -1,18 +1,16 @@
 import 'package:cascia_church_app/common_widgets/list_cells/single_line_list_tile_widget.dart';
 import 'package:cascia_church_app/common_widgets/no_photos_data_widget.dart';
+import 'package:cascia_church_app/common_widgets/top_app_bar_widget.dart';
 import 'package:cascia_church_app/features/gallery/model/event_type.dart';
 import 'package:cascia_church_app/features/gallery/pages/images_gallery_page_widget.dart';
 import 'package:cascia_church_app/features/gallery/view_models/gallery_base_view_model.dart';
 import 'package:cascia_church_app/features/history/pages/assistant_priests_history_page_widget.dart';
 import 'package:cascia_church_app/features/history/pages/church_history_page_widget.dart';
 import 'package:cascia_church_app/features/history/pages/parish_priests_history_page_widget.dart';
+import 'package:cascia_church_app/localization/app_localizations.dart';
+import 'package:cascia_church_app/providers/app_providers.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
-import '../../../common_widgets/list_cells/thumbnail_list_tile_widget.dart';
-import '../../../common_widgets/top_app_bar_widget.dart';
-import '../../../localization/app_localizations.dart';
-import '../../../providers/app_providers.dart';
 
 class GalleryBasePageWidget extends ConsumerStatefulWidget {
   const GalleryBasePageWidget({Key? key}) : super(key: key);

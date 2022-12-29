@@ -1,19 +1,17 @@
 import 'dart:async';
 
 import 'package:card_swiper/card_swiper.dart';
+import 'package:cascia_church_app/common_widgets/list_cells/contacts_line_list_tile_widget.dart';
+import 'package:cascia_church_app/common_widgets/top_app_bar_widget.dart';
+import 'package:cascia_church_app/features/wards/model/contact.dart';
 import 'package:cascia_church_app/features/wards/pages/search_textfield_widget.dart';
 import 'package:cascia_church_app/features/wards/view_model/contacts_view_model.dart';
+import 'package:cascia_church_app/localization/app_localizations.dart';
+import 'package:cascia_church_app/providers/app_providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
-
-import '../../../common_widgets/list_cells/contacts_line_list_tile_widget.dart';
-import '../../../common_widgets/list_cells/single_line_list_tile_widget.dart';
-import '../../../common_widgets/top_app_bar_widget.dart';
-import '../../../localization/app_localizations.dart';
-import '../../../providers/app_providers.dart';
-import '../../wards/model/contact.dart';
 
 class ContactsPageWidget extends ConsumerStatefulWidget {
   const ContactsPageWidget({Key? key}) : super(key: key);

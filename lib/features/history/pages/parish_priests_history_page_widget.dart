@@ -1,3 +1,4 @@
+import 'package:cascia_church_app/common_widgets/list_cells/profile_name_thumbnail_list_tile_widget.dart';
 import 'package:cascia_church_app/common_widgets/list_cells/thumbnail_list_tile_widget.dart';
 import 'package:cascia_church_app/common_widgets/top_app_bar_widget.dart';
 import 'package:cascia_church_app/features/history/pages/priest_details_page_widget_3.dart';
@@ -11,7 +12,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../common_widgets/list_cells/profile_name_thumbnail_list_tile_widget.dart';
 import 'priest_details_page_widget.dart';
 
 class PriestsHistoryPageWidget extends ConsumerStatefulWidget {

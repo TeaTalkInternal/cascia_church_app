@@ -1,9 +1,8 @@
+import 'package:cascia_church_app/features/wards/model/contact.dart';
 import 'package:cascia_church_app/network/network_manager.dart';
 import 'package:cascia_church_app/network/url_manager.dart';
 import 'package:dio/dio.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
-import '../../wards/model/contact.dart';
 
 final contactViewModelProvider = Provider<ContactsViewModel>((ref) {
   return ContactsViewModel(ref: ref);

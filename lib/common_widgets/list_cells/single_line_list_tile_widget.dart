@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../providers/app_providers.dart';
+import 'package:cascia_church_app/providers/app_providers.dart';
 
 class SingleLineListTileWidget extends ConsumerWidget {
   const SingleLineListTileWidget(

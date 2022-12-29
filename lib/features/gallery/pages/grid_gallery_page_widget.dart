@@ -1,10 +1,12 @@
 import 'dart:async';
 import 'dart:math';
 
+import 'package:cascia_church_app/common_widgets/gallery/gallery_with_image_slider_page_widget.dart';
 import 'package:cascia_church_app/common_widgets/list_cells/single_line_list_tile_widget.dart';
 import 'package:cascia_church_app/common_widgets/no_photos_data_widget.dart';
 import 'package:cascia_church_app/common_widgets/pages/full_screen_image_page_widget.dart';
 import 'package:cascia_church_app/common_widgets/top_app_bar_widget.dart';
+import 'package:cascia_church_app/features/gallery/model/event_type.dart';
 import 'package:cascia_church_app/features/gallery/model/photo.dart';
 import 'package:cascia_church_app/features/gallery/view_models/gallery_base_view_model.dart';
 import 'package:cascia_church_app/features/gallery/view_models/images_gallery_view_model.dart';
@@ -14,9 +16,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-import '../../../common_widgets/gallery/gallery_with_image_slider_page_widget.dart';
-import '../model/event_type.dart';
 
 class GridGalleryPageWidget extends ConsumerStatefulWidget {
   const GridGalleryPageWidget({

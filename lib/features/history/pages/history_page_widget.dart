@@ -1,15 +1,13 @@
 import 'package:cascia_church_app/common_widgets/list_cells/single_line_list_tile_widget.dart';
+import 'package:cascia_church_app/common_widgets/top_app_bar_widget.dart';
 import 'package:cascia_church_app/features/history/pages/assistant_priests_history_page_widget.dart';
 import 'package:cascia_church_app/features/history/pages/church_history_page_widget.dart';
 import 'package:cascia_church_app/features/history/pages/parish_priests_history_page_widget.dart';
+import 'package:cascia_church_app/features/history/view_model/history_view_model.dart';
+import 'package:cascia_church_app/localization/app_localizations.dart';
+import 'package:cascia_church_app/providers/app_providers.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
-import '../../../common_widgets/list_cells/thumbnail_list_tile_widget.dart';
-import '../../../common_widgets/top_app_bar_widget.dart';
-import '../../../localization/app_localizations.dart';
-import '../../../providers/app_providers.dart';
-import '../view_model/history_view_model.dart';
 
 class HistoryPageWidget extends ConsumerStatefulWidget {
   const HistoryPageWidget({Key? key}) : super(key: key);

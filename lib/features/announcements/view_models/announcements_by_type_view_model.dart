@@ -1,9 +1,8 @@
+import 'package:cascia_church_app/features/announcements/models/announcement.dart';
 import 'package:cascia_church_app/network/network_manager.dart';
 import 'package:cascia_church_app/network/url_manager.dart';
 import 'package:dio/dio.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
-import '../models/announcement.dart';
 
 final announcementsByTypeViewModelProvider =
     Provider<AnnouncementsByTypeViewModel>((ref) {

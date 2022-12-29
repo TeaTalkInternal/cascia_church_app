@@ -1,20 +1,18 @@
+import 'package:cascia_church_app/features/announcements/pages/announcements_page_widget.dart';
+import 'package:cascia_church_app/features/associations/pages/associations_page_widget.dart';
+import 'package:cascia_church_app/features/blogs/blogs_page_widget.dart';
+import 'package:cascia_church_app/features/contact_us/pages/contact_us_page_widget.dart';
+import 'package:cascia_church_app/features/dashboard/view_model/dashboard_view_model.dart';
+import 'package:cascia_church_app/features/gallery/pages/grid_gallery_page_widget.dart';
+import 'package:cascia_church_app/features/history/pages/history_page_widget.dart';
+import 'package:cascia_church_app/features/institutions/pages/institutions_page_widget.dart';
+import 'package:cascia_church_app/features/settings/pages/settings_page_widget.dart';
+import 'package:cascia_church_app/features/timings/pages/timings_page_widget.dart';
+import 'package:cascia_church_app/features/wards/pages/wards_page_widget.dart';
+import 'package:cascia_church_app/localization/app_localizations.dart';
+import 'package:cascia_church_app/providers/app_providers.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
-import '../../../localization/app_localizations.dart';
-import '../../../providers/app_providers.dart';
-import '../../announcements/pages/announcements_page_widget.dart';
-import '../../associations/pages/associations_page_widget.dart';
-import '../../blogs/blogs_page_widget.dart';
-import '../../contact_us/pages/contact_us_page_widget.dart';
-import '../../gallery/pages/gallery_base_page_widget.dart';
-import '../../gallery/pages/grid_gallery_page_widget.dart';
-import '../../history/pages/history_page_widget.dart';
-import '../../institutions/pages/institutions_page_widget.dart';
-import '../../settings/pages/settings_page_widget.dart';
-import '../../timings/pages/timings_page_widget.dart';
-import '../../wards/pages/wards_page_widget.dart';
-import '../view_model/dashboard_view_model.dart';
 
 class DashboardPageWidget extends ConsumerWidget {
   const DashboardPageWidget({Key? key}) : super(key: key);

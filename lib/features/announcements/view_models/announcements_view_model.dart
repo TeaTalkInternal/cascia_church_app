@@ -1,6 +1,5 @@
+import 'package:cascia_church_app/features/history/model/list_thumbnail.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
-import '../../history/model/list_thumbnail.dart';
 
 final announcementViewModelProvider = Provider<AnnouncementsViewModel>((ref) {
   return AnnouncementsViewModel(ref: ref);

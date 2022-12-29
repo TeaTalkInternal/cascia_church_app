@@ -1,10 +1,9 @@
 import 'package:card_swiper/card_swiper.dart';
+import 'package:cascia_church_app/common_widgets/top_app_bar_widget.dart';
+import 'package:cascia_church_app/localization/app_localizations.dart';
+import 'package:cascia_church_app/providers/app_providers.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
-import '../../../common_widgets/top_app_bar_widget.dart';
-import '../../../localization/app_localizations.dart';
-import '../../../providers/app_providers.dart';
 
 class BlogsPageWidget extends ConsumerWidget {
   const BlogsPageWidget({Key? key}) : super(key: key);
