@@ -52,7 +52,6 @@ dependencies:
   flutter_profile_picture:
   cached_network_image:
   infinite_carousel:
-  image_network:
   
 
 dev_dependencies:

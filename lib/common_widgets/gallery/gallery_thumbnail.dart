@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:image_network/image_network.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import './gallery_model.dart';
 
@@ -24,23 +23,15 @@ class GalleryItemThumbnail extends StatelessWidget {
       onTap: onTap,
       child: Hero(
         tag: galleryItem.id,
-        child: kIsWeb
-            ? ImageNetwork(
-                onTap: onTap,
-                fitWeb: BoxFitWeb.cover,
-                image: galleryItem.imageUrl,
-                width: width / 2,
-                height: height,
-                duration: 500,
-              )
-            : CachedNetworkImage(
-                fit: BoxFit.cover,
-                imageUrl: galleryItem.imageUrl,
-                height: 100.0,
-                placeholder: (context, url) =>
-                    const Center(child: CircularProgressIndicator()),
-                errorWidget: (context, url, error) => const Icon(Icons.error),
-              ),
+        child: CachedNetworkImage(
+          fit: BoxFit.cover,
+          width: width / 2,
+          imageUrl: galleryItem.imageUrl,
+          height: 100.0,
+          placeholder: (context, url) =>
+              const Center(child: CircularProgressIndicator()),
+          errorWidget: (context, url, error) => const Icon(Icons.error),
+        ),
       ),
     );
   }

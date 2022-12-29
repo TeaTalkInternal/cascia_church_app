@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:image_network/image_network.dart';
+
 import 'package:infinite_carousel/infinite_carousel.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
@@ -92,6 +92,35 @@ class _GalleryImageViewWrapperState extends State<GalleryImageViewWrapper> {
     // );
   }
 
+/*
+lipRRect(
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(5)),
+                                  child: kIsWeb
+                                      ? ImageNetwork(
+                                          image: widget
+                                              .galleryItems[itemIndex].imageUrl,
+                                          width: 200,
+                                          height: 100,
+                                          duration: 500,
+                                          fitWeb: BoxFitWeb.cover,
+                                          onTap: () {
+                                            clickImage(itemIndex);
+                                          },
+                                        )
+                                      : CachedNetworkImage(
+                                          fit: widget.fit,
+                                          imageUrl: widget
+                                              .galleryItems[itemIndex].imageUrl,
+                                          placeholder: (context, url) =>
+                                              const Center(
+                                                  child:
+                                                      CircularProgressIndicator()),
+                                          errorWidget: (context, url, error) =>
+                                              const Icon(Icons.error),
+                                        ),
+                                )
+*/
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -169,29 +198,24 @@ class _GalleryImageViewWrapperState extends State<GalleryImageViewWrapper> {
                               ? ClipRRect(
                                   borderRadius: const BorderRadius.all(
                                       Radius.circular(5)),
-                                  child: kIsWeb
-                                      ? ImageNetwork(
-                                          image: widget
-                                              .galleryItems[itemIndex].imageUrl,
-                                          width: 200,
-                                          height: 100,
-                                          duration: 500,
-                                          fitWeb: BoxFitWeb.cover,
-                                          onTap: () {
-                                            clickImage(itemIndex);
-                                          },
-                                        )
-                                      : CachedNetworkImage(
-                                          fit: widget.fit,
-                                          imageUrl: widget
-                                              .galleryItems[itemIndex].imageUrl,
-                                          placeholder: (context, url) =>
-                                              const Center(
-                                                  child:
-                                                      CircularProgressIndicator()),
-                                          errorWidget: (context, url, error) =>
-                                              const Icon(Icons.error),
-                                        ),
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      clickImage(itemIndex);
+                                    },
+                                    child: CachedNetworkImage(
+                                      width: 200,
+                                      height: 100,
+                                      fit: widget.fit,
+                                      imageUrl: widget
+                                          .galleryItems[itemIndex].imageUrl,
+                                      placeholder: (context, url) =>
+                                          const Center(
+                                              child:
+                                                  CircularProgressIndicator()),
+                                      errorWidget: (context, url, error) =>
+                                          const Icon(Icons.error),
+                                    ),
+                                  ),
                                 )
                               : const SizedBox()),
                     );
@@ -209,22 +233,14 @@ class _GalleryImageViewWrapperState extends State<GalleryImageViewWrapper> {
   PhotoViewGalleryPageOptions _buildImage(BuildContext context, int index) {
     final GalleryItemModel item = widget.galleryItems[index];
     return PhotoViewGalleryPageOptions.customChild(
-      child: kIsWeb
-          ? Center(
-              child: ImageNetwork(
-                image: item.imageUrl,
-                fitWeb: BoxFitWeb.contain,
-                duration: 500,
-                width: 800,
-                height: 800,
-              ),
-            )
-          : CachedNetworkImage(
-              imageUrl: item.imageUrl,
-              placeholder: (context, url) =>
-                  const Center(child: CircularProgressIndicator()),
-              errorWidget: (context, url, error) => const Icon(Icons.error),
-            ),
+      child: CachedNetworkImage(
+        width: 800,
+        height: 800,
+        imageUrl: item.imageUrl,
+        placeholder: (context, url) =>
+            const Center(child: CircularProgressIndicator()),
+        errorWidget: (context, url, error) => const Icon(Icons.error),
+      ),
       initialScale: PhotoViewComputedScale.contained,
       minScale: minScale,
       maxScale: maxScale,
