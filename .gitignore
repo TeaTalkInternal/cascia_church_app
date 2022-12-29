@@ -118,4 +118,5 @@ unlinked_spec.ds
 pubspec.lock
 Podfile.lock
 key.properties
+**/ios/**/Podfile.lock
 
