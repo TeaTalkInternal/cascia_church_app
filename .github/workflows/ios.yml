@@ -11,17 +11,7 @@ jobs:
  deploy_ios:
     name: Deploy build to TestFlight
     runs-on: macOS-latest
-    steps:
- #     - name: Checkout code from ref
- #       uses: actions/checkout@v2
-#        with:
- #         ref: ${{ github.ref }}
-#      - name: Run Flutter tasks
-#        uses: subosito/flutter-action@v1
-#        with:
-#          flutter-version: '2.0.6'
-          
-          
+    steps:          
       - name: Build iOS
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v1
@@ -32,11 +22,6 @@ jobs:
       - run: flutter pub get
         working-directory: ./
       - run: flutter build ios --no-codesign
-      
-#       - run: flutter clean
-#       - run: rm ios/Podfile
-#       - run: flutter pub get
-#       - run: flutter build ios --release --no-codesign
       - name: Deploy iOS Beta to TestFlight via Fastlane
         uses: maierj/fastlane-action@v1.4.0
         with:
