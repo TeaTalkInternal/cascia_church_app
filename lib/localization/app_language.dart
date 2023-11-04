@@ -41,6 +41,7 @@ class AppLanguage extends ChangeNotifier {
               type,
               country,
             );
+      //context.setLocale(_appLocale);
     }
     notifyListeners();
   }

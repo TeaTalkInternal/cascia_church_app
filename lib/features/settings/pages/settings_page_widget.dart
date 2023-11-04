@@ -3,6 +3,7 @@ import 'package:cascia_church_app/localization/app_localizations.dart';
 import 'package:cascia_church_app/providers/app_providers.dart';
 import 'package:cascia_church_app/utility/shared_utility.dart';
 import 'package:cascia_church_app/utility/utility.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -31,7 +32,7 @@ class _SettingsPageWidgetState extends ConsumerState<SettingsPageWidget> {
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(55),
         child: TopAppBarWidget(
-          title: AppLocalizations.of(context)!.translate('settings'),
+          title: 'settings'.tr(),
           toggleNavigation: () => Navigator.of(context).pop(),
           iconData: Icons.close,
         ),
@@ -42,17 +43,13 @@ class _SettingsPageWidgetState extends ConsumerState<SettingsPageWidget> {
             case 0:
               return SwitchListTileWidget(
                   toggleValue: languageToggleValue,
-                  title: AppLocalizations.of(context)!.translate(
-                    'display_in_konkani',
-                  ),
+                  title: 'display_in_konkani'.tr(),
                   iconData: Icons.language,
                   toggleMethod: _languageModeToggled);
             default:
               return SwitchListTileWidget(
                   toggleValue: darkModeToggleValue,
-                  title: AppLocalizations.of(context)!.translate(
-                    'dark_mode',
-                  ),
+                  title: 'dark_mode'.tr(),
                   iconData: Icons.dark_mode,
                   toggleMethod: _darkModeToggled);
           }
@@ -82,14 +79,16 @@ class _SettingsPageWidgetState extends ConsumerState<SettingsPageWidget> {
     setState(() {
       languageToggleValue = value;
       if (value) {
+        context.setLocale(Locale('kn'));
         appLanguage.changeLanguage(
           type: 'kn',
           country: '',
         );
       } else {
+        context.setLocale(Locale('en'));
         appLanguage.changeLanguage(
           type: 'en',
-          country: 'US',
+          country: '',
         );
       }
     });

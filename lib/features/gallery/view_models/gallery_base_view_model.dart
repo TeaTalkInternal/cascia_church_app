@@ -51,7 +51,7 @@ class GalleryBaseViewModel {
         print("length is ${_cardImages.length}");
         return _buildItemsList(_cardImages);
       } else {
-        throw DioErrorType.other;
+        throw DioExceptionType.unknown;
       }
     } catch (_) {
       rethrow;
@@ -123,7 +123,7 @@ class GalleryBaseViewModel {
     //     setAllPhotos(_breedImages);
     //     return _breedImages;
     //   } else {
-    //     throw DioErrorType.other;
+    //     throw DioExceptionType.unknown;
     //   }
     // } catch (_) {
     //   rethrow;

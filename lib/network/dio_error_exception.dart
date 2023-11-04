@@ -1,26 +1,26 @@
 import 'package:dio/dio.dart';
 
 class DioErrorException implements Exception {
-  DioErrorException.fromDioError(DioError dioError) {
-    switch (dioError.type) {
-      case DioErrorType.cancel:
+  DioErrorException.fromDioException(DioException dioException) {
+    switch (dioException.type) {
+      case DioExceptionType.cancel:
         message = 'Request to API server was cancelled';
         break;
-      case DioErrorType.connectTimeout:
+      case DioExceptionType.connectionTimeout:
         message = 'Connection timeout with API server';
         break;
-      case DioErrorType.other:
+      case DioExceptionType.unknown:
         message =
             'No internet connection. Make sure your Wi-Fi or mobile data is turned on, then try again.';
         break;
-      case DioErrorType.receiveTimeout:
+      case DioExceptionType.receiveTimeout:
         message = 'Receive timeout in connection with API server';
         break;
-      case DioErrorType.response:
+      case DioExceptionType.badResponse:
         message =
-            _handleError(statusCode: dioError.response?.statusCode ?? 400);
+            _handleError(statusCode: dioException.response?.statusCode ?? 400);
         break;
-      case DioErrorType.sendTimeout:
+      case DioExceptionType.sendTimeout:
         message = 'Send timeout in connection with API server';
         break;
       default:

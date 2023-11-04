@@ -8,6 +8,7 @@ import 'package:cascia_church_app/features/wards/pages/wards_page_widget.dart';
 import 'package:cascia_church_app/features/wards/view_model/ward_n_contacts_view_model.dart';
 import 'package:cascia_church_app/localization/app_localizations.dart';
 import 'package:cascia_church_app/providers/app_providers.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -30,7 +31,7 @@ class WardsNContactsPageWidgetState
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(55),
         child: TopAppBarWidget(
-          title: AppLocalizations.of(context)!.translate('wards_families'),
+          title: 'wards_families'.tr(),
           toggleNavigation: () => Navigator.of(context).pop(),
           iconData: Icons.arrow_back_ios,
         ),
@@ -42,8 +43,7 @@ class WardsNContactsPageWidgetState
         ),
         itemBuilder: (listContext, index) {
           return SingleLineListTileWidget(
-            title: AppLocalizations.of(context)!.translate(
-                wardsNContactsViewModel.getHistoryTitleAtIndex(index)),
+            title: wardsNContactsViewModel.getHistoryTitleAtIndex(index).tr(),
             imageName: utility.getImageNameWithBasePath(
               imageName: wardsNContactsViewModel.getHistoryImageAtIndex(index),
             ),

@@ -8,6 +8,7 @@ import 'package:cascia_church_app/features/history/view_model/assistant_priests_
 import 'package:cascia_church_app/features/history/view_model/priests_history_view_model.dart';
 import 'package:cascia_church_app/localization/app_localizations.dart';
 import 'package:cascia_church_app/providers/app_providers.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -34,7 +35,7 @@ class PriestsHistoryPageWidgetState
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(55),
         child: TopAppBarWidget(
-          title: AppLocalizations.of(context)!.translate('parish_priest_title'),
+          title: 'parish_priest_title'.tr(),
           toggleNavigation: () => Navigator.of(context).pop(),
           iconData: Icons.arrow_back_ios,
         ),

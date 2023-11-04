@@ -11,6 +11,7 @@ import 'package:cascia_church_app/features/timings/pages/timings_page_widget.dar
 import 'package:cascia_church_app/features/wards/pages/wards_page_widget.dart';
 import 'package:cascia_church_app/localization/app_localizations.dart';
 import 'package:cascia_church_app/providers/app_providers.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -119,10 +120,15 @@ class DashboardPageWidget extends ConsumerWidget {
                       dashboardViewModel.getDashboardmenuOptions()[index];
                   final title = option.title;
                   final id = option.id;
+                  print("title $title");
+                  print("id $id");
                   return DashboardGridItemWidget(
                     imageName: option.imageName,
-                    title: title,
-                    onTap: () => menuCardTap(id, context),
+                    title: title.tr(),
+                    onTap: () => menuCardTap(
+                      id,
+                      context,
+                    ),
                   );
                 },
                 childCount: dashboardViewModel.getDashboardmenuOptions().length,
@@ -307,8 +313,8 @@ class DashboardGridItemWidget extends ConsumerWidget {
     required this.onTap,
   }) : super(key: key);
 
-  final String imageName;
-  final String title;
+  final String? imageName;
+  final String? title;
   final Function() onTap;
 
   @override
@@ -336,7 +342,8 @@ class DashboardGridItemWidget extends ConsumerWidget {
                   image: DecorationImage(
                       image: AssetImage(
                         utility.getImageNameWithBasePath(
-                          imageName: imageName,
+                          imageName:
+                              imageName ?? 'assets/images/work-in-progress.jpg',
                         ),
                       ),
                       fit: BoxFit.cover),
@@ -346,7 +353,7 @@ class DashboardGridItemWidget extends ConsumerWidget {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 12, vertical: 12),
               child: Text(
-                AppLocalizations.of(context)!.translate(title),
+                (title ?? '').tr(),
                 style: cardTextStyle,
                 textAlign: TextAlign.center,
               ),

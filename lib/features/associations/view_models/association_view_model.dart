@@ -42,7 +42,7 @@ class AssociationViewModel {
         }
         return [];
       } else {
-        throw DioErrorType.other;
+        throw DioExceptionType.unknown;
       }
     } catch (_) {
       rethrow;

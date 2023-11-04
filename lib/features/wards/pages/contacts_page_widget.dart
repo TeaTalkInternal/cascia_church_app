@@ -8,10 +8,10 @@ import 'package:cascia_church_app/features/wards/pages/search_textfield_widget.d
 import 'package:cascia_church_app/features/wards/view_model/contacts_view_model.dart';
 import 'package:cascia_church_app/localization/app_localizations.dart';
 import 'package:cascia_church_app/providers/app_providers.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 class ContactsPageWidget extends ConsumerStatefulWidget {
   const ContactsPageWidget({Key? key}) : super(key: key);
@@ -73,7 +73,7 @@ class ContactsPageWidgetState extends ConsumerState<ContactsPageWidget> {
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(55),
         child: TopAppBarWidget(
-          title: AppLocalizations.of(context)!.translate('families'),
+          title: 'families'.tr(),
           toggleNavigation: () => Navigator.of(context).pop(),
           iconData: Icons.arrow_back_ios,
         ),
@@ -251,9 +251,8 @@ class ContactsPageWidgetState extends ConsumerState<ContactsPageWidget> {
           isGurkar: contactID == '27',
           mobileNumber: mobile,
           landlineNumber: landline,
-          onTap: () => showCupertinoModalBottomSheet(
+          onTap: () => showBottomSheet(
             context: context,
-            backgroundColor: Colors.white,
             builder: (context) => getContactCard(
                 name: name,
                 mobile: mobile,
@@ -261,6 +260,16 @@ class ContactsPageWidgetState extends ConsumerState<ContactsPageWidget> {
                 context: context),
           ),
         );
+        //  showCupertinoModalBottomSheet(
+        //   context: context,
+        //   backgroundColor: Colors.white,
+        //   builder: (context) => getContactCard(
+        //       name: name,
+        //       mobile: mobile,
+        //       landline: landline,
+        //       context: context),
+        // ),
+        //);
       },
       separatorBuilder: (listContext, index) {
         return Divider(

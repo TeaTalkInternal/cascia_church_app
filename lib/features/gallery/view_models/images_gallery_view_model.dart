@@ -146,7 +146,7 @@ class ImagesGalleryViewModel extends ChangeNotifier {
     //     setAllPhotos(_breedImages);
     //     return _breedImages;
     //   } else {
-    //     throw DioErrorType.other;
+    //     throw DioExceptionType.unknown;
     //   }
     // } catch (_) {
     //   rethrow;

@@ -6,6 +6,7 @@ import 'package:cascia_church_app/features/history/pages/parish_priests_history_
 import 'package:cascia_church_app/features/history/view_model/history_view_model.dart';
 import 'package:cascia_church_app/localization/app_localizations.dart';
 import 'package:cascia_church_app/providers/app_providers.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -26,7 +27,7 @@ class HistoryPageWidgetState extends ConsumerState<HistoryPageWidget> {
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(55),
         child: TopAppBarWidget(
-          title: AppLocalizations.of(context)!.translate('history'),
+          title: 'history'.tr(),
           toggleNavigation: () => Navigator.of(context).pop(),
           iconData: Icons.arrow_back_ios,
         ),
@@ -38,8 +39,7 @@ class HistoryPageWidgetState extends ConsumerState<HistoryPageWidget> {
         ),
         itemBuilder: (listContext, index) {
           return SingleLineListTileWidget(
-            title: AppLocalizations.of(context)!
-                .translate(historyViewModel.getHistoryTitleAtIndex(index)),
+            title: historyViewModel.getHistoryTitleAtIndex(index).tr(),
             imageName: utility.getImageNameWithBasePath(
               imageName: historyViewModel.getHistoryImageAtIndex(index),
             ),

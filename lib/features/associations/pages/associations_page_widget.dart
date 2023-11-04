@@ -10,6 +10,7 @@ import 'package:cascia_church_app/features/history/pages/church_history_page_wid
 import 'package:cascia_church_app/features/history/pages/parish_priests_history_page_widget.dart';
 import 'package:cascia_church_app/localization/app_localizations.dart';
 import 'package:cascia_church_app/providers/app_providers.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -54,7 +55,7 @@ class AssociationsPageWidgetState
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(55),
         child: TopAppBarWidget(
-          title: AppLocalizations.of(context)!.translate('associations'),
+          title: 'associations'.tr(),
           toggleNavigation: () => Navigator.of(context).pop(),
           iconData: Icons.arrow_back_ios,
         ),

@@ -3,7 +3,7 @@ description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -18,7 +18,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: ">=3.1.2 <4.0.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -31,16 +31,16 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  flutter_cupertino_localizations: 
-
+  # flutter_cupertino_localizations:
+  easy_localization:
   connectivity_plus:
-  cupertino_icons: 
-  hooks_riverpod: 
-  flutter_hooks: 
-  rflutter_alert: 
-  flutter_easyloading: 
+  cupertino_icons:
+  hooks_riverpod:
+  flutter_hooks:
+  rflutter_alert:
+  flutter_easyloading:
   shared_preferences:
-  easy_rich_text: 
+  easy_rich_text:
   flutter_staggered_grid_view:
   photo_view:
   url_launcher:
@@ -48,14 +48,13 @@ dependencies:
   dio:
   mime_type:
   grouped_list:
-  modal_bottom_sheet:
+  bottom_sheet:
   flutter_profile_picture:
   cached_network_image:
   infinite_carousel:
-  
 
 dev_dependencies:
-  lint: ^1.0.0
+  lint:
   flutter_test:
     sdk: flutter
 
@@ -71,7 +70,6 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -82,8 +80,7 @@ flutter:
     - assets/json/contacts/
     - assets/json/history/
     - assets/images/
-    - i18n/en.json
-    - i18n/kn.json
+    - assets/language/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

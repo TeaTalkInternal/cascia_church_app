@@ -29,6 +29,7 @@ class NetworkManager {
   }
 
   Future<dynamic> getRequest({required String url}) async {
+    print("url ${url}");
     try {
       final Response _respone = await _dio.get(
         url,
@@ -36,9 +37,10 @@ class NetworkManager {
           headers: _getRequestHeader(),
         ),
       );
+      print("Data ${_respone.data}");
       return _respone.data;
-    } on DioError catch (dioError) {
-      throw DioErrorException.fromDioError(dioError);
+    } on DioException catch (dioException) {
+      throw DioErrorException.fromDioException(dioException);
     }
   }
 
@@ -55,8 +57,8 @@ class NetworkManager {
         ),
       );
       return _respone.data;
-    } on DioError catch (dioError) {
-      throw DioErrorException.fromDioError(dioError);
+    } on DioException catch (dioException) {
+      throw DioErrorException.fromDioException(dioException);
     }
   }
 
@@ -73,8 +75,8 @@ class NetworkManager {
         ),
       );
       return _respone.data;
-    } on DioError catch (dioError) {
-      throw DioErrorException.fromDioError(dioError);
+    } on DioException catch (dioException) {
+      throw DioErrorException.fromDioException(dioException);
     }
   }
 
@@ -89,8 +91,8 @@ class NetworkManager {
         ),
       );
       return _respone.statusCode ?? 400;
-    } on DioError catch (dioError) {
-      throw DioErrorException.fromDioError(dioError);
+    } on DioException catch (dioException) {
+      throw DioErrorException.fromDioException(dioException);
     }
   }
 
@@ -124,8 +126,8 @@ class NetworkManager {
         data: formData,
       );
       return _respone.data;
-    } on DioError catch (dioError) {
-      throw DioErrorException.fromDioError(dioError);
+    } on DioException catch (dioException) {
+      throw DioErrorException.fromDioException(dioException);
     }
   }
 
@@ -138,8 +140,8 @@ class NetworkManager {
         ),
       );
       return _respone.data;
-    } on DioError catch (dioError) {
-      throw DioErrorException.fromDioError(dioError);
+    } on DioException catch (dioException) {
+      throw DioErrorException.fromDioException(dioException);
     }
   }
 
@@ -152,8 +154,8 @@ class NetworkManager {
         ),
       );
       return _respone.statusCode ?? 400;
-    } on DioError catch (dioError) {
-      throw DioErrorException.fromDioError(dioError);
+    } on DioException catch (dioException) {
+      throw DioErrorException.fromDioException(dioException);
     }
   }
 }
