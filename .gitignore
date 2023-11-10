@@ -73,6 +73,7 @@ unlinked_spec.ds
 **/android/local.properties
 **/android/**/GeneratedPluginRegistrant.java
 **/android/key.properties
+**/android/app/release/*
 *.jks
 
 # iOS/XCode related
@@ -120,3 +121,5 @@ Podfile.lock
 key.properties
 **/ios/**/Podfile.lock
 
+android/app/release/app-release.aab
+android/app/release/app-release.aab
